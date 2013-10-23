@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js ie lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js ie ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}***{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <script src="/static/js/modernizr-2.6.2.min.js"></script>
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/script.js"></script>
+  <script src="/static/js/jcarousellite_1.0.1.pack.js"></script>
+  {% block head %}
+  {% endblock %}
+</head>
+<body class="about-page">
+  <!-- .root -->
+  <div class="root">
+    <!-- header -->
+    <header>
+      <!-- .logo -->
+      <div class="logo">
+        <a href="#">
+          <img src="/static/i/logo.png" alt="Энергия знания" width="146" height="140"/>
+        </a>
+        <!-- .h-search -->
+        <div class="h-search">
+          <form action="#">
+            <input type="text" value="поиск по сайту"/>
+            <button>Искать</button>
+          </form>
+        </div>
+        <!--// .h-search -->
+      </div>
+      <!--// .logo -->
+      <!-- .h-panel -->
+      <div class="h-panel">
+        <!-- .auth-block -->
+        <ul class="auth-block">
+          <li><a href="#">Войти на сайт</a></li>
+          <li>/</li>
+          <li><a href="#">Регистрация</a></li>
+        </ul>
+        <!--// .auth-block -->
+        <div class="slogan">Конкурс студенческих творческих работ по применению возобновляемых источников энергии в городской среде</div>
+        <ul class="flags">
+          <li class="ru active" title="Рус"><span>Рус</span></li>
+          <li class="eng" title="Eng"><a href="#">Eng</a></li>
+        </ul>
+        <!-- .h-menu -->
+        <nav class="h-menu">
+          <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">О конкурсе</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Участвовать</a></li>
+          </ul>
+        </nav>
+        <!--// .h-menu -->
+        <!-- .h-nav -->
+        <nav class="h-nav">
+          <ul>
+            <li class="index"><a href="#">Главная<i class="ico"></i></a></li>
+            <li class="projects"><a href="#">Проекты<i class="ico"></i></a></li>
+            <li class="jury"><a href="#">Жюри<i class="ico"></i></a></li>
+            <li class="rules"><a href="#">Правила<i class="ico"></i></a></li>
+            <li class="seminars"><a href="#">Семинары<i class="ico"></i></a></li>
+            <li class="partners"><a href="#">Партнеры<i class="ico"></i></a></li>
+          </ul>
+        </nav>
+        <!--// .h-nav -->
+      </div>
+      <!--// .h-panel -->
+    </header>
+    <!--// header -->
+    <!-- .main -->
+    <div class="main">
+      <!-- .content -->
+      <div class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+      <!--// .content -->
+      <!-- .sidebar -->
+      <div class="sidebar">
+        <!-- .side-news -->
+        <div class="side-news">
+          <!-- .tabs -->
+          <div class="tabs">
+            <!-- .tabs-headers -->
+            <ul class="tabs-headers">
+              <li class="tabs-selected"><a href="#">Новости</a></li>
+              <li><a href="#">Проекты</a></li>
+            </ul>
+            <!--// .tabs-headers -->
+            <!-- .tabs-tab -->
+            <div class="tabs-tab">
+              <!-- .news-list -->
+              <ul class="news-list">
+                <li>
+                  <div class="date">30 сентября 2013</div>
+                  <div class="title"><a href="#">Интерактивные семинары</a></div>
+                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
+                </li>
+                <li>
+                  <div class="date">30 сентября 2013</div>
+                  <div class="title"><a href="#">Интерактивные семинары</a></div>
+                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
+                </li>
+              </ul>
+              <!--// .news-list -->
+            </div>
+            <!--// .tabs-tab -->
+            <!-- .tabs-tab -->
+            <div class="tabs-tab" style="display:none;">
+              <!-- .news-list -->
+              <ul class="news-list">
+                <li>
+                  <div class="date">30 сентября 2013</div>
+                  <div class="title">Интерактивные семинары</div>
+                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
+                </li>
+                <li>
+                  <div class="date">30 сентября 2013</div>
+                  <div class="title">Интерактивные семинары</div>
+                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
+                </li>
+              </ul>
+              <!--// .news-list -->
+              <div class="all"><a href="#">Все новости</a></div>
+            </div>
+            <!--// .tabs-tab -->
+          </div>
+          <!--// .tabs -->
+          <div class="all"><a href="#">Все новости</a></div>
+        </div>
+        <!--// .side-news -->
+        <!-- .side-comments -->
+        <div class="side-comments">
+          <!-- .tabs -->
+          <div class="tabs">
+            <!-- .tabs-headers -->
+            <ul class="tabs-headers">
+              <li class="tabs-selected"><a href="#">Комментарии</a></li>
+            </ul>
+            <!--// .tabs-headers -->
+            <!-- .tabs-tab -->
+            <div class="tabs-tab">
+              <!-- .comments-list -->
+              <ul class="comments-list">
+                <li>
+                  <div class="userpic">
+                    <a href="#"><img src="/static/i/commet-userpic1.jpg" alt="Роман Николаев" width="32" height="32"/></a>
+                  </div>
+                  <div class="author">
+                    <div class="name"><a href="#">Роман Николаев</a></div>
+                    <div class="post">(Руководитель проекта)</div>
+                  </div>
+                  <div class="title"><a href="#">Название комментируемой работы</a></div>
+                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
+                </li>
+                <li>
+                  <div class="userpic">
+                    <a href="#"><img src="/static/i/commet-userpic1.jpg" alt="Роман Николаев" width="32" height="32"/></a>
+                  </div>
+                  <div class="author">
+                    <div class="name"><a href="#">Роман Николаев</a></div>
+                    <div class="post">(Руководитель проекта)</div>
+                  </div>
+                  <div class="title"><a href="#">Название комментируемой работы</a></div>
+                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
+                </li>
+              </ul>
+              <!--// .comments-list -->
+            </div>
+            <!--// .tabs-tab -->
+          </div>
+          <!--// .tabs -->
+          <div class="all"><a href="#">Все комментарии</a></div>
+        </div>
+        <!--// .side-comments -->
+      </div>
+      <!--// .sidebar -->
+      <div class="clearing"></div>
+    </div>
+    <!--// .main -->
+    <div class="empty"></div>
+  </div>
+  <!--// .root -->
+  <!-- footer -->
+  <footer>
+    <!-- .footer-wr -->
+    <div class="footer-wr">
+      <!-- .footer-in -->
+      <div class="footer-in">
+        <div class="f-logo">
+          <a href="#">
+            <img src="/static/i/flogo.png" alt="Энергия знания" width="116" height="111"/>
+          </a>
+        </div>
+        <!-- .f-menu -->
+        <div class="f-menu">
+          <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">О конкурсе</a></li>
+            <li><a href="#">Проекты</a></li>
+            <li><a href="#">Жюри</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">Правила участия</a></li>
+            <li><a href="#">Интерактивные семинары</a></li>
+            <li><a href="#">Партнеры</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
+        <!--// .f-menu -->
+        <!-- .f-contacts -->
+        <div class="f-contacts">
+          <ul class="f-social">
+            <li class="vk"><a href="#" title="ВКонтакте">ВКонтакте</a></li>
+            <li class="tw"><a href="#" title="Twitter">Twitter</a></li>
+            <li class="fb"><a href="#" title="Facebook">Facebook</a></li>
+            <li class="yt"><a href="#" title="Youtube">Youtube</a></li>
+          </ul>
+          <ul class="f-contacts-list">
+            <li>Москва, у. Название, д. номер</li>
+            <li>Тел.: +7 (495) 555-55-55,  эл. почта: <a href="#">info@sitename.ru</a></li>
+          </ul>
+        </div>
+        <!--// .f-contacts -->
+        <div class="copyright">При реализации проекта используются средства государственной поддержки, выделенные в качестве гранта в соответствии c распоряжением Президента Российской Федерации от 29.03.2013 № 115-рп») и на основании конкурса, проведенного Обществом «Знание» России.</div>
+      </div>
+      <!--// .footer-in -->
+    </div>
+    <!--// .footer-wr -->
+  </footer>
+  <!--// footer -->
+</body>
+</html>
