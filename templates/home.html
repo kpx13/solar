@@ -3,89 +3,100 @@
 {% block title %}О конкурсе{% endblock %}
 
 {% block head %}
+    <script>
+    $(function() {
+        $(".partners-carousel").jCarouselLite({
+        btnNext: ".r-arr",
+        btnPrev: ".l-arr",
+        visible: 4,
+        speed: 500,
+        scroll: 2
+        });
+    });
+    </script>
 {% endblock %}
 
 {% block content %}
+    <!-- .main-section -->
+    <ul class="main-section">
+        <li>
+        <div class="img">
+            <a href="#">
+            <img src="/static/i/main-pic1.jpg" alt="О конкурсе" width="218" height="169"/>
+            <div class="img-caption">О конкурсе</div>
+            </a>
+        </div>
+        <div class="txt">Современная экология не может развиваться без  альтернативной энергетики. Особенно актуален этот вопрос для Москвы.</div>
+        </li>
+        <li>
+        <div class="img">
+            <a href="#">
+            <img src="/static/i/main-pic2.jpg" alt="Проекты" width="218" height="169"/>
+            <div class="img-caption">Проекты</div>
+            </a>
+        </div>
+        <div class="txt">Несколько месяцев студенты будут готовить собственные творческие проекты, а в начале февраля 2014 - финал конкурса.</div>
+        </li>
+        <li>
+        <div class="img">
+            <a href="#">
+            <img src="/static/i/main-pic3.jpg" alt="Стажировка" width="218" height="169"/>
+            <div class="img-caption">Стажировка</div>
+            </a>
+        </div>
+        <div class="txt">Победители конкурса отправятся на стажировку в ведущие европейские компании.</div>
+        </li>
+    </ul>
+    <!--// .main-section -->
     <!-- .text-block -->
     <div class="text-block">
-        <h1 class="headline">О конкурсе</h1>
-        <p>Современная экология не может развиваться без  альтернативной энергетики. Особенно актуален этот вопрос для многомиллионной Москвы, ведь в мегаполисах экологические проблемы всегда стоят более остро.</p>
-        <p>Чтобы обратить внимание студентов на тему возобновляемой энергетики и стимулировать их на создание собственных инновационных проектов в этой области, создан уникальный проект. Он предполагает проведение конкурса студенческих творческих работ по применению возобновляемых источников энергии в городской среде, а также проведение интерактивных семинаров  для молодежи в ведущих вузах России. </p>
+        <h1>Уважаемые посетители!</h1>
+        <p>Перед вами – уникальный Интернет-ресурс, объединяющий участников Конкурса, организаторов и экспертов в области высоких технологий и солнечной энергетики.</p>
+        <p>В рамках нашего Конкурса в технических вузах РФ начинаются <a href="#">интерактивные обучающие семинары</a> с участием известных учёных, практиков, руководителей успешных предприятий в области возобновляемой энергетики.</p>
+        <p>Если у вас нет возможности посетить лекции, получить самую полную информацию по данной тематике вам помогут наши
+        <a href="#">вебинары</a>. На сайте вы можете задать вопросы специалистам в режиме онлайн-консультаций.</p>
+        <p>Также мы предлагаем вам воспользоваться информационными ресурсами партнера нашего Конкурса  –
+        <a href="#">Российской государственной библиотеки для молодежи</a>.</p>
+        <p>Лучшие проекты участников Конкурса будут представлены организаторами и <a href="#">Общественной палатой города Москвы</a> ведущим ученым РАН, профильным Департаментам правительства города Москвы, а также доложены на заседании Московской межведомственной рабочей группе по развитию возобновляемых источников энергии в городской среде для их возможной реализации.  Кроме того, авторы наиболее интересных работ получат уникальную возможность посетить ведущие предприятия РФ и Европы, работающие в области применения солнечной энергии.<br><b>Желаем удачи всем участникам!</b></p>
     </div>
     <!--// .text-block -->
-    <!-- .nominations -->
-    <div class="nominations">
-        <h2 class="h1">Номинации конкурса</h2>
-        <!-- .nominations-list -->
-        <ul class="nominations-list">
-        <li class="nomination1">
-            <div class="title"><a href="#">Перспективы применения возобновляемых источников энергии (ВИЭ) в вашем городе<i class="ico"></i></a></div>
-            <div class="txt">Современная экология не может развиваться без  альтернативной энергетики.</div>
-        </li>
-        <li class="nomination2">
-            <div class="title"><a href="#">Инновационные решения - альтернативная энергетика<i class="ico"></i></a></div>
-            <div class="txt">Современная экология не может развиваться без  альтернативной энергетики. Особенно актуален этот вопрос для Москвы</div>
-        </li>
-        <li class="nomination3">
-            <div class="title"><a href="#">Дизайн-проекты использования ВИЭ в городской среде<i class="ico"></i></a></div>
-            <div class="txt">Современная экология не может развиваться без альтернативной энергетики. Особенно актуален этот вопрос для Москвы</div>
-        </li>
-        </ul>
-        <!--// .nominations-list -->
+    <!-- .partners-box -->
+    <div class="partners-box">
+        <h2 class="h1">Парнеры</h2>
+        <!-- .partners-carousel -->
+        <div class="partners-carousel">
+        <!-- .partners-list-wr -->
+        <div class="partners-carousel-wr">
+            <!-- .partners-list-in -->
+            <ul class="partners-carousel-in">
+            <li>
+                <a href="#"><img src="/static/i/partners-pic1.jpg" alt="Российское подразделение ЕВРОСОЛАР" width="100" height="90"/></a>
+                <div class="title">Российское подразделение ЕВРОСОЛАР</div>
+                <div class="site"><a href="#">www.eurosolarrussia.org</a></div>
+            </li>
+            <li>
+                <a href="#"><img src="/static/i/partners-pic2.jpg" alt="Российское подразделение ЕВРОСОЛАР" width="100" height="90"/></a>
+                <div class="title">Российское подразделение ЕВРОСОЛАР</div>
+                <div class="site"><a href="#">www.eurosolarrussia.org</a></div>
+            </li>
+            <li>
+                <a href="#"><img src="/static/i/partners-pic3.jpg" alt="Российское подразделение ЕВРОСОЛАР" width="100" height="90"/></a>
+                <div class="title">Российское подразделение ЕВРОСОЛАР</div>
+                <div class="site"><a href="#">www.eurosolarrussia.org</a></div>
+            </li>
+            <li>
+                <a href="#"><img src="/static/i/partners-pic4.jpg" alt="Российское подразделение ЕВРОСОЛАР" width="100" height="90"/></a>
+                <div class="title">Российское подразделение ЕВРОСОЛАР</div>
+                <div class="site"><a href="#">www.eurosolarrussia.org</a></div>
+            </li>
+            </ul>
+            <!--// .partners-list-in -->
+        </div>
+        <!--// .partners-list-wr -->
+        <div class="l-arr arr-carousel"><i></i></div>
+        <div class="r-arr arr-carousel"><i></i></div>
+        </div>
+        <!--// .partners-carousel -->
     </div>
-    <!--// .nominations -->
-    <!-- .stages -->
-    <div class="stages">
-        <h2 class="h1">Этапы конкурса</h2>
-        <!-- .stages-list -->
-        <ul class="stages-list">
-        <li class="passed">
-            <div class="title">Этап 1</div>
-            <div class="txt">Прием заявок на участие</div>
-            <div class="progress"></div>
-            <div class="date">12 октября</div>
-        </li>
-        <li class="passed">
-            <div class="title">Этап 2</div>
-            <div class="txt">Интернет голосование</div>
-            <div class="progress">
-            <div class="div"><i class="circle"></i></div>
-            </div>
-            <div class="date">12 октября</div>
-        </li>
-        <li>
-            <div class="title">Этап 3</div>
-            <div class="txt">Определение победителей экспертной комиссией</div>
-            <div class="progress">
-            <div class="div"><i class="circle"></i></div>
-            </div>
-            <div class="date">12 октября</div>
-        </li>
-        <li>
-            <div class="title">Этап 4</div>
-            <div class="txt">Подведение итогов и объявление результатов</div>
-            <div class="progress">
-            <div class="div"><i class="circle"></i></div>
-            </div>
-            <div class="date">12 октября</div>
-        </li>
-        <li>
-            <div class="title">Этап 5</div>
-            <div class="txt">Период отчетности победителей по реализации проектов</div>
-            <div class="progress">
-            <div class="div"><i class="circle"></i></div>
-            </div>
-            <div class="date">12 октября</div>
-        </li>
-        </ul>
-        <!--// .stages-list -->
-    </div>
-    <!--// .stages -->
-    <div class="download-rules">
-        <div class="link"><a href="#">Скачать положение о конкурсе</a></div>
-    </div>
-    <div class="btn font18 participate">
-        <a href="#">Принять участие</a>
-    </div>
-        
+    <!--// .partners-box -->
 {% endblock %}

@@ -2,6 +2,10 @@
 
 {% block title %}{{ p.title }}{% endblock %}
 
+{% block head %}
+{% endblock %}
+
 {% block content %}
-  
+    {{ p.content|safe }}
+        
 {% endblock %}
