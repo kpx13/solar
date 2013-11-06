@@ -20,12 +20,13 @@ def get_common_context(request):
     c['request_url'] = request.path
     c['is_debug'] = settings.DEBUG
     c['news'] = Article.objects.all()[:3]
+    c['lang'] = request.LANGUAGE_CODE
     c.update(csrf(request))
     return c
 
 def page(request, page_name):
     c = get_common_context(request)
-    p = Page.get_by_slug(page_name)
+    p = Page.get(page_name, request.LANGUAGE_CODE)
     
     if p:
         c.update({'p': p})

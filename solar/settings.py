@@ -28,7 +28,7 @@ DATABASES = {
 
 TIME_ZONE = 'Europe/Moscow'
 
-LANGUAGE_CODE = 'Ru-ru'
+LANGUAGE_CODE = 'ru-RU'
 
 SITE_ID = 1
 
@@ -77,6 +77,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -156,6 +157,14 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+LOCALES = (
+    ('ru-RU', u'Russian'),
+    ('en', u'English'),
+)
+
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'locale'),
+)
 
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'

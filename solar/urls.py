@@ -22,4 +22,5 @@ urlpatterns = patterns('',
     url(r'^$', views.home),
     url(r'^contacts/$', views.contacts),
     url(r'^(?P<page_name>[\w-]+)/$' , views.page),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 )

@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js ie lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js ie ie7"> <![endif]-->
@@ -22,7 +23,7 @@
       <!-- .logo -->
       <div class="logo">
         <a href="/">
-          <img src="/static/i/logo.png" alt="Энергия знания" width="146" height="140"/>
+          <img src="/static/i/logo_new.png" alt="Энергия знания" width="247" height="108" style='margin-left: -20px'/>
         </a>
         <!-- .h-search -->
         <div class="h-search">
@@ -44,17 +45,21 @@
         </ul>
         <!--// .auth-block -->
         <div class="slogan">Конкурс студенческих творческих работ по применению возобновляемых источников энергии в городской среде</div>
-        <ul class="flags">
-          <li class="ru active" title="Рус"><span>Рус</span></li>
-          <li class="eng" title="Eng"><a href="#">Eng</a></li>
-        </ul>
-        <!-- .h-menu -->
+        
+        <form method="POST" action='/i18n/setlang/'>
+            <ul class="flags">
+                <li class="ru {% if lang == 'ru' %}active{% endif %}" title="Рус"><input type = 'submit' name="language" value="ru" /></li>
+                <li class="eng {% if lang == 'en' %}active{% endif %}" title="Eng" ><input type = 'submit' name="language" value="en" /></li>
+            {% csrf_token %}
+            </ul>
+        </form>
+
         <nav class="h-menu">
           <ul>
-            <li><a href="/">Главная</a></li>
-            <li><a href="/o-konkurse/">О конкурсе</a></li>
-            <li><a href="#">Контакты</a></li>
-            <li><a href="#">Участвовать</a></li>
+            <li><a href="/">{% trans 'Главная' %}</a></li>
+            <li><a href="/o-konkurse/">{% trans 'О конкурсе' %}</a></li>
+            <li><a href="#">{% trans 'Контакты' %}</a></li>
+            <li><a href="#">{% trans 'Участвовать' %}</a></li>
           </ul>
         </nav>
         <!--// .h-menu -->
