@@ -114,6 +114,10 @@ INSTALLED_APPS = (
     'pages',
     'news',
     'partners',
+    'users',
+    'seminars',
+    'jury',
+    'projects',
 )
 
 
