@@ -113,6 +113,7 @@ INSTALLED_APPS = (
     'feedback',
     'pages',
     'news',
+    'partners',
 )
 
 

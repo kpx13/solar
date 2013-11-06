@@ -4,7 +4,7 @@ from pytils import dt
 
 class Feedback(models.Model):
     name  = models.CharField(u'Имя', max_length=255)
-    phone  = models.CharField(u'Телефон или почта', max_length=255)
+    email  = models.CharField(u'Электронная почта', max_length=255)
     msg = models.TextField(u'Сообщение')
     request_date = models.DateTimeField(u'дата заявки', auto_now_add=True)
                     
