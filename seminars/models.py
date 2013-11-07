@@ -28,7 +28,7 @@ class Seminar(models.Model):
    
     def get_(self, lang):
         res = {'content': self.content,
-               'expert': self.expert    }
+               'expert': self.expert.get_(lang)    }
         if lang=='en':
             res.update({'title': self.title_en})     
         else :

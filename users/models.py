@@ -45,8 +45,10 @@ class Participant(models.Model):
 class Expert(models.Model):
     user = models.ForeignKey(User, related_name='expert', verbose_name=u'пользователь') # имя и фамилия в самом юзере
     about = models.TextField(blank=True, verbose_name=u'о себе')
-    fio = models.CharField(max_length=500, verbose_name=u'ФИО')
-    desc = models.CharField(max_length=500, verbose_name=u'Должность')
+    fio = models.CharField(max_length=500, verbose_name=u'ФИО ru')
+    fio_en = models.CharField(max_length=500, verbose_name=u'ФИО eng')
+    desc = models.CharField(max_length=500, verbose_name=u'Должность ru')
+    desc_en = models.CharField(max_length=500, verbose_name=u'Должность eng')
 
     class Meta:
         verbose_name = 'эксперт'
@@ -55,3 +57,13 @@ class Expert(models.Model):
     def __unicode__ (self):
         return str(self.user.username)
     
+    def get_(self, lang):
+        res = {'user': self.user,
+               'about': self.about    }
+        if lang=='en':
+            res.update({'fio': self.fio_en,
+                        'desc': self.desc_en, })     
+        else :
+            res.update({'fio': self.fio,
+                        'desc': self.desc, })
+        return res
