@@ -27,6 +27,7 @@ def get_common_context(request):
     c['is_debug'] = settings.DEBUG
     c['news'] = Article.objects.all()[:3]
     c['lang'] = request.LANGUAGE_CODE
+    c['ime_expert'] = Expert.exist(request.user)
     c.update(csrf(request))
     return c
 

@@ -78,7 +78,9 @@ class Project(models.Model):
                'file': self.file,
                'date': self.date,
                'nomination': self.nomination.get_(lang), 
-               'participant': self.participant,    }
+               'participant': self.participant,    
+               'reviews': Review.get_by_proj(self, lang)}
+
         if lang=='en':
             res.update({'title': self.title_en,
                         'desc': self.desc_en,
@@ -112,3 +114,15 @@ class Review(models.Model):
         
     def __unicode__(self):
         return u'%s к %s' % (self.expert.fio, self.project.title)
+    
+    def get_(self, lang):
+        res = {'expert': self.expert.get_(lang) }
+        if lang=='en':
+            res.update({'content': self.content_en })     
+        else :
+            res.update({'content': self.content })
+        return res
+    
+    @staticmethod
+    def get_by_proj(proj, lang):
+        return [r.get_(lang) for r in Review.objects.filter(project=proj)]

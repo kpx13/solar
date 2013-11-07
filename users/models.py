@@ -65,7 +65,10 @@ class Expert(models.Model):
     
     @staticmethod
     def exist(user):
-        return len(Expert.objects.filter(user=user)) > 0
+        try:
+            return len(Expert.objects.filter(user=user)) > 0
+        except:
+            return False
     
     def get_(self, lang):
         res = {'user': self.user,

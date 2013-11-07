@@ -85,16 +85,30 @@
                     <a href="#">Оставить комментарий</a>
                 </div>
             {% endif %}
+            {% if ime_expert %}
+                <div class="btn to-comment font12">
+                    <a href='#' >Оставить рецензию</a>
+                </div>
+            {% endif %}
         </div>
         <!--// .project-comments -->
         </div>
         <!--// .project-block-info -->
         <!-- .project-block-description -->
         <div class="project-block-description">
-        <img src="/media/{{ proj.image }}" alt="Название проекта" width="481"  class="project-pic"/>
-        <div class="txt">
-            {{ proj.content|safe }}
-        </div>
+            <img src="/media/{{ proj.image }}" alt="Название проекта" width="481"  class="project-pic"/>
+            <div class="txt">
+                {{ proj.content|safe }}
+            </div>
+            {% if proj.reviews %}
+                <h2 class="h1">Рецензии:</h2>
+                {% for r in proj.reviews %}
+                    <div class="txt">
+                        <p>{{ r.content }}</p>
+                        <p style='text-align: right'><b>{{ r.expert.fio }}</b></p><br />
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
         <!--// .project-block-description -->
     </div>
