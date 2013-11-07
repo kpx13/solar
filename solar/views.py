@@ -14,6 +14,7 @@ from pages.models import Page
 from news.models import Article
 from jury.models import Jury
 from partners.models import Partner
+from seminars.models import Seminar
 
 PAGINATION_COUNT = 5
 
@@ -66,6 +67,7 @@ def jury(request):
 
 def seminars(request):
     c = get_common_context(request)
+    c['list'] = Seminar.get_list(c['lang'])
     return render_to_response('seminars.html', c, context_instance=RequestContext(request))
 
 def partners(request):

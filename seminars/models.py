@@ -8,7 +8,7 @@ from users.models import Expert
 class Seminar(models.Model):
     title = models.CharField(max_length=200, verbose_name=u'заголовок рус')
     title_en = models.CharField(max_length=200, verbose_name=u'заголовок eng')
-    content = models.TextField(verbose_name=u'контент')
+    content = models.TextField(verbose_name=u'ссылка на видео', help_text=u'На ютубе HTML код -> копируем ссылку из атрибута src внутри кавычек. Например, //www.youtube.com/embed/vynnVjZx6rg?rel=0')
     expert = models.ForeignKey(Expert, verbose_name=u'Эксперт')
     slug = models.SlugField(max_length=100, verbose_name=u'слаг', unique=True, blank=True, help_text=u'Заполнять не нужно')
     
@@ -27,8 +27,7 @@ class Seminar(models.Model):
     
    
     def get_(self, lang):
-        res = {'image': self.image,
-               'content': self.content,
+        res = {'content': self.content,
                'expert': self.expert    }
         if lang=='en':
             res.update({'title': self.title_en})     

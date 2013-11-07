@@ -13,63 +13,22 @@
         <h1 class="headline">Интерактивные семинары</h1>
         <!-- .seminars-list -->
         <ul class="seminars-list">
-        <li>
-            <div class="img">
-            <img src="/static/i/seminar-pic1.jpg" alt="Название семинара" width="339" height="184"/>
-            <a href="#" class="play"></a>
-            </div>
-            <div class="title"><a href="#">Название семинара</a></div>
-            <div class="author">
-            <div class="userpic"><img src="/static/i/commet-userpic1.jpg" alt="" width="32" height="32"/></div>
-            <div class="name"><span class="surname">Десятов</span> Павел Алексеевич</div>
-            <div class="post">(кафедра математики)</div>
-            </div>
-            <div class="counts">
-            <div class="comments"><a href="#">24</a></div>
-            </div>
-        </li><li>
-            <div class="img">
-            <img src="/static/i/seminar-pic1.jpg" alt="Название семинара" width="339" height="184"/>
-            <a href="#" class="play"></a>
-            </div>
-            <div class="title"><a href="#">Название семинара</a></div>
-            <div class="author">
-            <div class="userpic"><img src="/static/i/commet-userpic1.jpg" alt="" width="32" height="32"/></div>
-            <div class="name"><span class="surname">Десятов</span> Павел Алексеевич</div>
-            <div class="post">(кафедра математики)</div>
-            </div>
-            <div class="counts">
-            <div class="comments"><a href="#">24</a></div>
-            </div>
-        </li><li>
-            <div class="img">
-            <img src="/static/i/seminar-pic1.jpg" alt="Название семинара" width="339" height="184"/>
-            <a href="#" class="play"></a>
-            </div>
-            <div class="title"><a href="#">Название семинара</a></div>
-            <div class="author">
-            <div class="userpic"><img src="/static/i/commet-userpic1.jpg" alt="" width="32" height="32"/></div>
-            <div class="name"><span class="surname">Десятов</span> Павел Алексеевич</div>
-            <div class="post">(кафедра математики)</div>
-            </div>
-            <div class="counts">
-            <div class="comments"><a href="#">24</a></div>
-            </div>
-        </li><li>
-            <div class="img">
-            <img src="/static/i/seminar-pic1.jpg" alt="Название семинара" width="339" height="184"/>
-            <a href="#" class="play"></a>
-            </div>
-            <div class="title"><a href="#">Название семинара</a></div>
-            <div class="author">
-            <div class="userpic"><img src="/static/i/commet-userpic1.jpg" alt="" width="32" height="32"/></div>
-            <div class="name"><span class="surname">Десятов</span> Павел Алексеевич</div>
-            <div class="post">(кафедра математики)</div>
-            </div>
-            <div class="counts">
-            <div class="comments"><a href="#">24</a></div>
-            </div>
-        </li>
+            {% for l in list %}
+                <li>
+                    <div class="img">
+                        <iframe width="339" height="200" src="{{ l.content }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="title"><a href="#">{{ l.title }}</a></div>
+                    <div class="author">
+                    <div class="userpic"><img src="/media/{{ l.expert.user.get_profile.photo }}" alt="" width="32" height="32"/></div>
+                    <div class="name">{{ l.expert.fio }}</div>
+                    <div class="post">({{ l.expert.desc }})</div>
+                    </div>
+                    <div class="counts">
+                    <div class="comments"><a href="#">24</a></div>
+                    </div>
+                </li>
+            {% endfor %}
         </ul>
         <!--// .seminars-list -->
     </div>
