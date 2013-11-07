@@ -128,6 +128,7 @@ def edit_project(request):
 
 def projects(request):
     c = get_common_context(request)
+    c['list'] = Project.get_list(c['lang'])
     return render_to_response('projects.html', c, context_instance=RequestContext(request))
 
 def project(request, slug):

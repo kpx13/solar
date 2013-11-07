@@ -74,6 +74,7 @@ class Project(models.Model):
     
     def get_(self, lang):
         res = {'image': self.image,
+               'slug': self.slug,
                'file': self.file,
                'date': self.date,
                'nomination': self.nomination.get_(lang), 
