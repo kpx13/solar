@@ -109,9 +109,6 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'livesettings',
     
-    'registration',
-    'django_ulogin',
-    'customize',
     
     'feedback',
     'pages',
@@ -183,15 +180,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_SEND_TO = 'anna@webgenesis.ru'
-
-ULOGIN_FIELDS = ['first_name', 'last_name', 'email']
-ULOGIN_DISPLAY = 'panel'
-ULOGIN_PROVIDERS = ['vkontakte', 'facebook', 'google', 'twitter', 'yandex', 'odnoklassniki']
-ULOGIN_HIDDEN = []
-#ULOGIN_CALLBACK = 'callback'
-LOGIN_REDIRECT_URL = '/'
-
-ACCOUNT_ACTIVATION_DAYS = 2
 
 try:
     from dev import *

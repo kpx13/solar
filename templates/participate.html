@@ -10,73 +10,82 @@
 {% block content %}
     <!-- .participate-block -->
     <div class="participate-block">
-        <h1 class="headline">Регистрация</h1>
-        <!-- .form-content -->
-        <form action="#" class="form-content form-participate">
-        <div class="form-row">
-            <label for="participate-name" class="required">Ваше имя:</label>
-            <input type="text" id="participate-name"/>
-        </div>
-        <div class="form-row">
-            <label for="participate-surname" class="required">Фамилия:</label>
-            <input type="text" id="participate-surname"/>
-        </div>
-        <!-- .foto-block -->
-        <div class="foto-block">
-            <div class="btn font14 download-foto">
-            <a href="#">Загрузить фото</a>
-            </div>
-            <div class="foto">
-            <div class="pic">
-                <img src="/static/i/form-reg-foto.jpg" alt="" width="50" height="50"/>
-            </div>
-            <div class="replace"><a href="#">Заменить</a></div>
-            <div class="del"><a href="#">Удалить</a></div>
-            </div>
-        </div>
-        <!--// .foto-block -->
-        <div class="form-row">
-            <label for="participate-institution" class="required">ВУЗ:</label>
-            <input type="text" id="participate-institution"/>
-        </div>
-        <!-- .gender -->
-        <div class="form-row gender">
-            <label class="female">
-            <input type="radio" name="reg-gender"/>
-            </label>
-            <label class="male">
-            <input type="radio" name="reg-gender"/>
-            </label>
-        </div>
-        <!--// .gender -->
-        <div class="form-row birthday">
-            <label for="participate-birthday">Дата рождения:</label>
-            <input type="text" id="participate-birthday"/>
-        </div>
-        <div class="form-row">
-            <label for="participate-about-yourself">О себе:</label>
-            <textarea name="" id="participate-about-yourself"></textarea>
-        </div>
-        <div class="form-row">
-            <label for="participate-nomination" class="required">Выбранная номинация:</label>
-            <select name="" id="participate-nomination">
-            <option value=""> </option>
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
-            <option value="">4</option>
-            </select>
-        </div>
-        <div class="form-row">
-            <label for="participate-title" class="required">Название работы:</label>
-            <input type="text" id="participate-title"/>
-        </div>
-        <div class="txt">
-            <p>Поля, помеченые <span class="required">оранжевым</span>, обязательны для заполнения.</p>
-        </div>
-        <button class="btn font24 submit">Участвовать</button>
-        </form>
-        <!--// .form-content -->
+        <h1 class="headline">Участвовать</h1>
+        {% if msg %}
+            <p>{{ msg }}</p>
+        {% else %}
+            <!-- .form-content -->
+            <form action=""  method='POST' enctype="multipart/form-data" class="form-content form-participate">
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+                {% comment %}
+                    <div class="form-row">
+                        <label for="participate-name" class="required">Ваше имя:</label>
+                        <input type="text" id="participate-name"/>
+                    </div>
+                    <div class="form-row">
+                        <label for="participate-surname" class="required">Фамилия:</label>
+                        <input type="text" id="participate-surname"/>
+                    </div>
+                    <!-- .foto-block -->
+                    <div class="foto-block">
+                        <div class="btn font14 download-foto">
+                        <a href="#">Загрузить фото</a>
+                        </div>
+                        <div class="foto">
+                        <div class="pic">
+                            <img src="/static/i/form-reg-foto.jpg" alt="" width="50" height="50"/>
+                        </div>
+                        <div class="replace"><a href="#">Заменить</a></div>
+                        <div class="del"><a href="#">Удалить</a></div>
+                        </div>
+                    </div>
+                    <!--// .foto-block -->
+                    <div class="form-row">
+                        <label for="participate-institution" class="required">ВУЗ:</label>
+                        <input type="text" id="participate-institution"/>
+                    </div>
+                    <!-- .gender -->
+                    <div class="form-row gender">
+                        <label class="female">
+                        <input type="radio" name="reg-gender"/>
+                        </label>
+                        <label class="male">
+                        <input type="radio" name="reg-gender"/>
+                        </label>
+                    </div>
+                    <!--// .gender -->
+                    <div class="form-row birthday">
+                        <label for="participate-birthday">Дата рождения:</label>
+                        <input type="text" id="participate-birthday"/>
+                    </div>
+                    <div class="form-row">
+                        <label for="participate-about-yourself">О себе:</label>
+                        <textarea name="" id="participate-about-yourself"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="participate-nomination" class="required">Выбранная номинация:</label>
+                        <select name="" id="participate-nomination">
+                        <option value=""> </option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="participate-title" class="required">Название работы:</label>
+                        <input type="text" id="participate-title"/>
+                    </div>
+                {% endcomment %}
+                <div class="txt">
+                    <p>Поля, помеченые <span class="required">оранжевым</span>, обязательны для заполнения.</p>
+                </div>
+                <button type='submit' class="btn font24 submit">Участвовать</button>
+            </form>
+            <!--// .form-content -->
+        {% endif %}
     </div>
     <!--// .participate-block -->
 {% endblock %}

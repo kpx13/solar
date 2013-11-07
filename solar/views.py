@@ -15,6 +15,9 @@ from news.models import Article
 from jury.models import Jury
 from partners.models import Partner
 from seminars.models import Seminar
+from projects.forms import ParticipateForm
+from projects.models import Project, Nomination
+from users.models import Participant, Expert
 
 PAGINATION_COUNT = 5
 
@@ -48,8 +51,61 @@ def about(request):
     c['p'] = Page.get('about', c['lang'])
     return render_to_response('about.html', c, context_instance=RequestContext(request))
 
+"""
+    name = fields.CharField(label=u'имя')
+    last_name = fields.CharField(label=u'фамилия')
+    photo = fields.ImageField(required=False, label=u'фото')
+    sex = fields.CharField(required=False, label=u'пол')
+    date_birth = fields.DateField(required=False, label=u'дата рождения')
+    school = fields.CharField(label=u'ВУЗ')
+    about = fields.CharField(required=False, label=u'о себе')
+    nomination = fields.CharField(label=u'номинация')
+    title = fields.CharField(label=u'название работы')
+"""
+
 def participate(request):
     c = get_common_context(request)
+    user = request.user
+    profile = user.get_profile()
+    if request.method == 'GET':
+        if Participant.exist(user):
+            return HttpResponseRedirect('/project/%s/' % Participant.get_project(user))
+        elif Expert.exist(user):
+            c['form'] = None
+            c['msg'] = u'Вы эксперт, поэтому не можете принимать участие.'
+        else:
+            c['form'] = ParticipateForm(initial={'name': user.first_name,
+                                             'last_name': user.last_name,
+                                             'photo': profile.photo,
+                                             'sex': profile.sex,
+                                             'date_birth': profile.date_birth,
+                                             'school': profile.school,
+                                             'nomination': 'dizajn-proektyi-ispolzovaniya-vie-v-gorodskoj-srede',
+                                             })
+    else:
+        form = ParticipateForm(request.POST, request.FILES)
+        if form.is_valid():
+            print 'VALID'
+            user.first_name = form.data['name']
+            user.last_name = form.data['last_name']
+            user.save()
+            #profile.photo = request.FILES.get('photo', '')
+            profile.sex = form.data['sex']
+            #profile.date_birth = form.data['date_birth']
+            profile.school = form.data['school']
+            profile.save()
+            part = Participant(user=user,
+                               about=form.data['about'])
+            part.save()
+            proj = Project(participant=part,
+                           nomination=Nomination.get_by_slug((form.data['nomination'])),
+                           title=form.data['title'])
+            proj.save()
+            print 'OKKKKKKKKK'
+        else:
+            print 'NOT VALID'
+        
+        c['form'] = form
     return render_to_response('participate.html', c, context_instance=RequestContext(request))
 
 def projects(request):

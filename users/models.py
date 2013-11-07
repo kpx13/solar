@@ -31,9 +31,6 @@ post_save.connect(create_user_profile, sender=User)
 class Participant(models.Model):
     user = models.ForeignKey(User, related_name='participant', verbose_name=u'пользователь') # имя и фамилия в самом юзере
     about = models.TextField(blank=True, verbose_name=u'о себе')
-    work_name = models.CharField(max_length=512, verbose_name=u'название работы')
-    work_nomination = models.CharField(max_length=512, verbose_name=u'номинация')
-    
 
     class Meta:
         verbose_name = 'участник'
@@ -41,6 +38,15 @@ class Participant(models.Model):
     
     def __unicode__ (self):
         return str(self.user.username)
+    
+    @staticmethod
+    def exist(user):
+        return len(Participant.objects.filter(user=user)) > 0
+    
+    @staticmethod
+    def get_project(user):
+        from projects.models import Project
+        return Project.objects.get(participant=Participant.objects.filter(user=user))
     
 class Expert(models.Model):
     user = models.ForeignKey(User, related_name='expert', verbose_name=u'пользователь') # имя и фамилия в самом юзере
@@ -56,6 +62,10 @@ class Expert(models.Model):
     
     def __unicode__ (self):
         return str(self.user.username)
+    
+    @staticmethod
+    def exist(user):
+        return len(Expert.objects.filter(user=user)) > 0
     
     def get_(self, lang):
         res = {'user': self.user,

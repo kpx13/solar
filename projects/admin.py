@@ -14,4 +14,5 @@ class ProjectAdmin(admin.ModelAdmin):
     inlines = [ ReviewInline, ]
     list_display = ('slug', 'title', 'title_en', 'desc')
 
+admin.site.register(models.Nomination, NominationAdmin)
 admin.site.register(models.Project, ProjectAdmin)
