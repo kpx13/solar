@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body-page %}reg-page{% endblock %}
+
+{% block content %}
+    <!-- .reg-block -->
+    <div class="reg-block">
+        <h2 class="headline">Активация</h2>
+        Ваша учетная запись активирована. Вы можете <a href="{% url auth_login %}">зайти</a> на сайт.
+    <br/><br/>
+    </div>
+{% endblock %}

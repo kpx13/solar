@@ -31,6 +31,10 @@ urlpatterns = patterns('',
     url(r'^registration/$', views.registration),
     url(r'^login/$', views.login),
     
+    url(r'^ulogin/', include('django_ulogin.urls')),
+    url(r'^logout/',  'django.contrib.auth.views.logout', {'next_page': '/'}, name='logout'),
+    url(r'^accounts/', include('registration.urls')),
+    
     url(r'^(?P<page_name>[\w-]+)/$' , views.page),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 )

@@ -6,3 +6,5 @@ django-keyedcache
 django-admin-tools
 pytils
 django-livesettings
+django-ulogin
+django-registration==0.8

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Вход{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body-page %}login-page{% endblock %}
+
+{% block content %}
+<!-- .login-block -->
+    <div class="login-block">
+        <h1 class="headline">Войти</h1>
+        {% if request.user.is_authenticated %}
+            <div class='span12'>
+                <p>Вы зашли как <u>{{ request.user.first_name }} {{request.user.last_name }}</u></p>
+                <p><a href="/">На главную</a></p>
+                <p><a href="{% url logout %}">Выйти</a></p>
+            </div>
+        {% else %}
+            <!-- .form-content -->
+            <form action="" method='POST' class="form-content form-login">
+                {% csrf_token %}
+                <div class="quick-reg">
+                    <div class="label">Быстрый вход через openID:</div>
+                    <ul class="social-list">
+                        {% load ulogin_tags %}
+                        {% ulogin_widget %}
+                    </ul>
+                </div>
+                <div class="form-row{% if form.username.errors %} error {% endif %}">
+                    <label for="reg-nick" class="required">Никнейм:</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-row{% if form.password.errors %} error {% endif %}">
+                    <label for="reg-pass" class="required">Пароль:</label>
+                    {{ form.password }}
+                </div>
+                <button type='submit' class="btn font24 submit">Войти на сайт</button>
+                <div class="txt">
+                    <p>Вы здесь впервые? Тогда, пожалуйста, <a href="/accounts/register/">зарегистрируйтесь</a> <br>Не получается зайти? Возможно вы <a href="/accounts/password/reset/">забыли пароль?</a></p>
+                </div>
+            </form>
+            <!--// .form-content -->
+        {% endif %}
+    </div>
+    <!--// .login-block -->
+{% endblock %}
