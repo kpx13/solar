@@ -130,6 +130,10 @@ def project(request, slug):
             Project.objects.get(slug=slug).add_review(Expert.objects.get(user=request.user), 
                             request.POST.get('content'))
             return HttpResponseRedirect('/project/%s/' % slug)
+        elif request.POST.get('action') == 'comment':
+            Project.objects.get(slug=slug).add_comment(request.user, 
+                            request.POST.get('content'))
+            return HttpResponseRedirect('/project/%s/' % slug)
     return render_to_response('project.html', c, context_instance=RequestContext(request))
 
 def jury(request):

@@ -586,3 +586,6 @@ footer { background:url(../i/footer-bg.jpg) 50% 0; color:#383838; height:181px; 
 .f-contacts-list li { line-height:24px; list-style:none; }
 
 footer .copyright { clear:both; color:#fff; height:43px; font-size:11px; line-height:14px; padding:9px 0 0 0; text-align:center; }
+
+.clear {clear: both}
+.hide {display: none}

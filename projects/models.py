@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
 import pytils
 import config
 from users.models import Participant, Expert
@@ -79,7 +80,11 @@ class Project(models.Model):
                'date': self.date,
                'nomination': self.nomination.get_(lang), 
                'participant': self.participant,    
-               'reviews': Review.get_by_proj(self, lang)}
+               'reviews': Review.get_by_proj(self, lang),
+               'comments_short': ProjectComment.get_by_proj(self)[:3],
+               'comments_more': ProjectComment.get_by_proj(self)[3:],
+               'comments_count': len(ProjectComment.get_by_proj(self)),
+               }
 
         if lang=='en':
             res.update({'title': self.title_en,
@@ -107,12 +112,17 @@ class Project(models.Model):
                project=self,
                content=content,
                content_en=content).save()
+               
+    def add_comment(self, user, content):
+        ProjectComment(user=user,
+               project=self,
+               content=content).save()
     
 class Review(models.Model):
     expert = models.ForeignKey(Expert, verbose_name=u'эксперт')
     project = models.ForeignKey(Project, related_name='reviews', verbose_name=u'проект')
-    content = models.TextField(max_length=200, verbose_name=u'содержимое ru')
-    content_en = models.TextField(max_length=200, verbose_name=u'содержимое eng')
+    content = models.TextField(max_length=1000, verbose_name=u'содержимое ru')
+    content_en = models.TextField(max_length=1000, verbose_name=u'содержимое eng')
     
     class Meta:
         verbose_name = u'рецензия'
@@ -132,3 +142,19 @@ class Review(models.Model):
     @staticmethod
     def get_by_proj(proj, lang):
         return [r.get_(lang) for r in Review.objects.filter(project=proj)]
+    
+class ProjectComment(models.Model):
+    user = models.ForeignKey(User, verbose_name=u'пользователь')
+    project = models.ForeignKey(Project, related_name='comments', verbose_name=u'проект')
+    content = models.TextField(max_length=1000, verbose_name=u'содержимое')
+    
+    class Meta:
+        verbose_name = u'комментарий'
+        verbose_name_plural = u'комментарии'
+        
+    def __unicode__(self):
+        return u'%s к %s' % (self.user.username, self.project.title)
+    
+    @staticmethod
+    def get_by_proj(proj):
+        return ProjectComment.objects.filter(project=proj)
