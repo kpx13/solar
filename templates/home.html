@@ -71,26 +71,13 @@
         <div class="partners-carousel-wr">
             <!-- .partners-list-in -->
             <ul class="partners-carousel-in">
-            <li>
-                <a href="#"><img src="/static/i/partners-pic1.jpg" alt="Российское подразделение ЕВРОСОЛАР" width="100" height="90"/></a>
-                <div class="title">Российское подразделение ЕВРОСОЛАР</div>
-                <div class="site"><a href="#">www.eurosolarrussia.org</a></div>
-            </li>
-            <li>
-                <a href="#"><img src="/static/i/partners-pic2.jpg" alt="Российское подразделение ЕВРОСОЛАР" width="100" height="90"/></a>
-                <div class="title">Российское подразделение ЕВРОСОЛАР</div>
-                <div class="site"><a href="#">www.eurosolarrussia.org</a></div>
-            </li>
-            <li>
-                <a href="#"><img src="/static/i/partners-pic3.jpg" alt="Российское подразделение ЕВРОСОЛАР" width="100" height="90"/></a>
-                <div class="title">Российское подразделение ЕВРОСОЛАР</div>
-                <div class="site"><a href="#">www.eurosolarrussia.org</a></div>
-            </li>
-            <li>
-                <a href="#"><img src="/static/i/partners-pic4.jpg" alt="Российское подразделение ЕВРОСОЛАР" width="100" height="90"/></a>
-                <div class="title">Российское подразделение ЕВРОСОЛАР</div>
-                <div class="site"><a href="#">www.eurosolarrussia.org</a></div>
-            </li>
+                {% for l in partners %}
+                    <li>
+                        <a href="http://{{ l.url }}/" target='_blank'><img src="/media/{{ l.logo }}" alt="{{ l.name }}" height="90"/></a>
+                        <div class="title">{{ l.name }}</div>
+                        <div class="site"><a href="http://{{ l.url }}/" target='_blank'>{{ l.url }}</a></div>
+                    </li>
+                {% endfor %}
             </ul>
             <!--// .partners-list-in -->
         </div>

@@ -28,7 +28,8 @@ class Partner(models.Model):
     
     
     def get_(self, lang):
-        res = {'url': self.url}
+        res = {'url': self.url,
+               'logo': self.logo, }
         if lang=='en':
             res.update({'name': self.name_en,
                         'content': self.content_en})     

@@ -13,6 +13,7 @@ from django.conf import settings
 from pages.models import Page
 from news.models import Article
 from jury.models import Jury
+from partners.models import Partner
 
 PAGINATION_COUNT = 5
 
@@ -38,6 +39,7 @@ def page(request, page_name):
 def home(request):
     c = get_common_context(request)
     c['request_url'] = 'home'
+    c['partners'] = Partner.get_list(c['lang'])
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
 def about(request):
@@ -68,6 +70,7 @@ def seminars(request):
 
 def partners(request):
     c = get_common_context(request)
+    c['list'] = Partner.get_list(c['lang'])
     return render_to_response('partners.html', c, context_instance=RequestContext(request))
 
 def registration(request):

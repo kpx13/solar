@@ -13,61 +13,18 @@
           <h1 class="headline">Партнеры</h1>
           <!-- .partners-list -->
           <ul class="partners-list">
-            <li>
-              <div class="img">
-                <a href="#"><img src="/static/i/partners-big-pic1.jpg" alt="" width="202" height="140"/></a>
-              </div>
-              <div class="title"><a href="#">Российское подразделение ЕВРОСОЛАР</a></div>
-              <div class="txt">Основная задача Партнерства – это консолидация усилий гражданского общества, бизнеса, и осударственных структур, а также популяризация солнечной энергетики и внедрение передовых технологий в современное российское производство</div>
-              <div class="link">
-                <a href="#">www.eurosolarrussia.org</a>
-              </div>
-            </li><li>
-              <div class="img">
-                <a href="#"><img src="/static/i/partners-big-pic1.jpg" alt="" width="202" height="140"/></a>
-              </div>
-              <div class="title"><a href="#">Российское подразделение ЕВРОСОЛАР</a></div>
-              <div class="txt">Основная задача Партнерства – это консолидация усилий гражданского общества, бизнеса, и осударственных структур, а также популяризация солнечной энергетики и внедрение передовых технологий в современное российское производство</div>
-              <div class="link">
-                <a href="#">www.eurosolarrussia.org</a>
-              </div>
-            </li><li>
-              <div class="img">
-                <a href="#"><img src="/static/i/partners-big-pic1.jpg" alt="" width="202" height="140"/></a>
-              </div>
-              <div class="title"><a href="#">Российское подразделение ЕВРОСОЛАР</a></div>
-              <div class="txt">Основная задача Партнерства – это консолидация усилий гражданского общества, бизнеса, и осударственных структур, а также популяризация солнечной энергетики и внедрение передовых технологий в современное российское производство</div>
-              <div class="link">
-                <a href="#">www.eurosolarrussia.org</a>
-              </div>
-            </li><li>
-              <div class="img">
-                <a href="#"><img src="/static/i/partners-big-pic1.jpg" alt="" width="202" height="140"/></a>
-              </div>
-              <div class="title"><a href="#">Российское подразделение ЕВРОСОЛАР</a></div>
-              <div class="txt">Основная задача Партнерства – это консолидация усилий гражданского общества, бизнеса, и осударственных структур, а также популяризация солнечной энергетики и внедрение передовых технологий в современное российское производство</div>
-              <div class="link">
-                <a href="#">www.eurosolarrussia.org</a>
-              </div>
-            </li><li>
-              <div class="img">
-                <a href="#"><img src="/static/i/partners-big-pic1.jpg" alt="" width="202" height="140"/></a>
-              </div>
-              <div class="title"><a href="#">Российское подразделение ЕВРОСОЛАР</a></div>
-              <div class="txt">Основная задача Партнерства – это консолидация усилий гражданского общества, бизнеса, и осударственных структур, а также популяризация солнечной энергетики и внедрение передовых технологий в современное российское производство</div>
-              <div class="link">
-                <a href="#">www.eurosolarrussia.org</a>
-              </div>
-            </li><li>
-              <div class="img">
-                <a href="#"><img src="/static/i/partners-big-pic1.jpg" alt="" width="202" height="140"/></a>
-              </div>
-              <div class="title"><a href="#">Российское подразделение ЕВРОСОЛАР</a></div>
-              <div class="txt">Основная задача Партнерства – это консолидация усилий гражданского общества, бизнеса, и осударственных структур, а также популяризация солнечной энергетики и внедрение передовых технологий в современное российское производство</div>
-              <div class="link">
-                <a href="#">www.eurosolarrussia.org</a>
-              </div>
-            </li>
+            {% for l in list %}
+                <li>
+                    <div class="img">
+                        <a href="http://{{ l.url }}/" target='_blank'><img src="/media/{{ l.logo }}" alt="" width="202"/></a>
+                    </div>
+                    <div class="title"><a href="http://{{ l.url }}/" target='_blank'>{{ l.name }}</a></div>
+                    <div class="txt">{{ l.content }}</div>
+                    <div class="link">
+                        <a href="http://{{ l.url }}/" target='_blank'>{{ l.url }}</a>
+                    </div>
+                </li>
+            {% endfor %}
           </ul>
           <!--// .partners-list -->
         </div>
