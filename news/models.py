@@ -11,7 +11,7 @@ class Article(models.Model):
     content_more = RichTextField(blank=True, verbose_name=u'текст в подробнее ru')
     content_en = models.TextField(verbose_name=u'вступительный текст eng')
     content_more_en = RichTextField(blank=True, verbose_name=u'текст в подробнее eng')
-    date = models.DateField(verbose_name=u'дата', auto_now_add=True)
+    date = models.DateTimeField(verbose_name=u'дата', auto_now_add=True)
     slug = models.SlugField(verbose_name=u'слаг', unique=True, blank=True, help_text=u'Заполнять не нужно')
     
     def save(self, *args, **kwargs):

@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, related_name='profile', verbose_name=u'пользователь')
     photo = models.ImageField(upload_to= 'uploads/users', blank=True, max_length=256, verbose_name=u'фото')
     sex = models.CharField(max_length=256, choices=SEX, blank=True, verbose_name=u'пол')
-    date_birth = models.DateField(blank=True, null=True, verbose_name=u'дата рождения')
+    date_birth = models.CharField(max_length=256, blank=True, null=True, verbose_name=u'дата рождения')
     school = models.CharField(max_length=256, blank=True, verbose_name=u'ВУЗ')
 
     class Meta:

@@ -55,7 +55,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to= 'uploads/projects', blank=True, max_length=256, verbose_name=u'картинка')
     file = models.FileField(upload_to= 'uploads/projects', blank=True, max_length=256, verbose_name=u'файл с проектом')
     slug = models.SlugField(max_length=100, verbose_name=u'слаг', unique=True, blank=True, help_text=u'Заполнять не нужно')
-    date = models.DateField(verbose_name=u'дата', auto_now_add=True)
+    date = models.DateTimeField(verbose_name=u'дата', null=True, auto_now_add=True)
     
     def save(self, *args, **kwargs):
         if not self.title_en:
@@ -123,6 +123,8 @@ class Review(models.Model):
     project = models.ForeignKey(Project, related_name='reviews', verbose_name=u'проект')
     content = models.TextField(max_length=1000, verbose_name=u'содержимое ru')
     content_en = models.TextField(max_length=1000, verbose_name=u'содержимое eng')
+    date = models.DateTimeField(verbose_name=u'дата', null=True, auto_now_add=True)
+    
     
     class Meta:
         verbose_name = u'рецензия'
@@ -147,10 +149,12 @@ class ProjectComment(models.Model):
     user = models.ForeignKey(User, verbose_name=u'пользователь')
     project = models.ForeignKey(Project, related_name='comments', verbose_name=u'проект')
     content = models.TextField(max_length=1000, verbose_name=u'содержимое')
+    date = models.DateTimeField(verbose_name=u'дата', null=True, auto_now_add=True)
     
     class Meta:
         verbose_name = u'комментарий'
         verbose_name_plural = u'комментарии'
+        ordering=['-date']
         
     def __unicode__(self):
         return u'%s к %s' % (self.user.username, self.project.title)
