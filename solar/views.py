@@ -12,6 +12,7 @@ from django.conf import settings
 
 from pages.models import Page
 from news.models import Article
+from jury.models import Jury
 
 PAGINATION_COUNT = 5
 
@@ -58,6 +59,7 @@ def project(request, slug):
 
 def jury(request):
     c = get_common_context(request)
+    c['list'] = Jury.get_list(c['lang'])
     return render_to_response('jury.html', c, context_instance=RequestContext(request))
 
 def seminars(request):

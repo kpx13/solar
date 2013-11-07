@@ -501,8 +501,8 @@ filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endC
 
 
 .jury-block { overflow:hidden; }
-.jury-list { padding:5px 0 0; width:780px; }
-.jury-list > li { display:inline-block; list-style:none; margin:0 47px 25px 0; width:210px; }
+.jury-list { padding:5px 0 0; width:780px; vertical-align: top;}
+.jury-list > li { display:inline-block; list-style:none; margin:0 47px 25px 0; width:210px; vertical-align: top;}
 .jury-list .img { margin:0 0 11px; }
 .jury-list .img img { max-width:100%;
 -webkit-border-radius:4px;

@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from ckeditor.fields import RichTextField
-import pytils
-import config
-from users.models import Expert
 
 class Jury(models.Model):
-    fio = models.CharField(max_length=256, verbose_name=u'ФИО')
+    fio = models.CharField(max_length=256, verbose_name=u'ФИО ru')
+    fio_en = models.CharField(max_length=256, verbose_name=u'ФИО eng')
+    position = models.CharField(max_length=256, verbose_name=u'должность ru')
+    position_en = models.CharField(max_length=256, verbose_name=u'должность eng')
+    description = models.TextField(verbose_name=u'Описание ru')
+    description_en = models.TextField(verbose_name=u'Описание eng')
     photo = models.ImageField(upload_to= 'uploads/jury', blank=True, max_length=256, verbose_name=u'фото')
-    position = models.CharField(max_length=256, verbose_name=u'должность')
-    description = models.TextField(verbose_name=u'Описание')
     
     class Meta:
         verbose_name = u'жюри'
@@ -20,6 +19,26 @@ class Jury(models.Model):
         return self.fio
     
         
+    def get_(self, lang):
+        res = {'photo': self.photo }
+        if lang=='en':
+            res.update({'fio': self.fio_en,
+                        'position': self.position_en,
+                        'description': self.description_en })     
+        else :
+            res.update({'fio': self.fio,
+                        'position': self.position,
+                        'description': self.description })
+        return res
+    
+    @staticmethod
+    def get(slug, lang):
+        try:
+            return Jury.objects.get(slug=slug).get_(lang)
+        except:
+            return None
+        
     @staticmethod
     def get_list(lang):
-        return Jury.objects.all()
+        return [p.get_(lang) for p in Jury.objects.all()]
+    
