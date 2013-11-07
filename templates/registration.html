@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Проекты{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body-page %}reg-page{% endblock %}
+
+{% block content %}
+    <!-- .reg-block -->
+    <div class="reg-block">
+        <h1 class="headline">Регистрация</h1>
+        <!-- .form-content -->
+        <form action="#" class="form-content form-reg">
+        <div class="quick-reg">
+            <div class="label">Быстрая регистрация через openID:</div>
+            <ul class="social-list">
+            <li class="vk"><a href="#" title="ВКонтакте">ВКонтакте</a></li>
+            <li class="od"><a href="#" title="Одноклассники">Одноклассники</a></li>
+            <li class="tw"><a href="#" title="Twitter">Twitter</a></li>
+            <li class="fb"><a href="#" title="Facebook">Facebook</a></li>
+            <li class="mail"><a href="#" title="Mail">Mail</a></li>
+            <li class="lj"><a href="#" title="Живой Журнал">Живой Журнал</a></li>
+            <li class="yt"><a href="#" title="Youtube">Youtube</a></li>
+            </ul>
+        </div>
+        <div class="form-row">
+            <label for="reg-mail" class="required">Ваша электронная почта:</label>
+            <input type="text" id="reg-mail"/>
+        </div>
+        <div class="form-row">
+            <label for="reg-nick" class="required">Никнейм:</label>
+            <input type="text" id="reg-nick"/>
+        </div>
+        <div class="form-row">
+            <label for="reg-pass" class="required">Пароль:</label>
+            <input type="password" id="reg-pass"/>
+        </div>
+        <!-- .gender -->
+        <div class="form-row gender">
+            <label class="female">
+            <input type="radio" name="reg-gender"/>
+            </label>
+            <label class="male">
+            <input type="radio" name="reg-gender"/>
+            </label>
+        </div>
+        <!--// .gender -->
+        <div class="form-row birthday">
+            <label for="reg-birthday">Дата рождения:</label>
+            <input type="text" id="reg-birthday"/>
+        </div>
+        <div class="form-row">
+            <label for="reg-institution">ВУЗ:</label>
+            <input type="text" id="reg-institution"/>
+        </div>
+        <!-- .foto-block -->
+        <div class="foto-block">
+            <div class="btn font14 download-foto">
+            <a href="#">Загрузить фото</a>
+            </div>
+            <div class="foto">
+            <div class="pic">
+                <img src="/static/i/form-reg-foto.jpg" alt="" width="50" height="50"/>
+            </div>
+            <div class="replace"><a href="#">Заменить</a></div>
+            <div class="del"><a href="#">Удалить</a></div>
+            </div>
+        </div>
+        <!--// .foto-block -->
+        <div class="txt">
+            <p>Регистрируясь, вы принимаете <a href="#">«Пользовательское соглашение»</a> <br>Поля, помеченые <span class="required">оранжевым</span>, обязательны для заполнения.</p>
+        </div>
+        <button class="btn font24 submit">Регистрация</button>
+        </form>
+        <!--// .form-content -->
+    </div>
+    <!--// .reg-block -->
+{% endblock %}

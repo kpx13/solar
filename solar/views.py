@@ -39,9 +39,46 @@ def home(request):
     c['request_url'] = 'home'
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
+def about(request):
+    c = get_common_context(request)
+    c['p'] = Page.get('about', c['lang'])
+    return render_to_response('about.html', c, context_instance=RequestContext(request))
+
+def participate(request):
+    c = get_common_context(request)
+    return render_to_response('participate.html', c, context_instance=RequestContext(request))
+
+def projects(request):
+    c = get_common_context(request)
+    return render_to_response('projects.html', c, context_instance=RequestContext(request))
+
+def project(request, slug):
+    c = get_common_context(request)
+    return render_to_response('project.html', c, context_instance=RequestContext(request))
+
+def jury(request):
+    c = get_common_context(request)
+    return render_to_response('jury.html', c, context_instance=RequestContext(request))
+
+def seminars(request):
+    c = get_common_context(request)
+    return render_to_response('seminars.html', c, context_instance=RequestContext(request))
+
+def partners(request):
+    c = get_common_context(request)
+    return render_to_response('partners.html', c, context_instance=RequestContext(request))
+
+def registration(request):
+    c = get_common_context(request)
+    return render_to_response('registration.html', c, context_instance=RequestContext(request))
+
+def login(request):
+    c = get_common_context(request)
+    return render_to_response('login.html', c, context_instance=RequestContext(request))
+
 def contacts(request):
     c = get_common_context(request)
-    c.update({'p': Page.get_by_slug('contacts')})
+    c.update({'p': Page.get('contacts', c['lang'])})
     if request.method == 'GET':
         c.update({'form': FeedbackForm()})
         return render_to_response('contacts.html', c, context_instance=RequestContext(request))

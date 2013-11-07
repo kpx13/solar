@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Проекты{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body-page %}login-page{% endblock %}
+
+{% block content %}
+    <!-- .login-block -->
+    <div class="login-block">
+        <h1 class="headline">Войти</h1>
+        <!-- .form-content -->
+        <form action="#" class="form-content form-login">
+        <div class="quick-reg">
+            <div class="label">Быстрая регистрация через openID:</div>
+            <ul class="social-list">
+            <li class="vk"><a href="#" title="ВКонтакте">ВКонтакте</a></li>
+            <li class="od"><a href="#" title="Одноклассники">Одноклассники</a></li>
+            <li class="tw"><a href="#" title="Twitter">Twitter</a></li>
+            <li class="fb"><a href="#" title="Facebook">Facebook</a></li>
+            <li class="mail"><a href="#" title="Mail">Mail</a></li>
+            <li class="lj"><a href="#" title="Живой Журнал">Живой Журнал</a></li>
+            <li class="yt"><a href="#" title="Youtube">Youtube</a></li>
+            </ul>
+        </div>
+        <div class="form-row">
+            <label for="login-nick" class="required">Ваша электронная почта или Никнейм:</label>
+            <input type="text" id="login-nick"/>
+        </div>
+        <div class="form-row">
+            <label for="login-pass" class="required">Пароль:</label>
+            <input type="password" id="login-pass"/>
+        </div>
+        <button class="btn font24 submit">Войти на сайт</button>
+        <div class="txt">
+            <p>Вы здесь впервые? Тогда, пожалуйста, <a href="#">зарегистрируйтесь</a> <br>Не получается зайти? Возможно вы <a href="#">забыли пароль?</a></p>
+        </div>
+        </form>
+        <!--// .form-content -->
+    </div>
+    <!--// .login-block -->
+{% endblock %}

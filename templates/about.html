@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ p.title }}{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+    <!-- .text-block -->
+        <div class="text-block">
+          <h1 class="headline">О конкурсе</h1>
+          {{ p.content|safe }}
+        </div>
+        <!--// .text-block -->
+        <!-- .nominations -->
+        <div class="nominations">
+          <h2 class="h1">Номинации конкурса</h2>
+          <!-- .nominations-list -->
+          <ul class="nominations-list">
+            <li class="nomination1">
+              <div class="title"><a href="#">Перспективы применения возобновляемых источников энергии (ВИЭ) в вашем городе<i class="ico"></i></a></div>
+              <div class="txt">Современная экология не может развиваться без  альтернативной энергетики.</div>
+            </li>
+            <li class="nomination2">
+              <div class="title"><a href="#">Инновационные решения - альтернативная энергетика<i class="ico"></i></a></div>
+              <div class="txt">Современная экология не может развиваться без  альтернативной энергетики. Особенно актуален этот вопрос для Москвы</div>
+            </li>
+            <li class="nomination3">
+              <div class="title"><a href="#">Дизайн-проекты использования ВИЭ в городской среде<i class="ico"></i></a></div>
+              <div class="txt">Современная экология не может развиваться без альтернативной энергетики. Особенно актуален этот вопрос для Москвы</div>
+            </li>
+          </ul>
+          <!--// .nominations-list -->
+        </div>
+        <!--// .nominations -->
+        <!-- .stages -->
+        <div class="stages">
+          <h2 class="h1">Этапы конкурса</h2>
+          <!-- .stages-list -->
+          <ul class="stages-list">
+            <li class="passed">
+              <div class="title">Этап 1</div>
+              <div class="txt">Прием заявок на участие</div>
+              <div class="progress"></div>
+              <div class="date">12 октября</div>
+            </li>
+            <li class="passed">
+              <div class="title">Этап 2</div>
+              <div class="txt">Интернет голосование</div>
+              <div class="progress">
+                <div class="div"><i class="circle"></i></div>
+              </div>
+              <div class="date">12 октября</div>
+            </li>
+            <li>
+              <div class="title">Этап 3</div>
+              <div class="txt">Определение победителей экспертной комиссией</div>
+              <div class="progress">
+                <div class="div"><i class="circle"></i></div>
+              </div>
+              <div class="date">12 октября</div>
+            </li>
+            <li>
+              <div class="title">Этап 4</div>
+              <div class="txt">Подведение итогов и объявление результатов</div>
+              <div class="progress">
+                <div class="div"><i class="circle"></i></div>
+              </div>
+              <div class="date">12 октября</div>
+            </li>
+            <li>
+              <div class="title">Этап 5</div>
+              <div class="txt">Период отчетности победителей по реализации проектов</div>
+              <div class="progress">
+                <div class="div"><i class="circle"></i></div>
+              </div>
+              <div class="date">12 октября</div>
+            </li>
+          </ul>
+          <!--// .stages-list -->
+        </div>
+        <!--// .stages -->
+        <div class="download-rules">
+          <div class="link"><a href="#">Скачать положение о конкурсе</a></div>
+        </div>
+        <div class="btn font18 participate">
+          <a href="#">Принять участие</a>
+        </div>
+      
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body-page %}contacts-page{% endblock %}
+
+{% block content %}
+    <!-- .contacts-block -->
+    <div class="contacts-block">
+        <h1 class="headline">Контакты</h1>
+        <div class="map">
+        <img src="/static/i/map.jpg" alt="" width="369" height="290"/>
+        </div>
+        <!-- .contacts-list -->
+        <ul class="contacts-list">
+        <li>115114, Москва</li>
+        <li>Дербеневская наб., 11, корп.А, сектор 2, офис 321</li>
+        <li><span class="label">Тел.:</span> +7(495)913-6725</li>
+        <li><span class="label">Факс:</span> +7(495)913-6726</li>
+        <li><a href="#">info@eurosolarrussia.org</a></li>
+        <li><a href="#">www.eurosolarrussia.org</a></li>
+        <li>
+            <!-- .social-list -->
+            <ul class="social-list">
+            <li class="vk"><a href="#" title="ВКонтакте">ВКонтакте</a></li>
+            <li class="tw"><a href="#" title="Twitter">Twitter</a></li>
+            <li class="fb"><a href="#" title="Facebook">Facebook</a></li>
+            <li class="yt"><a href="#" title="Youtube">Youtube</a></li>
+            </ul>
+            <!--// .social-list -->
+        </li>
+        </ul>
+        <!--// .contacts-list -->
+    </div>
+    <!--// .contacts-block -->
+    <!-- .feedback-block -->
+    <div class="login-block">
+        <h2 class="h1">Обратная связь</h2>
+        <!-- .form-feedback -->
+        <form action="#" class="form-content form-feedback">
+        <div class="form-row">
+            <label for="feedback-name">Как вас зовут:</label>
+            <input type="text" id="feedback-name"/>
+        </div>
+        <div class="form-row">
+            <label for="feedback-mail">Ваша электронная почта:</label>
+            <input type="text" id="feedback-mail"/>
+        </div>
+        <div class="form-row">
+            <label for="feedback-mess">Ваше сообщение:</label>
+            <textarea name="" id="feedback-mess"></textarea>
+        </div>
+        <button class="btn font14 submit">Отправить</button>
+        </form>
+        <!--// .form-feedback -->
+    </div>
+    <!--// .feedback-block -->
+
+{% endblock %}

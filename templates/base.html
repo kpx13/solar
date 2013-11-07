@@ -15,7 +15,7 @@
   {% block head %}
   {% endblock %}
 </head>
-<body class="about-page">
+<body class="{% block body-page %}about-page{% endblock %}">
   <!-- .root -->
   <div class="root">
     <!-- header -->
@@ -39,9 +39,9 @@
       <div class="h-panel">
         <!-- .auth-block -->
         <ul class="auth-block">
-          <li><a href="#">Войти на сайт</a></li>
+          <li><a href="/login/">Войти на сайт</a></li>
           <li>/</li>
-          <li><a href="#">Регистрация</a></li>
+          <li><a href="/registration/">Регистрация</a></li>
         </ul>
         <!--// .auth-block -->
         <div class="slogan">Конкурс студенческих творческих работ по применению возобновляемых источников энергии в городской среде</div>
@@ -57,21 +57,21 @@
         <nav class="h-menu">
           <ul>
             <li><a href="/">{% trans 'Главная' %}</a></li>
-            <li><a href="/o-konkurse/">{% trans 'О конкурсе' %}</a></li>
-            <li><a href="#">{% trans 'Контакты' %}</a></li>
-            <li><a href="#">{% trans 'Участвовать' %}</a></li>
+            <li><a href="/about/">{% trans 'О конкурсе' %}</a></li>
+            <li><a href="/contacts/">{% trans 'Контакты' %}</a></li>
+            <li><a href="/participate/">{% trans 'Участвовать' %}</a></li>
           </ul>
         </nav>
         <!--// .h-menu -->
         <!-- .h-nav -->
         <nav class="h-nav">
           <ul>
-            <li class="index"><a href="#">Главная<i class="ico"></i></a></li>
-            <li class="projects"><a href="#">Проекты<i class="ico"></i></a></li>
-            <li class="jury"><a href="#">Жюри<i class="ico"></i></a></li>
-            <li class="rules"><a href="#">Правила<i class="ico"></i></a></li>
-            <li class="seminars"><a href="#">Семинары<i class="ico"></i></a></li>
-            <li class="partners"><a href="#">Партнеры<i class="ico"></i></a></li>
+            <li class="index"><a href="/">Главная<i class="ico"></i></a></li>
+            <li class="projects"><a href="/projects/">Проекты<i class="ico"></i></a></li>
+            <li class="jury"><a href="/jury/">Жюри<i class="ico"></i></a></li>
+            <li class="rules"><a href="/rules/">Правила<i class="ico"></i></a></li>
+            <li class="seminars"><a href="/seminars/">Семинары<i class="ico"></i></a></li>
+            <li class="partners"><a href="/partners/">Партнеры<i class="ico"></i></a></li>
           </ul>
         </nav>
         <!--// .h-nav -->
