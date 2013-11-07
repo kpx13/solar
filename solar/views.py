@@ -52,18 +52,6 @@ def about(request):
     c['p'] = Page.get('about', c['lang'])
     return render_to_response('about.html', c, context_instance=RequestContext(request))
 
-"""
-    name = fields.CharField(label=u'имя')
-    last_name = fields.CharField(label=u'фамилия')
-    photo = fields.ImageField(required=False, label=u'фото')
-    sex = fields.CharField(required=False, label=u'пол')
-    date_birth = fields.DateField(required=False, label=u'дата рождения')
-    school = fields.CharField(label=u'ВУЗ')
-    about = fields.CharField(required=False, label=u'о себе')
-    nomination = fields.CharField(label=u'номинация')
-    title = fields.CharField(label=u'название работы')
-"""
-
 def participate(request):
     c = get_common_context(request)
     user = request.user
@@ -137,6 +125,11 @@ def project(request, slug):
     proj = Project.get(slug, c['lang'])
     c['proj'] = proj
     c['its_mine'] = proj['participant'].user == request.user
+    if request.method == 'POST':
+        if request.POST.get('action') == 'review':
+            Project.objects.get(slug=slug).add_review(Expert.objects.get(user=request.user), 
+                            request.POST.get('content'))
+            return HttpResponseRedirect('/project/%s/' % slug)
     return render_to_response('project.html', c, context_instance=RequestContext(request))
 
 def jury(request):

@@ -76,19 +76,25 @@
             <!--// .comments-list -->
             <div class="all"><a href="#">Все комментарии</a></div>
             
+
             {% if its_mine %}
                 <div class="btn to-comment font12">
                     <a href='/project/' >Редактировать</a>
                 </div>
             {% else %}
-                <div class="btn to-comment font12">
-                    <a href="#">Оставить комментарий</a>
-                </div>
-            {% endif %}
-            {% if ime_expert %}
-                <div class="btn to-comment font12">
-                    <a href='#' >Оставить рецензию</a>
-                </div>
+                <div style='clear: both'></div>
+                <br /><br /><br />
+                <form action="" id='add_comment'  method='POST' >
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <label >Ваш комментарий:</label><br /><br />
+                        <textarea name="content" id="" style='width: 210px; height: 80px'></textarea>
+                    </div>
+                    <input type='hidden' name='action' value='comment' /> <br />
+                    <button type='submit' class="btn font12 ">Оставить комментарий</button>
+                </form>
+                <br />
+                
             {% endif %}
         </div>
         <!--// .project-comments -->
@@ -100,6 +106,21 @@
             <div class="txt">
                 {{ proj.content|safe }}
             </div>
+            {% if ime_expert %}
+                <form action="" id='add_review'  method='POST' enctype="multipart/form-data" class="form-content" style='padding-left: 30px'>
+                    {% csrf_token %}
+
+                    <div class="form-row">
+                        <label class="required">Добавить рецензию:</label>
+                        <textarea name="content" id="" style='width: 430px'></textarea>
+                    </div>
+                        
+                    <input type='hidden' name='action' value='review' /> 
+                    <button type='submit' class="btn font18 ">Добавить</button>
+                </form>
+                <br />
+            {% endif %}
+            
             {% if proj.reviews %}
                 <h2 class="h1">Рецензии:</h2>
                 {% for r in proj.reviews %}
@@ -109,6 +130,8 @@
                     </div>
                 {% endfor %}
             {% endif %}
+            
+            
         </div>
         <!--// .project-block-description -->
     </div>

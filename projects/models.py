@@ -102,6 +102,12 @@ class Project(models.Model):
     def get_list(lang):
         return [p.get_(lang) for p in Project.objects.all()]
     
+    def add_review(self, expert, content):
+        Review(expert=expert,
+               project=self,
+               content=content,
+               content_en=content).save()
+    
 class Review(models.Model):
     expert = models.ForeignKey(Expert, verbose_name=u'эксперт')
     project = models.ForeignKey(Project, related_name='reviews', verbose_name=u'проект')
