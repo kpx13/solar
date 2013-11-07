@@ -10,35 +10,35 @@
 {% block content %}
     <!-- .project-block -->
     <div class="project-block">
-        <h1 class="headline">Название проекта</h1>
+        <h1 class="headline">{{ proj.title }}</h1>
         <!-- .project-block-info -->
         <div class="project-block-info">
         <!-- .project-block-details -->
         <div class="project-block-details">
             <!-- .author -->
             <div class="author">
-            <div class="name"><a href="#">Роман Константинопольский</a></div>
+            <div class="name"><a href="#">{{ proj.participant.user.first_name }} {{ proj.participant.user.last_name }}</a></div>
             <div class="userpic">
                 <a href="#">
-                <img src="/static/i/userpic-project.jpg" alt="Роман Константинопольский" width="68" height="68"/>
+                <img src="/media/{{ proj.participant.user.get_profile.photo }}" alt="{{ proj.participant.user.first_name }} {{ proj.participant.user.last_name }}" width="68" />
                 </a>
             </div>
             <div class="institution">
                 <div class="title">ВУЗ:</div>
-                <div class="txt">Московский государственный университет им. М.В. Ломоносова</div>
+                <div class="txt">{{ proj.participant.user.get_profile.school }}</div>
             </div>
             </div>
             <!--// .author -->
             <!-- .description -->
             <div class="description">
             <div class="caption">Номинация:</div>
-            <div class="txt"><a href="#">Инновационные решения - альтернативная энергетика</a></div>
+            <div class="txt"><a href="#">{{ proj.nomination.title }}</a></div>
             <div class="caption">Название проекта:</div>
-            <div class="txt">Использование солнечной энергии в условиях призматического разделения фотонов</div>
+            <div class="txt">{{ proj.title }}</div>
             </div>
             <!--// .description -->
             <div class="link">
-            <a href="#">Скачать полную версию</a>
+            <a href="/media/{{ proj.file }}">Скачать полную версию</a>
             </div>
             <div class="counts">
             <div class="votes">168</div>
@@ -75,21 +75,25 @@
             </ul>
             <!--// .comments-list -->
             <div class="all"><a href="#">Все комментарии</a></div>
-            <div class="btn to-comment font12">
-            <a href="#">Оставить комментарий</a>
-            </div>
+            
+            {% if its_mine %}
+                <div class="btn to-comment font12">
+                    <a href='/project/' >Редактировать</a>
+                </div>
+            {% else %}
+                <div class="btn to-comment font12">
+                    <a href="#">Оставить комментарий</a>
+                </div>
+            {% endif %}
         </div>
         <!--// .project-comments -->
         </div>
         <!--// .project-block-info -->
         <!-- .project-block-description -->
         <div class="project-block-description">
-        <img src="/static/i/project-big-pic1.jpg" alt="Название проекта" width="481" height="295" class="project-pic"/>
+        <img src="/media/{{ proj.image }}" alt="Название проекта" width="481"  class="project-pic"/>
         <div class="txt">
-            <p>Предварительно проводят исследование потенциала местности. Анемометры устанавливают на высоте от 30 до 100 метров, и в течение одного—двух лет собирают информацию о скорости и направлении ветра. Полученные сведения могут объединяться в карты доступности энергии ветра. Такие карты (и специальное программное обеспечение) позволяют потенциальным инвесторам оценить скорость окупаемости проекта.</p>
-            <p>Обычные метеорологические сведения не подходят для строительства ветряных электростанций, так как эти сведения о скоростях ветра собирались на уровне земли (до 10 метров) и в черте городов, или в аэропортах.</p>
-            <p>Во многих странах карты ветров для ветроэнергетики создаются государственными структурами, или с государственной помощью. Например, в Канаде Министерство развития и Министерство Природных ресурсов создали Атлас ветров Канады и WEST (Wind Energy Simulation Toolkit) — компьютерную модель, позволяющую планировать установку ветрогенераторов в любой местности Канады. В 2005 году Программа Развития ООН создала карту ветров для 19 развивающихся стран.</p>
-            <p>Предварительно проводят исследование потенциала местности. Анемометры устанавливают на высоте от 30 до 100 метров, и в течение одного—двух лет собирают информацию о скорости и направлении ветра. Полученные сведения могут объединяться в карты доступности энергии ветра. Такие карты (и специальное программное обеспечение) позволяют потенциальным инвесторам оценить скорость окупаемости проекта.</p>
+            {{ proj.content|safe }}
         </div>
         </div>
         <!--// .project-block-description -->

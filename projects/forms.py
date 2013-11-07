@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
  
-from django.forms import ModelForm, Form, fields, PasswordInput
-
+from django.forms import ModelForm, Form, fields
+from models import Project
  
 class ParticipateForm(Form):
     name = fields.CharField(label=u'имя')
@@ -13,7 +13,12 @@ class ParticipateForm(Form):
     about = fields.CharField(required=False, label=u'о себе')
     nomination = fields.CharField(label=u'номинация')
     title = fields.CharField(label=u'название работы')
+
+class ProjectForm(ModelForm):
     
+    class Meta:
+        model = Project
+        exclude = ('participant', 'slug', 'date')
     
 """
 class RegisterOptForm(ModelForm):

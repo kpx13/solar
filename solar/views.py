@@ -15,7 +15,7 @@ from news.models import Article
 from jury.models import Jury
 from partners.models import Partner
 from seminars.models import Seminar
-from projects.forms import ParticipateForm
+from projects.forms import ParticipateForm, ProjectForm
 from projects.models import Project, Nomination
 from users.models import Participant, Expert
 
@@ -101,12 +101,30 @@ def participate(request):
                            nomination=Nomination.get_by_slug((form.data['nomination'])),
                            title=form.data['title'])
             proj.save()
-            print 'OKKKKKKKKK'
+            return HttpResponseRedirect('/project/')
         else:
-            print 'NOT VALID'
+            pass
         
         c['form'] = form
     return render_to_response('participate.html', c, context_instance=RequestContext(request))
+
+def edit_project(request):
+    c = get_common_context(request)
+    user = request.user
+    profile = user.get_profile()
+    proj = Participant.get_project(user)
+    c['slug'] = proj.slug
+    if request.method == 'GET':
+        c['form'] = ProjectForm(instance=proj)
+    else:
+        form = ProjectForm(request.POST, request.FILES, instance=proj)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/project/%s/' % Participant.get_project(user))
+        else:
+            pass
+        c['form'] = form
+    return render_to_response('edit_project.html', c, context_instance=RequestContext(request))
 
 def projects(request):
     c = get_common_context(request)
@@ -114,6 +132,9 @@ def projects(request):
 
 def project(request, slug):
     c = get_common_context(request)
+    proj = Project.get(slug, c['lang'])
+    c['proj'] = proj
+    c['its_mine'] = proj['participant'].user == request.user
     return render_to_response('project.html', c, context_instance=RequestContext(request))
 
 def jury(request):
