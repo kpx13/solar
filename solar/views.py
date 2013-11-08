@@ -4,6 +4,7 @@ from django.core.context_processors import csrf
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.contrib.auth.models import User
 from feedback.forms import FeedbackForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import config
@@ -152,6 +153,21 @@ def news_article(request, slug):
                             request.POST.get('content'))
             return HttpResponseRedirect('/news/%s/' % slug)
     return render_to_response('news_item.html', c, context_instance=RequestContext(request))
+
+def user(request, username):
+    c = get_common_context(request)
+    c['user'] = User.objects.get(username=username)
+    c['profile'] = c['user'].get_profile()
+    c['role'] = u'Пользователь'
+    if Expert.exist(c['user']):
+        c['role'] = u'Эксперт'
+        c['expert'] = Expert.objects.get(user=c['user']).get_(c['lang'])
+    elif Participant.exist(c['user']):
+        c['role'] = u'Участник'
+        c['participant'] = Participant.objects.get(user=c['user'])
+        
+    return render_to_response('user.html', c, context_instance=RequestContext(request))
+
 
 def jury(request):
     c = get_common_context(request)

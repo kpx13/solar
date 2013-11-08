@@ -18,9 +18,9 @@
         <div class="project-block-details">
             <!-- .author -->
             <div class="author">
-            <div class="name"><a href="#">{{ proj.participant.user.first_name }} {{ proj.participant.user.last_name }}</a></div>
+            <div class="name"><a href="/user/{{ proj.participant.user.username }}/">{{ proj.participant.user.first_name }} {{ proj.participant.user.last_name }}</a></div>
             <div class="userpic">
-                <a href="#">
+                <a href="/user/{{ proj.participant.user.username }}/">
                 <img src="/media/{{ proj.participant.user.get_profile.photo }}" alt="{{ proj.participant.user.first_name }} {{ proj.participant.user.last_name }}" width="68" />
                 </a>
             </div>
@@ -53,11 +53,13 @@
             <ul class="comments-list">
                 {% for c in proj.comments_short %}
                     <li>
-                        <div class="userpic">
-                            <a href="#"><img src="/media/{{ c.user.get_profile.photo }}" alt="{{ c.user.first_name }} {{ c.user.last_name }}" width="32" /></a>
-                        </div>
+                        {% if c.user.get_profile.photo %}
+                            <div class="userpic">
+                                <a href="/user/{{ c.user.username }}/"><img src="/media/{{ c.user.get_profile.photo }}" alt="{{ c.user.first_name }} {{ c.user.last_name }}" width="32" /></a>
+                            </div>
+                        {% endif %}
                         <div class="author">
-                            <div class="name"><a href="#">{{ c.user.first_name }} {{ c.user.last_name }}</a></div>
+                            <div class="name"><a href="/user/{{ c.user.username }}/">{{ c.user.first_name }} {{ c.user.last_name }}</a></div>
                         </div>
                         <div class="txt">{{ c.content }}</div>
                         <div class='clear'></div>

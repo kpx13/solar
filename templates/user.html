@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.username }}{% endblock %}
+
+{% block head %}
+    <style>
+        .value { color: #222; }
+    </style>
+{% endblock %}
+
+{% block body-page %}rules-page{% endblock %}
+
+{% block content %}
+    <div class="text-block">
+        <h1 class="headline">{{ role }} </h1>
+        {% if profile.photo %}
+            <div class="userpic" style='float: left; margin-right: 20px; '>
+                <img src="/media/{{ profile.photo }}" alt="{{ expert.fio }}" style='max-width: 100px' />
+            </div>
+        {% endif %}
+        
+        <p>Никнейм: <span class='value'>{{ user.username }}</span></p>
+        
+        {% if expert %}
+            <p><b>{{ expert.fio }}</b><br />({{ expert.position }})</p>
+            <p>{{ expert.about }}</p>
+        {% else %}
+            <p><span class='value'><b>{{ user.first_name }} {{ user.last_name }}</b></span></p>
+            {% if profile.date_birth %}<p>Дата рождения: <span class='value'>{{ profile.date_birth }}</span></p>{% endif %}
+            {% if profile.school %}<p>ВУЗ: <span class='value'>{{ profile.school }}</span></p>{% endif %}
+        {% endif %}
+        
+        {% if participant %}
+            <p>О себе: <span class='value'>{{ participant.about }}</span></p>
+        {% endif %}
+    </div>
+{% endblock %}
