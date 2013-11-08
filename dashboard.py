@@ -43,126 +43,45 @@ class CustomIndexDashboard(Dashboard):
         
         self.children.append(
             modules.ModelList(
-                title = u'Страницы',
+                title = u'Контент',
                 models=(
                     'pages.models.Page',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Свадьбы',
-                models=(
-                    'wedding.models.Country',
-                    'wedding.models.Place',
-                    'wedding.models.PlaceEventType',
-                    'wedding.models.PlaceType',
-                    'wedding.models.PlaceSeason',
-                ),
-            )
-        )
-        
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Блог',
-                models=(
-                    'blog.models.Category',
-                    'blog.models.Article',
-                ),
-            )
-        )
-        
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Заказы',
-                models=(
-                    'order.models.Order',
-                    'order.models.OrderServices',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Обратная связь',
-                models=(
-                    'feedback.models.Feedback',
-                ),
-            )
-        )
-        
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Галерея',
-                models=(
-                    'gallery.models.Category',
-                    'gallery.models.Photo',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Идеи',
-                models=(
-                    'ideas.models.Article',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Новости',
-                models=(
+                    'jury.models.Jury',
+                    'partners.models.Partner',
                     'news.models.Article',
+                    'seminars.models.Seminar',
                 ),
             )
         )
         
-        self.children.append(
-            modules.ModelList(
-                title = u'Отзывы',
-                models=(
-                    'review.models.Review',
-                ),
-            )
-        )
         
-        self.children.append(
-            modules.ModelList(
-                title = u'Слайдшоу',
-                models=(
-                    'slideshow.models.Slider',
-                    'banner.models.Banner',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Команда',
-                models=(
-                    'team.models.Team',
-                ),
-            )
-        )
-        
-        # append a recent actions module
-        self.children.append(modules.RecentActions(_('Recent Actions'), 5))
-
         self.children.append(
             modules.ModelList(
                 title = u'Пользователи',
                 models=(
+                    'users.models.Expert',
+                    'users.models.Participant',
                     'django.contrib.auth.*',
-                    'users.models.Profile',
+                    'feedback.models.Feedback'
                 ),
             )
         )
+        
+
+        self.children.append(
+            modules.ModelList(
+                title = u'Проекты',
+                models=(
+                    'projects.models.Nomination',
+                    'projects.models.Project',
+                ),
+            )
+        )
+                
+        # append a recent actions module
+        self.children.append(modules.RecentActions(_('Recent Actions'), 5))
+
+        
         
 
 
