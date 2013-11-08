@@ -27,9 +27,10 @@
         </a>
         <!-- .h-search -->
         <div class="h-search">
-          <form action="#">
-            <input type="text" value="поиск по сайту"/>
-            <button>Искать</button>
+          <form action="/search/" method='post'>
+            {% csrf_token %}
+            <input type="text" placeholder="поиск по сайту" name='q' value='{{ q }}'/>
+            <button type='submit'>Искать</button>
           </form>
         </div>
         <!--// .h-search -->

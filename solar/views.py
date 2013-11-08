@@ -168,6 +168,18 @@ def comments(request):
     c['news_comments'] = NewsComment.objects.all()[:3]
     return render_to_response('comments.html', c, context_instance=RequestContext(request))
 
+def search(request):
+    c = get_common_context(request)
+    if request.method == 'POST':
+        q = request.POST.get('q', '')
+        if q:
+            c['q'] = q
+            c['projects'] = Project.search(q, c['lang'])
+            c['news'] = Article.search(q, c['lang'])
+            c['seminars'] = Seminar.search(q, c['lang'])
+            return render_to_response('search.html', c, context_instance=RequestContext(request))
+    return HttpResponseRedirect('/')
+
 def user(request, username):
     c = get_common_context(request)
     c['user'] = User.objects.get(username=username)

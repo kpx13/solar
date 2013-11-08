@@ -4,6 +4,7 @@ from ckeditor.fields import RichTextField
 import pytils
 import config
 from users.models import Expert
+from django.db.models import Q
 from django.contrib.auth.models import User
 
 class Seminar(models.Model):
@@ -50,6 +51,12 @@ class Seminar(models.Model):
     @staticmethod
     def get_list(lang):
         return [p.get_(lang) for p in Seminar.objects.all()]
+    
+    @staticmethod
+    def search(query, lang):
+        return [p.get_(lang) for p in Seminar.objects.filter(Q(title__icontains=query) |
+                                                             Q(title_en__icontains=query) |
+                                                             Q(content__icontains=query))]
     
     def add_comment(self, user, content):
         SeminarComment(user=user,

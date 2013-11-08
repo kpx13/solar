@@ -9,7 +9,7 @@
     <div class="tabs-tab">
         <!-- .comments-list -->
         <ul class="comments-list">
-            {% for c in project_comments %}
+            {% for c in recent_comments %}
                 <li>
                     {% if c.user.get_profile.photo %}
                         <div class="userpic" style='float: left; padding-right: 20px;'>

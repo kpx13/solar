@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 import pytils
 import config
 from users.models import Participant, Expert
+from django.db.models import Q
 
 class Nomination(models.Model):
     title = models.CharField(max_length=200, verbose_name=u'заголовок рус')
@@ -106,6 +107,17 @@ class Project(models.Model):
     @staticmethod
     def get_list(lang):
         return [p.get_(lang) for p in Project.objects.all()]
+    
+    @staticmethod
+    def search(query, lang):
+        return [p.get_(lang) for p in Project.objects.filter(Q(title__icontains=query) |
+                                                             Q(title_en__icontains=query) |
+                                                             Q(desc__icontains=query) |
+                                                             Q(desc_en__icontains=query) |
+                                                             Q(content__icontains=query) |
+                                                             Q(content_en__icontains=query))]
+    
+    
     
     def add_review(self, expert, content):
         Review(expert=expert,

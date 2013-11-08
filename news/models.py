@@ -2,6 +2,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
+from django.db.models import Q
 import pytils
 
 class Article(models.Model):
@@ -56,6 +57,15 @@ class Article(models.Model):
     @staticmethod
     def get_list(lang):
         return [p.get_(lang) for p in Article.objects.all()]
+    
+    @staticmethod
+    def search(query, lang):
+        return [p.get_(lang) for p in Article.objects.filter(Q(title__icontains=query) |
+                                                             Q(title_en__icontains=query) |
+                                                             Q(content_more__icontains=query) |
+                                                             Q(content_more_en__icontains=query) |
+                                                             Q(content__icontains=query) |
+                                                             Q(content_en__icontains=query))]
     
     def add_comment(self, user, content):
         NewsComment(user=user,

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Поиск{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body-page %}rules-page{% endblock %}
+
+{% block content %}
+    <div class="text-block">
+        <h1 class="headline">Поиск: "{{ q }}"</h1>
+        
+        <!-- .projects-list -->
+        <ul class="projects-list">
+            {% for l in projects %}
+                <li>
+                    <div class="img">
+                        <a href="/project/{{ l.slug }}/"><img src="/media/{{ l.image }}" alt="" width="202" /></a>
+                    </div>
+                    <div class="title"><a href="/project/{{ l.slug }}/">{{ l.title }}</a></div>
+                    <div class="txt">{{ l.desc }}</div>
+                    <div class="author">
+                    <div class="userpic">
+                        <a href="/user/{{ l.participant.user.username }}/"><img src="/media/{{ l.participant.user.get_profile.photo }}" alt="{{ l.participant.user.first_name }} {{ l.participant.user.last_name }}" width="32" /></a>
+                    </div>
+                    <div class="label">Автор:</div>
+                    <div class="name"><a href="/user/{{ l.participant.user.username }}">{{ l.participant.user.first_name }} {{ l.participant.user.last_name }}</a></div>
+                    </div>
+                    <div class="counts">
+                    <div class="votes">168</div>
+                    <div class="comments">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ l.comments_count }}</div>
+                    </div>
+                </li>
+            {% endfor %}    
+        </ul>
+        <!--// .projects-list -->
+        
+        {% for l in news %}
+            <div>
+                <p>
+                    <a href='/news/{{ l.slug }}/'><h2>{{ l.title }}</h2></a>
+                    <br />
+                    <i>{{ l.date }}</i>
+                </p>
+                <p>{{ l.content }}</p>
+                <br />
+            </div>
+        {% endfor %}
+        
+        
+        <!-- .seminars-list -->
+        <ul class="seminars-list">
+            {% for l in seminars %}
+                <li>
+                    <div class="img">
+                        <iframe width="339" height="200" src="{{ l.content }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="title"><a href="/seminar/{{ l.slug }}/">{{ l.title }}</a></div>
+                    <div class="author">
+                    <div class="userpic"><img src="/media/{{ l.expert.user.get_profile.photo }}" alt="" width="32" height="32"/></div>
+                    <div class="name">{{ l.expert.fio }}</div>
+                    <div class="post">({{ l.expert.desc }})</div>
+                    </div>
+                    <div class="counts">
+                    <div class="comments"><a href="/seminar/{{ l.slug }}/">{{ l.comments_count }}</a></div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <!--// .seminars-list -->
+    </div>
+    
+{% endblock %}
