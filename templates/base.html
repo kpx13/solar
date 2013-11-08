@@ -41,8 +41,8 @@
         
             {% if request.user.is_authenticated %}
                 <ul class="auth-block">
-                    <li>{{ request.user.username }}</li>
-                    <li><a href="/profile/">Настройки</a></li>
+                    <li>{{ request.user.first_name }} {{ request.user.last_name }}</li>
+                    <li><a href="/profile/">Профиль</a></li>
                     <li>/</li>
                     <li><a href="{% url logout %}">Выход</a></li>
                 </ul>
@@ -69,7 +69,11 @@
             <li><a href="/">{% trans 'Главная' %}</a></li>
             <li><a href="/about/">{% trans 'О конкурсе' %}</a></li>
             <li><a href="/contacts/">{% trans 'Контакты' %}</a></li>
-            <li><a href="/participate/">{% trans 'Участвовать' %}</a></li>
+            {% if ime_participant %}
+                <li><a href="/participate/">{% trans 'Мой проект' %}</a></li>
+            {% else %}
+                <li><a href="/participate/">{% trans 'Участвовать' %}</a></li>
+            {% endif %}
           </ul>
         </nav>
         <!--// .h-menu -->

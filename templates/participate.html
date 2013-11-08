@@ -17,68 +17,63 @@
             <!-- .form-content -->
             <form action=""  method='POST' enctype="multipart/form-data" class="form-content form-participate">
                 {% csrf_token %}
-                {{ form.as_p }}
+               
+                <div class="form-row{% if form.name.errors %} error {% endif %}" >
+                    <label class="required" >Имя:</label>
+                    {{ form.name }}
+                </div>
                 
-                {% comment %}
-                    <div class="form-row">
-                        <label for="participate-name" class="required">Ваше имя:</label>
-                        <input type="text" id="participate-name"/>
-                    </div>
-                    <div class="form-row">
-                        <label for="participate-surname" class="required">Фамилия:</label>
-                        <input type="text" id="participate-surname"/>
-                    </div>
-                    <!-- .foto-block -->
-                    <div class="foto-block">
-                        <div class="btn font14 download-foto">
-                        <a href="#">Загрузить фото</a>
-                        </div>
-                        <div class="foto">
+                <div class="form-row{% if form.last_name.errors %} error {% endif %}" >
+                    <label  class="required" >Фамилия:</label>
+                    {{ form.last_name }}
+                </div>
+                
+                <!-- .foto-block -->
+                <div class="foto-block">
+                    
+                    <div class="foto">
                         <div class="pic">
-                            <img src="/static/i/form-reg-foto.jpg" alt="" width="50" height="50"/>
-                        </div>
-                        <div class="replace"><a href="#">Заменить</a></div>
-                        <div class="del"><a href="#">Удалить</a></div>
+                            <img src="/media/{{ user_photo }}" alt="" height="50"/>
+                            <input type='file' name='photo' />
                         </div>
                     </div>
-                    <!--// .foto-block -->
-                    <div class="form-row">
-                        <label for="participate-institution" class="required">ВУЗ:</label>
-                        <input type="text" id="participate-institution"/>
-                    </div>
-                    <!-- .gender -->
-                    <div class="form-row gender">
-                        <label class="female">
-                        <input type="radio" name="reg-gender"/>
-                        </label>
-                        <label class="male">
-                        <input type="radio" name="reg-gender"/>
-                        </label>
-                    </div>
-                    <!--// .gender -->
-                    <div class="form-row birthday">
-                        <label for="participate-birthday">Дата рождения:</label>
-                        <input type="text" id="participate-birthday"/>
-                    </div>
-                    <div class="form-row">
-                        <label for="participate-about-yourself">О себе:</label>
-                        <textarea name="" id="participate-about-yourself"></textarea>
-                    </div>
-                    <div class="form-row">
-                        <label for="participate-nomination" class="required">Выбранная номинация:</label>
-                        <select name="" id="participate-nomination">
-                        <option value=""> </option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <label for="participate-title" class="required">Название работы:</label>
-                        <input type="text" id="participate-title"/>
-                    </div>
-                {% endcomment %}
+                </div>
+                <!--// .foto-block -->
+                
+                <!-- .gender -->
+                <div class="form-row gender">
+                    <label class="female">
+                        <input type="radio" name="sex" value='f' {% if form.sex.value == 'f' %} checked {% endif %}/>
+                    </label>
+                    <label class="male">
+                        <input type="radio" name="sex" value='m' {% if form.sex.value == 'm' %} checked {% endif %}/>
+                    </label>
+                </div>
+                <!--// .gender -->
+                <div class="form-row birthday">
+                    <label for="reg-birthday">Дата рождения:</label>
+                    {{ form.date_birth }}
+                </div>
+                <div class="form-row{% if form.school.errors %} error {% endif %}">
+                    <label for="reg-institution" class="required">ВУЗ:</label>
+                    {{ form.school }}
+                </div>
+                
+                <div class="form-row">
+                    <label for="participate-about-yourself">О себе:</label>
+                    <textarea name="about" id="participate-about-yourself">{% if form.about.value %}{{ form.about.value }}{% endif %}</textarea>
+                </div>
+                
+                <div class="form-row{% if project_form.nomination.errors %} error {% endif %}" >
+                    <label class="required" >Номинация:</label>
+                    {{ project_form.nomination }}
+                </div>
+                
+                <div class="form-row{% if project_form.title.errors %} error {% endif %}" >
+                    <label  class="required" >Название работы:</label>
+                    {{ project_form.title }}
+                </div>
+                    
                 <div class="txt">
                     <p>Поля, помеченые <span class="required">оранжевым</span>, обязательны для заполнения.</p>
                 </div>

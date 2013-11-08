@@ -11,8 +11,6 @@ class ParticipateForm(Form):
     date_birth = fields.DateField(required=False, label=u'дата рождения')
     school = fields.CharField(label=u'ВУЗ')
     about = fields.CharField(required=False, label=u'о себе')
-    nomination = fields.CharField(label=u'номинация')
-    title = fields.CharField(label=u'название работы')
 
 class ProfileForm(ModelForm):
     name = fields.CharField(label=u'имя')

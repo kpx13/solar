@@ -31,6 +31,7 @@ def get_common_context(request):
     c['recent_news'] = Article.get_list(c['lang'])[:3]
     c['recent_projects'] = Project.objects.all()[:3]
     c['ime_expert'] = Expert.exist(request.user)
+    c['ime_participant'] = Participant.exist(request.user)
     c.update(csrf(request))
     return c
 
@@ -72,32 +73,36 @@ def participate(request):
                                              'sex': profile.sex,
                                              'date_birth': profile.date_birth,
                                              'school': profile.school,
-                                             'nomination': 'dizajn-proektyi-ispolzovaniya-vie-v-gorodskoj-srede',
                                              })
+            c['project_form'] = ProjectForm()
     else:
         form = ParticipateForm(request.POST, request.FILES)
-        if form.is_valid():
-            print 'VALID'
+        project_form = ProjectForm(request.POST)
+        if form.is_valid() and project_form.is_valid():
             user.first_name = form.data['name']
             user.last_name = form.data['last_name']
             user.save()
-            #profile.photo = request.FILES.get('photo', '')
-            profile.sex = form.data['sex']
-            #profile.date_birth = form.data['date_birth']
+            if 'photo' in request.FILES:
+                profile.photo = request.FILES.get('photo', '')
+            profile.sex = form.data.get('sex', '')
+            profile.date_birth = form.data['date_birth']
             profile.school = form.data['school']
             profile.save()
             part = Participant(user=user,
                                about=form.data['about'])
             part.save()
-            proj = Project(participant=part,
-                           nomination=Nomination.get_by_slug((form.data['nomination'])),
-                           title=form.data['title'])
-            proj.save()
+            
+            pf = project_form.save(commit=False)
+            pf.participant = part
+            pf.save()
+            
             return HttpResponseRedirect('/project/')
         else:
-            pass
+            print 'FORM not valid'
         
         c['form'] = form
+        c['project_form'] = project_form
+    c['user_photo'] = profile.photo
     return render_to_response('participate.html', c, context_instance=RequestContext(request))
 
 def edit_project(request):
@@ -186,16 +191,6 @@ def profile(request):
             expert_form = ExpertForm(instance=expert)
         profile_form = ProfileForm(instance=profile, initial={'name': user.first_name,
                                                           'last_name': user.last_name})
-        
-        """
-            c['form'] = ParticipateForm(initial={'name': user.first_name,
-                                             'last_name': user.last_name,
-                                             'photo': profile.photo,
-                                             'sex': profile.sex,
-                                             'date_birth': profile.date_birth,
-                                             'school': profile.school,
-                                             'nomination': 'dizajn-proektyi-ispolzovaniya-vie-v-gorodskoj-srede',
-                                             })"""
     else:
         if Expert.exist(user):
             expert = Expert.objects.get(user=user)
@@ -215,13 +210,10 @@ def profile(request):
                 user.save()
                 if 'photo' in request.FILES:
                     profile.photo = request.FILES.get('photo', '')
-                profile.sex = profile_form.data['sex']
+                profile.sex = profile_form.data.get('sex', '')
                 profile.date_birth = profile_form.data['date_birth']
                 profile.school = profile_form.data['school']
                 profile.save()
-            
-        
-        
     
     c['participant_form'] = participant_form
     c['expert_form'] = expert_form

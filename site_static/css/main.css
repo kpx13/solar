@@ -384,6 +384,8 @@ filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endC
 
 .form-content .form-row { clear:both; overflow:hidden; padding:0 0 21px 0; }
 .form-content .form-row.error input { border-color: red }
+.form-content .form-row.error select { border-color: red }
+.form-content .form-row.error textarea { border-color: red }
 .form-content .txt { clear:both; padding:0 0 5px 0; }
 .form-participate .txt { padding-top:7px; }
 .form-login .txt { color:#7c7c7c; text-align:center; width:362px; }
