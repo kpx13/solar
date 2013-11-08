@@ -42,7 +42,7 @@
             {% if request.user.is_authenticated %}
                 <ul class="auth-block">
                     <li>{{ request.user.username }}</li>
-                    <li><a href="/settings/">Настройки</a></li>
+                    <li><a href="/profile/">Настройки</a></li>
                     <li>/</li>
                     <li><a href="{% url logout %}">Выход</a></li>
                 </ul>

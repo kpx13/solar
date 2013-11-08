@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body-page %}participate-page{% endblock %}
+
+{% block content %}
+    <!-- .participate-block -->
+    <div class="participate-block">
+        <h1 class="headline">Профиль</h1>
+        {% if msg %}
+            <p>{{ msg }}</p>
+        {% else %}
+            <!-- .form-content -->
+            <form action=""  method='POST' enctype="multipart/form-data" class="form-content form-reg">
+                {% csrf_token %}
+                {% if expert_form %}
+                    {{ expert_form.as_p }}
+                {% else %}
+                    
+                    
+                    <div class="form-row{% if profile_form.name.errors %} error {% endif %}" >
+                        <label class="required" >Имя:</label>
+                        {{ profile_form.name }}
+                    </div>
+                    
+                    <div class="form-row{% if profile_form.last_name.errors %} error {% endif %}" >
+                        <label  class="required" >Фамилия:</label>
+                        {{ profile_form.last_name }}
+                    </div>
+                    
+                    <!-- .foto-block -->
+                    <div class="foto-block">
+                        
+                        <div class="foto">
+                            <div class="pic">
+                                <img src="/media/{{ user_photo }}" alt="" height="50"/>
+                                <input type='file' name='photo' />
+                            </div>
+                        </div>
+                    </div>
+                    <!--// .foto-block -->
+                    
+                    <!-- .gender -->
+                    <div class="form-row gender">
+                        <label class="female">
+                            <input type="radio" name="sex" value='f' {% if profile_form.sex.value == 'f' %} checked {% endif %}/>
+                        </label>
+                        <label class="male">
+                            <input type="radio" name="sex" value='m' {% if profile_form.sex.value == 'm' %} checked {% endif %}/>
+                        </label>
+                    </div>
+                    <!--// .gender -->
+                    <div class="form-row birthday">
+                        <label for="reg-birthday">Дата рождения:</label>
+                        {{ profile_form.date_birth }}
+                    </div>
+                    <div class="form-row">
+                        <label for="reg-institution">ВУЗ:</label>
+                        {{ profile_form.school }}
+                    </div>
+                        
+                    {{ participant_form.as_p }}
+                {% endif %}
+                
+                <div class="txt">
+                    <p>Поля, помеченые <span class="required">оранжевым</span>, обязательны для заполнения.</p>
+                </div>
+                <button type='submit' class="btn font24 submit">Обновить</button>
+            </form>
+            <!--// .form-content -->
+        {% endif %}
+    </div>
+    <!--// .participate-block -->
+{% endblock %}

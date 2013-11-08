@@ -18,6 +18,7 @@ from partners.models import Partner
 from seminars.models import Seminar
 from projects.forms import ParticipateForm, ProjectForm
 from projects.models import Project, Nomination
+from users.forms import ExpertForm, ParticipantForm, ProfileForm
 from users.models import Participant, Expert
 
 PAGINATION_COUNT = 5
@@ -168,6 +169,65 @@ def user(request, username):
         
     return render_to_response('user.html', c, context_instance=RequestContext(request))
 
+def profile(request):
+    c = get_common_context(request)
+    user = request.user
+    participant_form = None
+    expert_form = None
+    profile = user.get_profile()
+    profile_form = None
+    
+    if request.method == 'GET':
+        if Participant.exist(user):
+            participant = Participant.objects.get(user=user)
+            participant_form = ParticipantForm(instance=participant)
+        elif Expert.exist(user):
+            expert = Expert.objects.get(user=user)
+            expert_form = ExpertForm(instance=expert)
+        profile_form = ProfileForm(instance=profile, initial={'name': user.first_name,
+                                                          'last_name': user.last_name})
+        
+        """
+            c['form'] = ParticipateForm(initial={'name': user.first_name,
+                                             'last_name': user.last_name,
+                                             'photo': profile.photo,
+                                             'sex': profile.sex,
+                                             'date_birth': profile.date_birth,
+                                             'school': profile.school,
+                                             'nomination': 'dizajn-proektyi-ispolzovaniya-vie-v-gorodskoj-srede',
+                                             })"""
+    else:
+        if Expert.exist(user):
+            expert = Expert.objects.get(user=user)
+            expert_form = ExpertForm(request.POST, request.FILES)
+        else:
+            if Participant.exist(user):
+                participant = Participant.objects.get(user=user)
+                participant_form = ParticipantForm(request.POST, request.FILES)
+                if participant_form.is_valid():
+                    participant.about = participant_form.data['about']
+                    participant.save()
+            
+            profile_form = ProfileForm(request.POST, request.FILES)
+            if profile_form.is_valid():
+                user.first_name = profile_form.data['name']
+                user.last_name = profile_form.data['last_name']
+                user.save()
+                if 'photo' in request.FILES:
+                    profile.photo = request.FILES.get('photo', '')
+                profile.sex = profile_form.data['sex']
+                profile.date_birth = profile_form.data['date_birth']
+                profile.school = profile_form.data['school']
+                profile.save()
+            
+        
+        
+    
+    c['participant_form'] = participant_form
+    c['expert_form'] = expert_form
+    c['profile_form'] = profile_form
+    c['user_photo'] = profile.photo
+    return render_to_response('profile.html', c, context_instance=RequestContext(request))
 
 def jury(request):
     c = get_common_context(request)
