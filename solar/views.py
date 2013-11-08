@@ -231,6 +231,17 @@ def seminars(request):
     c['list'] = Seminar.get_list(c['lang'])
     return render_to_response('seminars.html', c, context_instance=RequestContext(request))
 
+def seminar(request, slug):
+    c = get_common_context(request)
+    seminar = Seminar.get(slug, c['lang'])
+    c['seminar'] = seminar
+    if request.method == 'POST':
+        if request.POST.get('action') == 'comment':
+            Seminar.objects.get(slug=slug).add_comment(request.user, 
+                            request.POST.get('content'))
+            return HttpResponseRedirect('/seminar/%s/' % slug)
+    return render_to_response('seminar.html', c, context_instance=RequestContext(request))
+
 def partners(request):
     c = get_common_context(request)
     c['list'] = Partner.get_list(c['lang'])

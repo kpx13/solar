@@ -39,7 +39,11 @@
             </div>
             <!--// .description -->
             <div class="link">
-            <a href="/media/{{ proj.file }}">Скачать полную версию</a>
+                {% if proj.file %}
+                    <a href="/media/{{ proj.file }}">Скачать полную версию</a>
+                {% else %}
+                    <p>Полная версия ещё не загружена.</p>
+                {% endif %}
             </div>
             <div class="counts">
             <div class="votes">168</div>

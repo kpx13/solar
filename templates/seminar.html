@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ seminar.title }}{% endblock %}
+
+{% block head %}
+    
+{% endblock %}
+
+{% block body-page %}projects-page{% endblock %}
+
+{% block content %}
+    <!-- .project-block -->
+    <div class="project-block">
+        <h1 class="headline">{{ seminar.title }}</h1>
+        <!-- .project-block-info -->
+        <div class="project-block-info">
+        <!-- .project-block-details -->
+           <div class="project-block-details">
+            <!-- .author -->
+            <div class="author">
+            <div class="name"><a href="/user/{{ seminar.expert.user.username }}/">{{ seminar.expert.fio}}</a></div>
+            <div class="userpic">
+                <a href="/user/{{ seminar.expert.user.username }}/">
+                <img src="/media/{{ seminar.expert.user.get_profile.photo }}" alt="{{ seminar.expert.fio }}" width="68" />
+                </a>
+            </div>
+            <div class="institution">
+                <div class="txt">{{ seminar.expert.desc }}</div>
+            </div>
+            </div>
+            <!--// .author -->
+
+            <div class="counts">
+            <div class="votes">168</div>
+            <div class="comments"><a href="#comments">{{ seminar.comments_count }}</a></div>
+            </div>
+        </div>
+        <!--// .project-block-details -->
+        <!-- .project-comments -->
+        <div class="project-comments" id='comments'>
+            <!-- .comments-list -->
+            <ul class="comments-list">
+                {% for c in seminar.comments_short %}
+                    <li>
+                        <div class="userpic">
+                            <a href="#"><img src="/media/{{ c.user.get_profile.photo }}" alt="{{ c.user.first_name }} {{ c.user.last_name }}" width="32" /></a>
+                        </div>
+                        <div class="author">
+                            <div class="name"><a href="#">{{ c.user.first_name }} {{ c.user.last_name }}</a></div>
+                        </div>
+                        <div class="txt">{{ c.content }}</div>
+                        <div class='clear'></div>
+                    </li>
+                {% endfor %}
+            </ul>
+            
+            <ul class="comments-list hide" id='more_comments'>
+                {% for c in seminar.comments_more %}
+                    <li>
+                        <div class="userpic">
+                            <a href="#"><img src="/media/{{ c.user.get_profile.photo }}" alt="{{ c.user.first_name }} {{ c.user.last_name }}" width="32" /></a>
+                        </div>
+                        <div class="author">
+                            <div class="name"><a href="#">{{ c.user.first_name }} {{ c.user.last_name }}</a></div>
+                        </div>
+                        <div class="txt">{{ c.content }}</div>
+                        <div class='clear'></div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <!--// .comments-list -->
+            
+            {% if seminar.comments_more %}
+                <div class="all" id='show_all_comments'><a href="#comments">Все комментарии</a></div>
+            {% endif %}
+            
+            <script>
+                $("#show_all_comments").click(function(){
+                    $("#more_comments").removeClass('hide');
+                    $("#show_all_comments").addClass('hide');
+                });
+            </script>
+            
+            <div class='clear'></div>
+            <br /><br /><br />
+            <form action="" id='add_comment'  method='POST' style='padding-left: 10px'>
+                {% csrf_token %}
+                <div class="form-row">
+                    <label >Ваш комментарий:</label><br /><br />
+                    <textarea name="content" id="" style='width: 200px; height: 80px'></textarea>
+                </div>
+                <input type='hidden' name='action' value='comment' /> <br />
+                <button type='submit' class="btn font12 ">Оставить комментарий</button>
+            </form>
+            <br />
+                
+            
+        </div>
+        <!--// .project-comments -->
+        </div>
+        <!--// .project-block-info -->
+        <!-- .project-block-description -->
+        <div class="project-block-description">
+            <iframe width="481" height="300" class="project-pic" src="{{ seminar.content }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <!--// .project-block-description -->
+    </div>
+    <!--// .projects-block -->
+{% endblock %}

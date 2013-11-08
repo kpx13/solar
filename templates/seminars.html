@@ -18,14 +18,14 @@
                     <div class="img">
                         <iframe width="339" height="200" src="{{ l.content }}" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="title"><a href="#">{{ l.title }}</a></div>
+                    <div class="title"><a href="/seminar/{{ l.slug }}/">{{ l.title }}</a></div>
                     <div class="author">
                     <div class="userpic"><img src="/media/{{ l.expert.user.get_profile.photo }}" alt="" width="32" height="32"/></div>
                     <div class="name">{{ l.expert.fio }}</div>
                     <div class="post">({{ l.expert.desc }})</div>
                     </div>
                     <div class="counts">
-                    <div class="comments"><a href="#">24</a></div>
+                    <div class="comments"><a href="/seminar/{{ l.slug }}/">{{ l.comments_count }}</a></div>
                     </div>
                 </li>
             {% endfor %}

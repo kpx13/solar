@@ -4,6 +4,7 @@ from ckeditor.fields import RichTextField
 import pytils
 import config
 from users.models import Expert
+from django.contrib.auth.models import User
 
 class Seminar(models.Model):
     title = models.CharField(max_length=200, verbose_name=u'заголовок рус')
@@ -28,7 +29,11 @@ class Seminar(models.Model):
    
     def get_(self, lang):
         res = {'content': self.content,
-               'expert': self.expert.get_(lang)    }
+               'expert': self.expert.get_(lang),
+               'slug': self.slug,
+               'comments_short': SeminarComment.get_by_seminar(self)[:3],
+               'comments_more': SeminarComment.get_by_seminar(self)[3:],
+               'comments_count': len(SeminarComment.get_by_seminar(self)),    }
         if lang=='en':
             res.update({'title': self.title_en})     
         else :
@@ -45,3 +50,26 @@ class Seminar(models.Model):
     @staticmethod
     def get_list(lang):
         return [p.get_(lang) for p in Seminar.objects.all()]
+    
+    def add_comment(self, user, content):
+        SeminarComment(user=user,
+               seminar=self,
+               content=content).save()
+    
+class SeminarComment(models.Model):
+    user = models.ForeignKey(User, verbose_name=u'пользователь')
+    seminar = models.ForeignKey(Seminar, related_name='comments', verbose_name=u'проект')
+    content = models.TextField(max_length=1000, verbose_name=u'содержимое')
+    date = models.DateTimeField(verbose_name=u'дата', null=True, auto_now_add=True)
+    
+    class Meta:
+        verbose_name = u'комментарий'
+        verbose_name_plural = u'комментарии'
+        ordering=['-date']
+        
+    def __unicode__(self):
+        return u'%s к %s' % (self.user.username, self.seminar.title)
+    
+    @staticmethod
+    def get_by_seminar(seminar):
+        return SeminarComment.objects.filter(seminar=seminar)

@@ -147,21 +147,19 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar':
            [
-                ['Source', '-', 'Templates'],
-                ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
                 ['Undo', 'Redo', ],
-                ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+                #['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
                 ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-                ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar'],
-                ['RemoveFormat', 'Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
-                ['Styles','Format','FontSize', 'TextColor','BGColor'],
-                ['Link','Unlink',],
-                ['Maximize', 'ShowBlocks'],
+                ['RemoveFormat', 'Bold','Italic','Underline','Strike',],
+                #['Styles','Format','FontSize', 'TextColor','BGColor'],
+                #['Link','Unlink',],
+                ['Maximize'],
             ],
-        'width': 1056,
-        'height': 200,
+        'width': 660,
+        'height': 300,
         'toolbarCanCollapse': True,
-        'resize_enabled': True
+        'resize_enabled': True,
+        'pasteFromWordRemoveFontStyles': True
     }
 }
 
