@@ -39,21 +39,25 @@
     <!-- .feedback-block -->
     <div class="login-block">
         <h2 class="h1">Обратная связь</h2>
+        {% if feedback_ok %}
+            <h2>Ваша заявка отправлена!</h2>
+        {% endif %}
         <!-- .form-feedback -->
-        <form action="#" class="form-content form-feedback">
-        <div class="form-row">
-            <label for="feedback-name">Как вас зовут:</label>
-            <input type="text" id="feedback-name"/>
-        </div>
-        <div class="form-row">
-            <label for="feedback-mail">Ваша электронная почта:</label>
-            <input type="text" id="feedback-mail"/>
-        </div>
-        <div class="form-row">
-            <label for="feedback-mess">Ваше сообщение:</label>
-            <textarea name="" id="feedback-mess"></textarea>
-        </div>
-        <button class="btn font14 submit">Отправить</button>
+        <form action="" method='POST' class="form-content form-feedback">
+            {% csrf_token %}
+            <div class="form-row">
+                <label for="feedback-name">Как вас зовут:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-row">
+                <label for="feedback-mail">Ваша электронная почта:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-row">
+                <label for="feedback-mess">Ваше сообщение:</label>
+                {{ form.msg }}
+            </div>
+            <button type='submit' class="btn font14 submit">Отправить</button>
         </form>
         <!--// .form-feedback -->
     </div>

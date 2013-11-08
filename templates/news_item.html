@@ -23,7 +23,7 @@
             </div>
             <!--// .description -->
                 <div class="counts">
-                    <div class="votes">168</div>
+<!--                     <div class="votes">168</div> -->
                     <div class="comments"><a href="#comments">{{ article.comments_count }}</a></div>
                     <br />
                 </div>
@@ -74,18 +74,20 @@
                 });
             </script>
             
-            <div class='clear'></div>
-            <br /><br /><br />
-            <form action="" id='add_comment'  method='POST' style='padding-left: 10px'>
-                {% csrf_token %}
-                <div class="form-row">
-                    <label >Ваш комментарий:</label><br /><br />
-                    <textarea name="content" id="" style='width: 200px; height: 80px'></textarea>
-                </div>
-                <input type='hidden' name='action' value='comment' /> <br />
-                <button type='submit' class="btn font12 ">Оставить комментарий</button>
-            </form>
-            <br />
+            {% if auth %}
+                <div class='clear'></div>
+                <br /><br /><br />
+                <form action="" id='add_comment'  method='POST' style='padding-left: 10px'>
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <label >Ваш комментарий:</label><br /><br />
+                        <textarea name="content" id="" style='width: 200px; height: 80px'></textarea>
+                    </div>
+                    <input type='hidden' name='action' value='comment' /> <br />
+                    <button type='submit' class="btn font12 ">Оставить комментарий</button>
+                </form>
+                <br />
+            {% endif %}
                 
             
         </div>

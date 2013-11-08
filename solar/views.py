@@ -33,6 +33,7 @@ def get_common_context(request):
     c['recent_comments'] = ProjectComment.objects.all()[:3]
     c['ime_expert'] = Expert.exist(request.user)
     c['ime_participant'] = Participant.exist(request.user)
+    c['auth'] = request.user.is_authenticated()
     c.update(csrf(request))
     return c
 
@@ -59,6 +60,8 @@ def about(request):
 
 def participate(request):
     c = get_common_context(request)
+    if not c['auth']:
+        return HttpResponseRedirect('/accounts/register/')
     user = request.user
     profile = user.get_profile()
     if request.method == 'GET':
