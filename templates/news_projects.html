@@ -1,0 +1,60 @@
+<!-- .tabs -->
+<div class="tabs">
+    <!-- .tabs-headers -->
+    <ul class="tabs-headers">
+        <li id='tab-news-header' class="tabs-selected"><a href="#">Новости</a></li>
+        <li id='tab-projects-header'><a href="#">Проекты</a></li>
+    </ul>
+    <!--// .tabs-headers -->
+    
+    <!-- .tabs-tab -->
+    <div class="tabs-tab" id='tab-news'>
+        <!-- .news-list -->
+        <ul class="news-list">
+            {% for r in recent_news %}
+                <li>
+                    <div class="date">{{ r.date }}</div>
+                    <div class="title"><a href="/news/{{ r.slug }}/">{{ r.title }}</a></div>
+                    <div class="txt">{{ r.content }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+        <!--// .news-list -->
+        <div class="all"><a href="/news/">Все новости</a></div>
+    </div>
+    <!--// .tabs-tab -->
+
+    <!-- .tabs-tab -->
+    <div class="tabs-tab hide" id='tab-projects'>
+        <!-- .news-list -->
+        <ul class="news-list">
+            {% for r in recent_projects %}
+                <li>
+                    <div class="date">{{ r.date }}</div>
+                    <div class="title"><a href="/project/{{ r.slug }}/">{{ r.title }}</a></div>
+                    <div class="txt">{{ r.desc }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+        <!--// .news-list -->
+        <div class="all"><a href="/projects/">Все проекты</a></div>
+    </div>
+    <!--// .tabs-tab -->
+</div>
+<!--// .tabs -->
+
+<script>
+    $('#tab-news-header').click(function(){
+        $('#tab-news-header').addClass('tabs-selected');
+        $('#tab-projects-header').removeClass('tabs-selected');
+        $('#tab-news').removeClass('hide');
+        $('#tab-projects').addClass('hide');
+    });
+    
+     $('#tab-projects-header').click(function(){
+        $('#tab-news-header').removeClass('tabs-selected');
+        $('#tab-projects-header').addClass('tabs-selected');
+        $('#tab-news').addClass('hide');
+        $('#tab-projects').removeClass('hide');
+    });
+</script>

@@ -67,7 +67,7 @@ class Project(models.Model):
     class Meta:
         verbose_name = u'проект'
         verbose_name_plural = u'проекты'
-        ordering=['slug']
+        ordering=['-date']
         
     def __unicode__(self):
         return self.slug
@@ -129,6 +129,7 @@ class Review(models.Model):
     class Meta:
         verbose_name = u'рецензия'
         verbose_name_plural = u'рецензии'
+        ordering=['-date']
         
     def __unicode__(self):
         return u'%s к %s' % (self.expert.fio, self.project.title)

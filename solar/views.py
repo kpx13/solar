@@ -23,10 +23,11 @@ PAGINATION_COUNT = 5
 
 def get_common_context(request):
     c = {}
+    c['lang'] = request.LANGUAGE_CODE
     c['request_url'] = request.path
     c['is_debug'] = settings.DEBUG
-    c['news'] = Article.objects.all()[:3]
-    c['lang'] = request.LANGUAGE_CODE
+    c['recent_news'] = Article.get_list(c['lang'])[:3]
+    c['recent_projects'] = Project.objects.all()[:3]
     c['ime_expert'] = Expert.exist(request.user)
     c.update(csrf(request))
     return c
@@ -135,6 +136,22 @@ def project(request, slug):
                             request.POST.get('content'))
             return HttpResponseRedirect('/project/%s/' % slug)
     return render_to_response('project.html', c, context_instance=RequestContext(request))
+
+def news(request):
+    c = get_common_context(request)
+    c['list'] = Article.get_list(c['lang'])
+    return render_to_response('news.html', c, context_instance=RequestContext(request))
+
+def news_article(request, slug):
+    c = get_common_context(request)
+    article = Article.get(slug, c['lang'])
+    c['article'] = article
+    if request.method == 'POST':
+        if request.POST.get('action') == 'comment':
+            Article.objects.get(slug=slug).add_comment(request.user, 
+                            request.POST.get('content'))
+            return HttpResponseRedirect('/news/%s/' % slug)
+    return render_to_response('news_item.html', c, context_instance=RequestContext(request))
 
 def jury(request):
     c = get_common_context(request)

@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^admin/jsi18n/', 'django.views.i18n.javascript_catalog'),
     url(r'^settings/', include('livesettings.urls')),
     url(r'^ckeditor/', include('ckeditor.urls')),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 
     url(r'^$', views.home),
     url(r'^contacts/$', views.contacts),
@@ -26,6 +27,8 @@ urlpatterns = patterns('',
     url(r'^projects/$', views.projects),
     url(r'^project/$', views.edit_project),
     url(r'^project/(?P<slug>[\w-]+)/$' , views.project),
+    url(r'^news/$', views.news),
+    url(r'^news/(?P<slug>[\w-]+)/$' , views.news_article),
     url(r'^jury/$', views.jury),
     url(r'^seminars/$', views.seminars),
     url(r'^partners/$', views.partners),
@@ -37,5 +40,5 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('registration.urls')),
     
     url(r'^(?P<page_name>[\w-]+)/$' , views.page),
-    url(r'^i18n/', include('django.conf.urls.i18n')),
+    
 )

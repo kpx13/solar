@@ -101,98 +101,12 @@
       <div class="sidebar">
         <!-- .side-news -->
         <div class="side-news">
-          <!-- .tabs -->
-          <div class="tabs">
-            <!-- .tabs-headers -->
-            <ul class="tabs-headers">
-              <li class="tabs-selected"><a href="#">Новости</a></li>
-              <li><a href="#">Проекты</a></li>
-            </ul>
-            <!--// .tabs-headers -->
-            <!-- .tabs-tab -->
-            <div class="tabs-tab">
-              <!-- .news-list -->
-              <ul class="news-list">
-                <li>
-                  <div class="date">30 сентября 2013</div>
-                  <div class="title"><a href="#">Интерактивные семинары</a></div>
-                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
-                </li>
-                <li>
-                  <div class="date">30 сентября 2013</div>
-                  <div class="title"><a href="#">Интерактивные семинары</a></div>
-                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
-                </li>
-              </ul>
-              <!--// .news-list -->
-            </div>
-            <!--// .tabs-tab -->
-            <!-- .tabs-tab -->
-            <div class="tabs-tab" style="display:none;">
-              <!-- .news-list -->
-              <ul class="news-list">
-                <li>
-                  <div class="date">30 сентября 2013</div>
-                  <div class="title">Интерактивные семинары</div>
-                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
-                </li>
-                <li>
-                  <div class="date">30 сентября 2013</div>
-                  <div class="title">Интерактивные семинары</div>
-                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
-                </li>
-              </ul>
-              <!--// .news-list -->
-              <div class="all"><a href="#">Все новости</a></div>
-            </div>
-            <!--// .tabs-tab -->
-          </div>
-          <!--// .tabs -->
-          <div class="all"><a href="#">Все новости</a></div>
+            {% include 'news_projects.html' %}
         </div>
         <!--// .side-news -->
         <!-- .side-comments -->
         <div class="side-comments">
-          <!-- .tabs -->
-          <div class="tabs">
-            <!-- .tabs-headers -->
-            <ul class="tabs-headers">
-              <li class="tabs-selected"><a href="#">Комментарии</a></li>
-            </ul>
-            <!--// .tabs-headers -->
-            <!-- .tabs-tab -->
-            <div class="tabs-tab">
-              <!-- .comments-list -->
-              <ul class="comments-list">
-                <li>
-                  <div class="userpic">
-                    <a href="#"><img src="/static/i/commet-userpic1.jpg" alt="Роман Николаев" width="32" height="32"/></a>
-                  </div>
-                  <div class="author">
-                    <div class="name"><a href="#">Роман Николаев</a></div>
-                    <div class="post">(Руководитель проекта)</div>
-                  </div>
-                  <div class="title"><a href="#">Название комментируемой работы</a></div>
-                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
-                </li>
-                <li>
-                  <div class="userpic">
-                    <a href="#"><img src="/static/i/commet-userpic1.jpg" alt="Роман Николаев" width="32" height="32"/></a>
-                  </div>
-                  <div class="author">
-                    <div class="name"><a href="#">Роман Николаев</a></div>
-                    <div class="post">(Руководитель проекта)</div>
-                  </div>
-                  <div class="title"><a href="#">Название комментируемой работы</a></div>
-                  <div class="txt">Научно-практическая конференция «Автономная энергетика: современное состояние и перспективы»</div>
-                </li>
-              </ul>
-              <!--// .comments-list -->
-            </div>
-            <!--// .tabs-tab -->
-          </div>
-          <!--// .tabs -->
-          <div class="all"><a href="#">Все комментарии</a></div>
+            {% include 'side_comments.html' %}
         </div>
         <!--// .side-comments -->
       </div>

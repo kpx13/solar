@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Новости{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body-page %}rules-page{% endblock %}
+
+{% block content %}
+    <div class="text-block">
+        <h1 class="headline">Новости</h1>
+        
+        {% for l in list %}
+            <div>
+                <p>
+                    <a href='/news/{{ l.slug }}/'><h2>{{ l.title }}</h2></a>
+                    <br />
+                    <i>{{ l.date }}</i>
+                </p>
+                <p>{{ l.content }}</p>
+                <br />
+            </div>
+        {% endfor %}
+        
+    </div>
+    
+{% endblock %}

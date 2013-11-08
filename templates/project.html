@@ -32,10 +32,10 @@
             <!--// .author -->
             <!-- .description -->
             <div class="description">
-            <div class="caption">Номинация:</div>
-            <div class="txt"><a href="#">{{ proj.nomination.title }}</a></div>
-            <div class="caption">Название проекта:</div>
-            <div class="txt">{{ proj.title }}</div>
+                <div class="caption">Номинация:</div>
+                <div class="txt"><a href="#">{{ proj.nomination.title }}</a></div>
+                <div class="caption">Название проекта:</div>
+                <div class="txt">{{ proj.title }}</div>
             </div>
             <!--// .description -->
             <div class="link">
@@ -81,7 +81,10 @@
             </ul>
             <!--// .comments-list -->
             
-            <div class="all" id='show_all_comments'><a href="#comments">Все комментарии</a></div>
+            {% if proj.comments_more %}
+                <div class="all" id='show_all_comments'><a href="#comments">Все комментарии</a></div>
+            {% endif %}
+            
             <script>
                 $("#show_all_comments").click(function(){
                     $("#more_comments").removeClass('hide');
@@ -115,7 +118,9 @@
         <!--// .project-block-info -->
         <!-- .project-block-description -->
         <div class="project-block-description">
-            <img src="/media/{{ proj.image }}" alt="Название проекта" width="481"  class="project-pic"/>
+            {% if proj.image %}
+                <img src="/media/{{ proj.image }}" alt="Название проекта" width="481"  class="project-pic"/>
+            {% endif %}
             <div class="txt">
                 {{ proj.content|safe }}
             </div>
