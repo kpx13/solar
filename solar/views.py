@@ -12,12 +12,12 @@ from livesettings import config_value
 from django.conf import settings
 
 from pages.models import Page
-from news.models import Article
+from news.models import Article, NewsComment
 from jury.models import Jury
 from partners.models import Partner
-from seminars.models import Seminar
+from seminars.models import Seminar, SeminarComment
 from projects.forms import ParticipateForm, ProjectForm
-from projects.models import Project, Nomination
+from projects.models import Project, Nomination, ProjectComment
 from users.forms import ExpertForm, ParticipantForm, ProfileForm
 from users.models import Participant, Expert
 
@@ -30,6 +30,7 @@ def get_common_context(request):
     c['is_debug'] = settings.DEBUG
     c['recent_news'] = Article.get_list(c['lang'])[:3]
     c['recent_projects'] = Project.objects.all()[:3]
+    c['recent_comments'] = ProjectComment.objects.all()[:3]
     c['ime_expert'] = Expert.exist(request.user)
     c['ime_participant'] = Participant.exist(request.user)
     c.update(csrf(request))
@@ -159,6 +160,13 @@ def news_article(request, slug):
                             request.POST.get('content'))
             return HttpResponseRedirect('/news/%s/' % slug)
     return render_to_response('news_item.html', c, context_instance=RequestContext(request))
+
+def comments(request):
+    c = get_common_context(request)
+    c['project_comments'] = ProjectComment.objects.all()[:3]
+    c['seminar_comments'] = SeminarComment.objects.all()[:3]
+    c['news_comments'] = NewsComment.objects.all()[:3]
+    return render_to_response('comments.html', c, context_instance=RequestContext(request))
 
 def user(request, username):
     c = get_common_context(request)

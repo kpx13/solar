@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Комментарии{% endblock %}
+
+{% block head %}
+    <style>
+        .value { color: #222; }
+        .value a { color: #222; text-decoration: none}
+    </style>
+{% endblock %}
+
+{% block body-page %}rules-page{% endblock %}
+
+{% block content %}
+    <div class="text-block">
+        <h1 class="headline">Комментарии к проектам</h1>
+        
+        {% for c in project_comments %}
+            <div style='border-bottom:1px dashed #c6c6c6;'>
+                <br />
+                {% if c.user.get_profile.photo %}
+                    <div class="userpic" style='float: left; padding-right: 20px;'>
+                        <a href="/user/{{ c.user.username }}/"><img src="/media/{{ c.user.get_profile.photo }}" alt="{{ c.user.first_name }} {{ c.user.last_name }}" width="50" /></a>
+                    </div>
+                {% endif %}
+                <div class="author">
+                    <div class="name"><a href="/user/{{ c.user.username }}/">{{ c.user.first_name }} {{ c.user.last_name }}</a></div>
+                </div>
+                <div class="value"><a href='/project/{{ c.project.slug }}/'>{{ c.project.title }}</a> / Проекты</div><br />
+                <div class="">{{ c.content }}</div>
+                <div class='clear'></div>
+                <br />
+            </div>
+        {% endfor %}
+        
+        
+        <br />
+        <h1 class="headline">Комментарии к семинарам</h1>
+        
+        
+        {% for c in seminar_comments %}
+            <div style='border-bottom:1px dashed #c6c6c6;'>
+                <br />
+                {% if c.user.get_profile.photo %}
+                    <div class="userpic" style='float: left; padding-right: 20px;'>
+                        <a href="/user/{{ c.user.username }}/"><img src="/media/{{ c.user.get_profile.photo }}" alt="{{ c.user.first_name }} {{ c.user.last_name }}" width="50" /></a>
+                    </div>
+                {% endif %}
+                <div class="author">
+                    <div class="name"><a href="/user/{{ c.user.username }}/">{{ c.user.first_name }} {{ c.user.last_name }}</a></div>
+                </div>
+                <div class="value"><a href='/seminar/{{ c.seminar.slug }}/'>{{ c.seminar.title }}</a> / Семинары</div><br />
+                <div class="">{{ c.content }}</div>
+                <div class='clear'></div>
+                <br />
+            </div>
+        {% endfor %}
+        
+        <br />
+        <h1 class="headline">Комментарии к новостям</h1>
+        
+        {% for c in news_comments %}
+            <div style='border-bottom:1px dashed #c6c6c6;'>
+                <br />
+                {% if c.user.get_profile.photo %}
+                    <div class="userpic" style='float: left; padding-right: 20px;'>
+                        <a href="/user/{{ c.user.username }}/"><img src="/media/{{ c.user.get_profile.photo }}" alt="{{ c.user.first_name }} {{ c.user.last_name }}" width="50" /></a>
+                    </div>
+                {% endif %}
+                <div class="author">
+                    <div class="name"><a href="/user/{{ c.user.username }}/">{{ c.user.first_name }} {{ c.user.last_name }}</a></div>
+                </div>
+                <div class="value"><a href='/news/{{ c.article.slug }}/'>{{ c.article.title }}</a> / Новости</div><br />
+                <div class="">{{ c.content }}</div>
+                <div class='clear'></div>
+                <br />
+            </div>
+        {% endfor %}
+        
+    </div>
+    
+{% endblock %}
