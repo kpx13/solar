@@ -12,6 +12,7 @@ class Partner(models.Model):
     url = models.CharField(max_length=200, blank=True, verbose_name=u'url сайта')
     logo = models.ImageField(upload_to= 'uploads/partners', blank=True, max_length=256, verbose_name=u'лого')
     slug = models.SlugField(max_length=100, verbose_name=u'слаг', unique=True, blank=True, help_text=u'Заполнять не нужно')
+    order = models.IntegerField(blank=True, null=True, default=10, verbose_name=u'порядковый номер')
     
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -21,7 +22,7 @@ class Partner(models.Model):
     class Meta:
         verbose_name = u'партнер'
         verbose_name_plural = u'партнеры'
-        ordering=['slug']
+        ordering=['order']
         
     def __unicode__(self):
         return self.slug
