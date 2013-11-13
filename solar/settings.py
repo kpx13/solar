@@ -154,6 +154,7 @@ CKEDITOR_CONFIGS = {
                 ['RemoveFormat', 'Bold','Italic','Underline','Strike',],
                 #['Styles','Format','FontSize', 'TextColor','BGColor'],
                 #['Link','Unlink',],
+                ['Image', 'Table', 'HorizontalRule' ],
                 ['Maximize'],
             ],
         'width': 660,

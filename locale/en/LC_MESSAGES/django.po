@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-06 18:00+0400\n"
+"POT-Creation-Date: 2013-11-13 09:24+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,22 +33,46 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: dashboard.py:155 dashboard.py:184
+#: dashboard.py:82 dashboard.py:103
 msgid "Recent Actions"
 msgstr ""
 
-#: templates/base.html:59
+#: templates/base.html:70 templates/base.html.py:84
 msgid "Главная"
 msgstr "Home"
 
-#: templates/base.html:60
+#: templates/base.html:71
 msgid "О конкурсе"
 msgstr "About"
 
-#: templates/base.html:61
+#: templates/base.html:72
 msgid "Контакты"
 msgstr "Contacts"
 
-#: templates/base.html:62
+#: templates/base.html:74
+msgid "Мой проект"
+msgstr "My project"
+
+#: templates/base.html:76
 msgid "Участвовать"
 msgstr "Participate"
+
+#: templates/base.html:85
+msgid "Проекты"
+msgstr "Projects"
+
+#: templates/base.html:86
+msgid "Жюри"
+msgstr "Jury"
+
+#: templates/base.html:87
+msgid "Правила"
+msgstr "Rules"
+
+#: templates/base.html:88
+msgid "Семинары"
+msgstr "Seminars"
+
+#: templates/base.html:89
+msgid "Партнеры"
+msgstr "Partners"

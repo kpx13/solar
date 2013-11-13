@@ -28,7 +28,7 @@ def get_common_context(request):
     c['lang'] = request.LANGUAGE_CODE
     c['request_url'] = request.path
     c['is_debug'] = settings.DEBUG
-    c['recent_news'] = Article.get_list(c['lang'])[:3]
+    c['recent_news'] = Article.get_list(c['lang'])[:2]
     c['recent_projects'] = Project.objects.all()[:3]
     c['recent_comments'] = ProjectComment.objects.all()[:3]
     c['ime_expert'] = Expert.exist(request.user)
