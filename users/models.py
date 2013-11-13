@@ -3,12 +3,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from pytils import translit
 
 SEX = (('m', u'Мужской'), ('f', u'Женский'))
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, related_name='profile', verbose_name=u'пользователь')
-    photo = models.ImageField(upload_to= 'uploads/users', default='uploads/empty_photo.jpg', blank=True, max_length=256, verbose_name=u'фото')
+    photo = models.ImageField(upload_to=lambda instance, filename: 'uploads/users/' + translit.translify(filename),
+                              default='uploads/empty_photo.jpg', blank=True, max_length=256, verbose_name=u'фото')
     sex = models.CharField(max_length=256, choices=SEX, blank=True, verbose_name=u'пол')
     date_birth = models.CharField(max_length=256, blank=True, null=True, verbose_name=u'дата рождения')
     school = models.CharField(max_length=256, blank=True, verbose_name=u'ВУЗ')

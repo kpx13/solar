@@ -51,6 +51,10 @@ def home(request):
     c = get_common_context(request)
     c['request_url'] = 'home'
     c['partners'] = Partner.get_list(c['lang'])
+    c['home_content'] = Page.get('home', c['lang'])['content']
+    c['home_about'] = Page.get('home_about', c['lang'])['content']
+    c['home_projects'] = Page.get('home_projects', c['lang'])['content']
+    c['home_probation'] = Page.get('home_probation', c['lang'])['content']
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
 def about(request):

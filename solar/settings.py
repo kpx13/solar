@@ -147,6 +147,7 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar':
            [
+                ['Source',],
                 ['Undo', 'Redo', ],
                 #['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
                 ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
