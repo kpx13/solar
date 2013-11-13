@@ -136,6 +136,11 @@ def projects(request):
     c['list'] = Project.get_list(c['lang'])
     return render_to_response('projects.html', c, context_instance=RequestContext(request))
 
+def projects_nomination(request, slug):
+    c = get_common_context(request)
+    c['list'] = Project.get_list_nomination(c['lang'], slug)
+    return render_to_response('projects.html', c, context_instance=RequestContext(request))
+
 def project(request, slug):
     c = get_common_context(request)
     proj = Project.get(slug, c['lang'])

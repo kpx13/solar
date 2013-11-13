@@ -109,6 +109,11 @@ class Project(models.Model):
         return [p.get_(lang) for p in Project.objects.all()]
     
     @staticmethod
+    def get_list_nomination(lang, nomination):
+        n = Nomination.get_by_slug(nomination)
+        return [p.get_(lang) for p in Project.objects.filter(nomination=n)]
+    
+    @staticmethod
     def search(query, lang):
         return [p.get_(lang) for p in Project.objects.filter(Q(title__icontains=query) |
                                                              Q(title_en__icontains=query) |
