@@ -1,0 +1,14 @@
+uwsgi:
+    socket: /var/tmp/solar_uwsgi.sock
+    virtualenv: /var/www/ann/data/solar/env/
+    pythonpath: /var/www/ann/data/solar
+    env: DJANGO_SETTINGS_MODULE=solar.settings
+    module: wsgi
+    daemonize: /var/www/ann/data/solar/logs/uwsgi.log
+    max-requests: 5000
+    buffer-size: 32768
+    harakiri: 30
+    reload-mercy: 8
+    master: 1
+    no-orphans: 1
+    touch-reload: /var/www/ann/data/solar/uwsgi
