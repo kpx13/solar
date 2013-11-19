@@ -39,9 +39,6 @@
             </div>
             <!--// .foto-block -->
             
-            <div class="txt">
-                <p>Поля, помеченые <span class="required">оранжевым</span>, обязательны для заполнения.</p>
-            </div>
             <button type='submit' class="btn font24 submit">Обновить</button>
             <a href='/project/{{ slug }}/' style='font-size: 20px; margin-left: 10px; margin-top: 20px; height: 40px'>Отмена</a>
         </form>
@@ -53,6 +50,8 @@
     <script>
         $("#image-clear_id").parent().addClass('hide');
         $("#file-clear_id").parent().addClass('hide');
+        $("#id_file").parent().addClass('hide');
+        $("#id_image").parent().addClass('hide');
     </script>
 
 {% endblock %}

@@ -3,12 +3,14 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.db.models import Q
+from pytils import translit
 import pytils
 
 class Article(models.Model):
     title = models.CharField(max_length=128, verbose_name=u'заголовок ru')
     title_en = models.CharField(max_length=128, verbose_name=u'заголовок eng')
-    image = models.ImageField(upload_to= 'uploads/news', blank=True, max_length=256, verbose_name=u'картинка')
+    image = models.ImageField(upload_to=lambda instance, filename: 'uploads/news/' + translit.translify(filename),
+                              default='uploads/empty_photo.jpg', blank=True, max_length=256, verbose_name=u'картинка')
     content = models.TextField(verbose_name=u'краткое описание ru')
     content_more = RichTextField(blank=True, verbose_name=u'текст в подробнее ru')
     content_en = models.TextField(verbose_name=u'краткое описание eng')

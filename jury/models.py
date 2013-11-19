@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from pytils import translit
 
 class Jury(models.Model):
     fio = models.CharField(max_length=256, verbose_name=u'ФИО ru')
@@ -8,7 +9,8 @@ class Jury(models.Model):
     position_en = models.CharField(max_length=256, verbose_name=u'должность eng')
     description = models.TextField(verbose_name=u'Описание ru')
     description_en = models.TextField(verbose_name=u'Описание eng')
-    photo = models.ImageField(upload_to= 'uploads/jury', blank=True, max_length=256, verbose_name=u'фото')
+    photo = models.ImageField(upload_to=lambda instance, filename: 'uploads/jury/' + translit.translify(filename),
+                              default='uploads/empty_photo.jpg', blank=True, max_length=256, verbose_name=u'фото')
     
     class Meta:
         verbose_name = u'жюри'

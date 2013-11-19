@@ -50,7 +50,7 @@
                     </label>
                 </div>
                 <!--// .gender -->
-                <div class="form-row birthday">
+                <div class="form-row birthday{% if form.date_birth.errors %} error {% endif %}">
                     <label for="reg-birthday">Дата рождения:</label>
                     {{ form.date_birth }}
                 </div>
@@ -75,7 +75,7 @@
                 </div>
                     
                 <div class="txt">
-                    <p>Поля, помеченые <span class="required">оранжевым</span>, обязательны для заполнения.</p>
+                    <p>Поля, помеченные <span class="required">оранжевым</span>, обязательны для заполнения.</p>
                 </div>
                 <button type='submit' class="btn font24 submit">Участвовать</button>
             </form>

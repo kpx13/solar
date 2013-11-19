@@ -12,11 +12,9 @@
     <div class="reg-block">
         <h1 class="headline">Регистрация</h1>
         {% if request.user.is_authenticated %}
-            <div class='span12'>
-                <p>Вы зашли как <u>{{ request.user.first_name }} {{request.user.last_name }}</u></p>
-                <p><a href="/">На главную</a></p>
-                <p><a href="{% url logout %}">Выйти</a></p>
-            </div>
+            <script>
+                document.location.href = '/profile/';
+            </script>
         {% else %}
             <!-- .form-content -->
             <form action="" method='POST' class="form-content form-reg">
@@ -47,7 +45,7 @@
                 </div>
                 
                 <div class="txt">
-                    <p>Регистрируясь, вы принимаете <a href="#">«Пользовательское соглашение»</a> <br>Поля, помеченые <span class="required">оранжевым</span>, обязательны для заполнения.</p>
+                    <p>Регистрируясь, вы принимаете <a href="#">«Пользовательское соглашение»</a> <br>Поля, помеченные <span class="required">оранжевым</span>, обязательны для заполнения.</p>
                 </div>
                 <button type='submit' class="btn font24 submit">Регистрация</button>
             </form>

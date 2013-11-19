@@ -106,7 +106,7 @@ def participate(request):
             
             return HttpResponseRedirect('/project/')
         else:
-            print 'FORM not valid'
+            pass
         
         c['form'] = form
         c['project_form'] = project_form

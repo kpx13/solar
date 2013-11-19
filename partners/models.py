@@ -3,6 +3,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 import pytils
 import config
+from pytils import translit
 
 class Partner(models.Model):
     name = models.CharField(max_length=200, verbose_name=u'название рус')
@@ -10,7 +11,8 @@ class Partner(models.Model):
     content = models.TextField(blank=True, verbose_name=u'контент рус')
     content_en = models.TextField(blank=True, verbose_name=u'контент eng')
     url = models.CharField(max_length=200, blank=True, verbose_name=u'url сайта')
-    logo = models.ImageField(upload_to= 'uploads/partners', blank=True, max_length=256, verbose_name=u'лого')
+    logo = models.ImageField(upload_to=lambda instance, filename: 'uploads/partners/' + translit.translify(filename),
+                              default='uploads/empty_photo.jpg', blank=True, max_length=256, verbose_name=u'лого')
     slug = models.SlugField(max_length=100, verbose_name=u'слаг', unique=True, blank=True, help_text=u'Заполнять не нужно')
     order = models.IntegerField(blank=True, null=True, default=10, verbose_name=u'порядковый номер')
     

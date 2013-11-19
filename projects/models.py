@@ -3,6 +3,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 import pytils
+from pytils import translit
 import config
 from users.models import Participant, Expert
 from django.db.models import Q
@@ -53,8 +54,10 @@ class Project(models.Model):
     desc_en = models.TextField(max_length=1000, blank=True, verbose_name=u'краткое описание (eng)')
     content = RichTextField(blank=True, null=True, verbose_name=u'описание')
     content_en = RichTextField(blank=True, null=True, verbose_name=u'описание (eng)')
-    image = models.ImageField(upload_to= 'uploads/projects', blank=True, max_length=256, verbose_name=u'Изображение')
-    file = models.FileField(upload_to= 'uploads/projects', blank=True, max_length=256, verbose_name=u'Полный файл')
+    image = models.ImageField(upload_to=lambda instance, filename: 'uploads/projects/' + translit.translify(filename),
+                              blank=True, max_length=256, verbose_name=u'Изображение')
+    file = models.FileField(upload_to=lambda instance, filename: 'uploads/projects/' + translit.translify(filename),
+                            blank=True, max_length=256, verbose_name=u'Полный файл')
     slug = models.SlugField(max_length=100, verbose_name=u'слаг', unique=True, blank=True, help_text=u'Заполнять не нужно')
     date = models.DateTimeField(verbose_name=u'дата', null=True, auto_now_add=True)
     
