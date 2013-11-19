@@ -48,7 +48,7 @@ class Nomination(models.Model):
 class Project(models.Model):
     participant = models.ForeignKey(Participant, related_name='project', verbose_name=u'участник')
     nomination = models.ForeignKey(Nomination, related_name='projects', verbose_name=u'номинация')
-    title = models.CharField(max_length=200, blank=True, verbose_name=u'Название')
+    title = models.CharField(max_length=200, verbose_name=u'Название')
     title_en = models.CharField(max_length=200, blank=True, verbose_name=u'Название (eng)')
     desc = models.TextField(max_length=1000, blank=True, verbose_name=u'краткое описание')
     desc_en = models.TextField(max_length=1000, blank=True, verbose_name=u'краткое описание (eng)')
@@ -60,6 +60,8 @@ class Project(models.Model):
                             blank=True, max_length=256, verbose_name=u'Полный файл')
     slug = models.SlugField(max_length=100, verbose_name=u'слаг', unique=True, blank=True, help_text=u'Заполнять не нужно')
     date = models.DateTimeField(verbose_name=u'дата', null=True, auto_now_add=True)
+    show = models.BooleanField(verbose_name=u'показывать', blank=True, default=True)
+    date.editable=True
     
     def save(self, *args, **kwargs):
         if not self.title_en:
@@ -109,7 +111,7 @@ class Project(models.Model):
         
     @staticmethod
     def get_list(lang):
-        return [p.get_(lang) for p in Project.objects.all()]
+        return [p.get_(lang) for p in Project.objects.filter(show=True)]
     
     @staticmethod
     def get_list_nomination(lang, nomination):
@@ -118,7 +120,8 @@ class Project(models.Model):
     
     @staticmethod
     def search(query, lang):
-        return [p.get_(lang) for p in Project.objects.filter(Q(title__icontains=query) |
+        return [p.get_(lang) for p in Project.objects.filter(show=True).filter(
+                                                             Q(title__icontains=query) |
                                                              Q(title_en__icontains=query) |
                                                              Q(desc__icontains=query) |
                                                              Q(desc_en__icontains=query) |

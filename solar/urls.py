@@ -2,6 +2,7 @@
 
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
+from registration.forms import RegistrationFormUniqueEmail
 admin.autodiscover()
 
 import settings
@@ -27,6 +28,7 @@ urlpatterns = patterns('',
     url(r'^projects/$', views.projects),
     url(r'^projects/(?P<slug>[\w-]+)/$$', views.projects_nomination),
     url(r'^project/$', views.edit_project),
+    url(r'^del_project/$', views.del_project),
     url(r'^project/(?P<slug>[\w-]+)/$' , views.project),
     url(r'^news/$', views.news),
     url(r'^news/(?P<slug>[\w-]+)/$' , views.news_article),
@@ -38,11 +40,16 @@ urlpatterns = patterns('',
     url(r'^seminars/$', views.seminars),
     url(r'^seminar/(?P<slug>[\w-]+)/$' , views.seminar),
     url(r'^partners/$', views.partners),
-    url(r'^registration/$', views.registration),
+    #url(r'^registration/$', views.registration),
+
     url(r'^login/$', views.login),
     
     url(r'^ulogin/', include('django_ulogin.urls')),
     url(r'^logout/',  'django.contrib.auth.views.logout', {'next_page': '/'}, name='logout'),
+    url(r'^accounts/register/$', 'registration.views.register',
+    {'form_class': RegistrationFormUniqueEmail,
+     'backend': 'registration.backends.default.DefaultBackend'},       
+     name='registration_register'),
     url(r'^accounts/', include('registration.urls')),
     
     url(r'^(?P<page_name>[\w-]+)/$' , views.page),

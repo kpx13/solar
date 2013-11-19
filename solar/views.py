@@ -131,6 +131,10 @@ def edit_project(request):
         c['form'] = form
     return render_to_response('edit_project.html', c, context_instance=RequestContext(request))
 
+def del_project(request):
+    Participant.del_project(request.user)
+    return HttpResponseRedirect('/participate/')
+
 def projects(request):
     c = get_common_context(request)
     c['list'] = Project.get_list(c['lang'])

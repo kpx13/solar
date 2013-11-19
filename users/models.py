@@ -53,6 +53,13 @@ class Participant(models.Model):
         from projects.models import Project
         return Project.objects.get(participant=Participant.objects.filter(user=user))
     
+    @staticmethod
+    def del_project(user):
+        from projects.models import Project
+        part = Participant.objects.filter(user=user)
+        Project.objects.get(participant=part).delete()
+        part.delete()
+    
 class Expert(models.Model):
     user = models.ForeignKey(User, related_name='expert', verbose_name=u'пользователь') # имя и фамилия в самом юзере
     about = models.TextField(blank=True, verbose_name=u'о себе')

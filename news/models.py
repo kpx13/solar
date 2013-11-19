@@ -17,6 +17,7 @@ class Article(models.Model):
     content_more_en = RichTextField(blank=True, verbose_name=u'текст в подробнее eng')
     date = models.DateTimeField(verbose_name=u'дата', auto_now_add=True)
     slug = models.SlugField(verbose_name=u'слаг', unique=True, blank=True, help_text=u'Заполнять не нужно')
+    date.editable=True
     
     def save(self, *args, **kwargs):
         if not self.slug:

@@ -591,3 +591,4 @@ footer .copyright { clear:both; color:#fff; height:43px; font-size:11px; line-he
 
 .clear {clear: both}
 .hide {display: none}
+.ferror {color: red; padding-bottom: 0px; margin-bottom: 0px}

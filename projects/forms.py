@@ -16,7 +16,7 @@ class ProjectForm(ModelForm):
     
     class Meta:
         model = Project
-        exclude = ('participant', 'slug', 'date')
+        exclude = ('participant', 'slug', 'date', 'show')
     
 """
 class RegisterOptForm(ModelForm):

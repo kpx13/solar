@@ -29,10 +29,12 @@
                 
                 <div class="form-row{% if form.email.errors %} error {% endif %}" >
                     <label for="reg-mail" class="required" >Ваша электронная почта:</label>
+                    {% if form.email.errors %} <p class='ferror'>{{ form.email.errors.0 }} </p>{% endif %}
                     {{ form.email }}
                 </div>
                 <div class="form-row{% if form.username.errors %} error {% endif %}">
                     <label for="reg-nick" class="required">Никнейм:</label>
+                    {% if form.username.errors %} <p class='ferror'>{{ form.username.errors.0 }} </p>{% endif %}
                     {{ form.username }}
                 </div>
                 <div class="form-row{% if form.password1.errors %} error {% endif %}">

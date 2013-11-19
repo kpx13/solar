@@ -9,22 +9,28 @@
 
 {% block content %}
     <!-- .jury-block -->
-        <div class="jury-block">
-          <h1 class="headline">Жюри</h1>
-          <!-- .jury-list -->
-          <ul class="jury-list">
-            {% for l in list %}
-                <li>
+    <div class="jury-block">
+        <h1 class="headline">Жюри</h1>
+        <!-- .jury-list -->
+        <ul class="jury-list">
+        {% for l in list %}
+            <li>
                 <div class="img">
                     <img src="/media/{{ l.photo }}" alt="{{ l.fio }}" width="210" />
                 </div>
                 <div class="name">{{ l.fio }}</div>
-                <div class="post">({{ l.position }})</div>
-                <div class="txt">{{ l.description }}</div>
-                </li>
-            {% endfor %}
-          </ul>
-          <!--// .jury-list -->
-        </div>
-        <!--// .jury-block -->
+                <div class="txt">{{ l.position }} <a class='more'> далее&nbsp;&rarr; </a> <span class='hide'> {{ l.description }}</span></div>
+            </li>
+        {% endfor %}
+        </ul>
+        <!--// .jury-list -->
+    </div>
+    <!--// .jury-block -->
+    
+    <script>
+        $('.more').click(function(){
+            $(this).addClass('hide');
+            $(this).parent().find('span').removeClass('hide');
+        });
+    </script>
 {% endblock %}

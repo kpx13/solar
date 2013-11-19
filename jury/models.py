@@ -5,10 +5,10 @@ from pytils import translit
 class Jury(models.Model):
     fio = models.CharField(max_length=256, verbose_name=u'ФИО ru')
     fio_en = models.CharField(max_length=256, verbose_name=u'ФИО eng')
-    position = models.CharField(max_length=256, verbose_name=u'должность ru')
-    position_en = models.CharField(max_length=256, verbose_name=u'должность eng')
-    description = models.TextField(verbose_name=u'Описание ru')
-    description_en = models.TextField(verbose_name=u'Описание eng')
+    position = models.CharField(max_length=256, verbose_name=u'начало описания ru')
+    description = models.TextField(verbose_name=u'продолжение описания ru')
+    position_en = models.CharField(max_length=256, verbose_name=u'начало описания eng')
+    description_en = models.TextField(verbose_name=u'продолжение писание eng')
     photo = models.ImageField(upload_to=lambda instance, filename: 'uploads/jury/' + translit.translify(filename),
                               default='uploads/empty_photo.jpg', blank=True, max_length=256, verbose_name=u'фото')
     

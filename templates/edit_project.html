@@ -41,8 +41,18 @@
             
             <button type='submit' class="btn font24 submit">Обновить</button>
             <a href='/project/{{ slug }}/' style='font-size: 20px; margin-left: 10px; margin-top: 20px; height: 40px'>Отмена</a>
+            
         </form>
+        
+        <div class='clear'></div>
+        <br /><br />
+        <a href='#del_block' style='font-size: 14px; color: red; margin-left: 5px; ' id='want_del'>Удалить проект</a>
+        <div id='del_block' class='hide' style='padding-top: 20px'>
+            <a href='/del_project/' class='btn submit' style='padding: 5px; font-size: 14px; text-decoration: none'>Удалить</a>
+            <a href='#' style='font-size: 14px; margin-left: 5px; margin-top: 5px;' id='del_cancel' >Отмена</a>
+        </div>
         <!--// .form-content -->
+        
 
     </div>
     <!--// .participate-block -->
@@ -52,6 +62,7 @@
         $("#file-clear_id").parent().addClass('hide');
         $("#id_file").parent().addClass('hide');
         $("#id_image").parent().addClass('hide');
+        $("#want_del").click(function() {$('#del_block').removeClass('hide');})
     </script>
 
 {% endblock %}
