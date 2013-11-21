@@ -90,6 +90,7 @@ class Project(models.Model):
                'comments_short': ProjectComment.get_by_proj(self)[:3],
                'comments_more': ProjectComment.get_by_proj(self)[3:],
                'comments_count': len(ProjectComment.get_by_proj(self)),
+               'likes_count': len(ProjectLike.get_by_proj(self)),
                }
 
         if lang=='en':
@@ -140,6 +141,13 @@ class Project(models.Model):
         ProjectComment(user=user,
                project=self,
                content=content).save()
+               
+    def add_like(self, user):
+        if len(ProjectLike.objects.filter(user=user, project=self)) == 0:
+            ProjectLike(user=user, project=self).save()
+            return True
+        else:
+            return False
     
 class Review(models.Model):
     expert = models.ForeignKey(Expert, verbose_name=u'эксперт')
@@ -186,3 +194,20 @@ class ProjectComment(models.Model):
     @staticmethod
     def get_by_proj(proj):
         return ProjectComment.objects.filter(project=proj)
+
+class ProjectLike(models.Model):
+    user = models.ForeignKey(User, verbose_name=u'пользователь')
+    project = models.ForeignKey(Project, related_name='likes', verbose_name=u'проект')
+    date = models.DateTimeField(verbose_name=u'дата', null=True, auto_now_add=True)
+    
+    class Meta:
+        verbose_name = u'лайк'
+        verbose_name_plural = u'лайки'
+        ordering=['-date']
+        
+    def __unicode__(self):
+        return u'%s к %s' % (self.user.username, self.project.title)
+    
+    @staticmethod
+    def get_by_proj(proj):
+        return ProjectLike.objects.filter(project=proj)

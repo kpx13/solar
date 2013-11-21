@@ -592,3 +592,4 @@ footer .copyright { clear:both; color:#fff; height:43px; font-size:11px; line-he
 .clear {clear: both}
 .hide {display: none}
 .ferror {color: red; padding-bottom: 0px; margin-bottom: 0px}
+.like_btn {margin: 0px; margin-top: -5px; background: none; border: none; color:#2579bf; text-decoration: underline; font-weight: normal}

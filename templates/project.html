@@ -45,10 +45,20 @@
                     <p>Полная версия ещё не загружена.</p>
                 {% endif %}
             </div>
-            <div class="counts">
-<!--             <div class="votes">168</div> -->
-            <div class="comments"><a href="#comments">{{ proj.comments_count }}</a></div>
-            </div>
+            <form action="" method='POST'>
+                {% csrf_token %}
+                <div class="counts">
+                    <div class="votes">
+                        {{ proj.likes_count }}
+                        {% if auth %}
+                            <input type='hidden' name='action' value='like' />
+                            <button type='submit' class='like_btn' >+1</button>
+                        {% endif %}
+                        
+                    </div>
+                    <div class="comments"><a href="#comments">{{ proj.comments_count }}</a></div>
+                </div>
+            </form>
         </div>
         <!--// .project-block-details -->
         <!-- .project-comments -->

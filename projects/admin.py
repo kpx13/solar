@@ -8,15 +8,20 @@ class NominationAdmin(admin.ModelAdmin):
 class ReviewInline(admin.TabularInline): 
     list_display = ('expert', 'content', 'date')
     model = models.Review
-    extra = 2
+    extra = 1
     
 class CommentInline(admin.TabularInline): 
     list_display = ('user', 'content', 'date')
     model = models.ProjectComment
-    extra = 2
+    extra = 1
+    
+class LikeInline(admin.TabularInline): 
+    list_display = ('user', 'date')
+    model = models.ProjectLike
+    extra = 0
 
 class ProjectAdmin(admin.ModelAdmin):
-    inlines = [ ReviewInline, CommentInline]
+    inlines = [ ReviewInline, CommentInline, LikeInline]
     list_display = ('slug', 'title', 'title_en', 'desc', 'date')
 
 admin.site.register(models.Nomination, NominationAdmin)

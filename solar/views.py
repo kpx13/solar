@@ -159,6 +159,9 @@ def project(request, slug):
             Project.objects.get(slug=slug).add_comment(request.user, 
                             request.POST.get('content'))
             return HttpResponseRedirect('/project/%s/' % slug)
+        elif request.POST.get('action') == 'like':
+            Project.objects.get(slug=slug).add_like(request.user)
+            return HttpResponseRedirect('/project/%s/' % slug)
     return render_to_response('project.html', c, context_instance=RequestContext(request))
 
 def news(request):
