@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block title %}Жюри{% endblock %}
 
 {% block head %}
@@ -22,7 +22,7 @@
                     <img src="/media/{{ l.photo }}" alt="{{ l.fio }}" width="210" />
                 </div>
                 <div class="name">{{ l.fio }}</div>
-                <div class="txt">{{ l.position }} <a class='more'> далее&nbsp;&rarr; </a> <span class='hide'> {{ l.description }}</span></div>
+                <div class="txt">{{ l.position }} <a class='more'> {% trans 'далее' %}&nbsp;&rarr; </a> <span class='hide'> {{ l.description }}</span></div>
             </li>
         {% endfor %}
         </ul>

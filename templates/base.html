@@ -12,6 +12,7 @@
   <script src="/static/js/jquery.min.js"></script>
   <script src="/static/js/script.js"></script>
   <script src="/static/js/jcarousellite_1.0.1.pack.js"></script>
+  <link href="/static/favicon.jpg" rel="shortcut icon" type="image/x-icon" />
   {% block head %}
   {% endblock %}
 </head>
@@ -55,7 +56,7 @@
                 </ul>
             {% endif %}
         <!--// .auth-block -->
-        <div class="slogan">Конкурс молодежных творческих работ по применению возобновляемых источников энергии в городской среде</div>
+        <div class="slogan">{% trans 'Конкурс молодежных творческих работ по применению возобновляемых источников энергии в городской среде' %}</div>
         
         <form method="POST" action='/i18n/setlang/'>
             <ul class="flags">
@@ -136,16 +137,16 @@
         <!-- .f-menu -->
         <div class="f-menu">
           <ul>
-            <li><a href="/">Главная</a></li>
-            <li><a href="/about/">О конкурсе</a></li>
-            <li><a href="/projects/">Проекты</a></li>
-            <li><a href="/jury/">Жюри</a></li>
+            <li><a href="/">{% trans 'Главная' %}</a></li>
+            <li><a href="/about/">{% trans 'О конкурсе' %}</a></li>
+            <li><a href="/projects/">{% trans 'Проекты' %}</a></li>
+            <li><a href="/jury/">{% trans 'Жюри' %}</a></li>
           </ul>
           <ul>
-            <li><a href="/rules/">Правила участия</a></li>
-            <li><a href="/seminars/">Интерактивные семинары</a></li>
-            <li><a href="/partners/">Партнеры</a></li>
-            <li><a href="/contacts/">Контакты</a></li>
+            <li><a href="/rules/">{% trans 'Правила участия' %}</a></li>
+            <li><a href="/seminars/">{% trans 'Интерактивные семинары' %}</a></li>
+            <li><a href="/partners/">{% trans 'Партнеры' %}</a></li>
+            <li><a href="/contacts/">{% trans 'Контакты' %}</a></li>
           </ul>
         </div>
         <!--// .f-menu -->
@@ -158,8 +159,8 @@
             <li class="yt"><a href="https://www.youtube.com/user/EUROSOLARRUSSIA/videos/" title="Youtube">Youtube</a></li>
           </ul>
           <ul class="f-contacts-list">
-            <li>115114, Москва, Дербеневская  наб., 11, корпус Б, офис 506</li>
-            <li>Тел.: +7 (495) 913-6725,  эл. почта: <a href="mailto:energyznanie@gmail.com" target='_blank'>energyznanie@gmail.com</a></li>
+            <li>{% trans '115114, Москва, Дербеневская  наб., 11, корпус Б, офис 506' %}</li>
+            <li>{% trans 'Тел.: +7 (495) 913-6725,  эл. почта' %}: <a href="mailto:energyznanie@gmail.com" target='_blank'>energyznanie@gmail.com</a></li>
             <li><a href="http://webgenesis.ru/" target='_blank' style='font-size: 0.75em; color: #555;'>Создание сайта и техническая поддержка</a></li>
           </ul>
         </div>

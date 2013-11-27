@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 09:24+0400\n"
+"POT-Creation-Date: 2013-11-27 17:43+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,15 +37,23 @@ msgstr ""
 msgid "Recent Actions"
 msgstr ""
 
-#: templates/base.html:70 templates/base.html.py:84
+#: templates/base.html:58
+msgid ""
+"Конкурс молодежных творческих работ по применению возобновляемых источников "
+"энергии в городской среде"
+msgstr ""
+"The contest of youth creative works on application of renewable energy "
+"sources in the urban environment"
+
+#: templates/base.html:70 templates/base.html.py:84 templates/base.html:139
 msgid "Главная"
 msgstr "Home"
 
-#: templates/base.html:71
+#: templates/base.html:71 templates/base.html.py:140
 msgid "О конкурсе"
 msgstr "About"
 
-#: templates/base.html:72
+#: templates/base.html:72 templates/base.html.py:148
 msgid "Контакты"
 msgstr "Contacts"
 
@@ -57,11 +65,12 @@ msgstr "My project"
 msgid "Участвовать"
 msgstr "Participate"
 
-#: templates/base.html:85
+#: templates/base.html:85 templates/base.html.py:141
+#: templates/news_projects.html:7
 msgid "Проекты"
 msgstr "Projects"
 
-#: templates/base.html:86
+#: templates/base.html:86 templates/base.html.py:142
 msgid "Жюри"
 msgstr "Jury"
 
@@ -73,6 +82,54 @@ msgstr "Rules"
 msgid "Семинары"
 msgstr "Seminars"
 
-#: templates/base.html:89
+#: templates/base.html:89 templates/base.html.py:147
 msgid "Партнеры"
 msgstr "Partners"
+
+#: templates/base.html:145
+msgid "Правила участия"
+msgstr "Rules"
+
+#: templates/base.html:146
+msgid "Интерактивные семинары"
+msgstr "Seminars"
+
+#: templates/base.html:161
+msgid "115114, Москва, Дербеневская  наб., 11, корпус Б, офис 506"
+msgstr "115144 Moscow, Russia, Derbenevskaya Emb. 11, off. B 506"
+
+#: templates/base.html:162
+msgid "Тел.: +7 (495) 913-6725,  эл. почта"
+msgstr "tel +7 495 9136725, e-mail"
+
+#: templates/contacts.html:19
+msgid "НП \"ЕВРОСОЛАР Россия\""
+msgstr "EUROSOLAR Russia"
+
+#: templates/contacts.html:20
+msgid "115114, Москва"
+msgstr "115144 Moscow, Russia"
+
+#: templates/contacts.html:21
+msgid "Дербеневская  наб., 11, корпус Б, офис 506"
+msgstr "Derbenevskaya Emb. 11, off. B 506"
+
+#: templates/contacts.html:22
+msgid "Тел"
+msgstr "tel"
+
+#: templates/contacts.html:23
+msgid "Факс"
+msgstr "fax"
+
+#: templates/jury.html:26
+msgid "далее"
+msgstr "more"
+
+#: templates/news_projects.html:6
+msgid "Новости"
+msgstr "News"
+
+#: templates/side_comments.html:6
+msgid "Комментарии"
+msgstr "Comments"
