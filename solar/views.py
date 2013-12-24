@@ -30,7 +30,7 @@ def get_common_context(request):
     c['is_debug'] = settings.DEBUG
     c['recent_news'] = Article.get_list(c['lang'])[:2]
     c['recent_projects'] = Project.objects.all()[:3]
-    c['recent_comments'] = ProjectComment.objects.all()[:3]
+    c['recent_comments'] = ProjectComment.objects.all()[:6]
     c['ime_expert'] = Expert.exist(request.user)
     c['ime_participant'] = Participant.exist(request.user)
     c['auth'] = request.user.is_authenticated()
