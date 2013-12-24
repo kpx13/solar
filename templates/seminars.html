@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
-{% block title %}Интерактивные семинары{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Интерактивные семинары' %}{% endblock %}
 
 {% block head %}
 {% endblock %}
@@ -10,7 +10,7 @@
 {% block content %}
     <!-- .seminars-block -->
     <div class="seminars-block">
-        <h1 class="headline">Интерактивные семинары</h1>
+        <h1 class="headline">{% trans 'Интерактивные семинары' %}</h1>
         <!-- .seminars-list -->
         <ul class="seminars-list">
             {% for l in list %}

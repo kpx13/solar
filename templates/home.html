@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
-{% block title %}Главная{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Главная' %}{% endblock %}
 
 {% block head %}
     <script>
@@ -25,7 +25,7 @@
         <div class="img">
             <a href="/about/">
             <img src="/static/i/main-pic1.jpg" alt="О конкурсе" width="218" height="169"/>
-            <div class="img-caption">О конкурсе</div>
+            <div class="img-caption">{% trans 'О конкурсе' %}</div>
             </a>
         </div>
         <div class="txt">{{ home_about|safe }}</div>
@@ -34,7 +34,7 @@
         <div class="img">
             <a href="/projects/">
             <img src="/static/i/main-pic2.jpg" alt="Проекты" width="218" height="169"/>
-            <div class="img-caption">Проекты</div>
+            <div class="img-caption">{% trans 'Проекты' %}</div>
             </a>
         </div>
         <div class="txt">{{ home_projects|safe }}</div>
@@ -43,7 +43,7 @@
         <div class="img">
             <a href="/probation/">
             <img src="/static/i/main-pic3.jpg" alt="Стажировка" width="218" height="169"/>
-            <div class="img-caption">Стажировка</div>
+            <div class="img-caption">{% trans 'Стажировка' %}</div>
             </a>
         </div>
         <div class="txt">{{ home_probation|safe }}</div>
@@ -57,7 +57,7 @@
     <!--// .text-block -->
     <!-- .partners-box -->
     <div class="partners-box">
-        <h2 class="h1">Партнеры</h2>
+        <h2 class="h1">{% trans 'Партнеры' %}</h2>
         <!-- .partners-carousel -->
         <div class="partners-carousel">
         <!-- .partners-list-wr -->

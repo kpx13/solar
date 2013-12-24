@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
-
-{% block title %}Проекты{% endblock %}
-
-{% block head %}
-    
-{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Проекты' %}{% endblock %}
 
 {% block body-page %}projects-page{% endblock %}
 
@@ -98,7 +94,7 @@
             <!--// .comments-list -->
             
             {% if proj.comments_more %}
-                <div class="all" id='show_all_comments'><a href="#comments">Все комментарии</a></div>
+                <div class="all" id='show_all_comments'><a href="#comments">{% trans 'Все комментарии' %}</a></div>
             {% endif %}
             
             <script>

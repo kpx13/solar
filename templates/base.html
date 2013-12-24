@@ -30,7 +30,7 @@
         <div class="h-search">
           <form action="/search/" method='post'>
             {% csrf_token %}
-            <input type="text" placeholder="поиск по сайту" name='q' value='{{ q }}'/>
+            <input type="text" placeholder="{% trans 'поиск по сайту' %}" name='q' value='{{ q }}'/>
             <button type='submit'>Искать</button>
           </form>
         </div>
@@ -44,15 +44,15 @@
             {% if request.user.is_authenticated %}
                 <ul class="auth-block">
                     <li>{{ request.user.first_name }} {{ request.user.last_name }}</li>
-                    <li><a href="/profile/">Профиль</a></li>
+                    <li><a href="/profile/">{% trans 'Профиль' %}</a></li>
                     <li>/</li>
-                    <li><a href="{% url logout %}">Выход</a></li>
+                    <li><a href="{% url logout %}">{% trans 'Выход' %}</a></li>
                 </ul>
             {% else %}
                 <ul class="auth-block">
-                    <li><a href="/accounts/login/">Войти на сайт</a></li>
+                    <li><a href="/accounts/login/">{% trans 'Войти на сайт' %}</a></li>
                     <li>/</li>
-                    <li><a href="/accounts/register/">Регистрация</a></li>
+                    <li><a href="/accounts/register/">{% trans 'Регистрация' %}</a></li>
                 </ul>
             {% endif %}
         <!--// .auth-block -->
@@ -161,7 +161,7 @@
           <ul class="f-contacts-list">
             <li>{% trans '115114, Москва, Дербеневская  наб., 11, корпус Б, офис 506' %}</li>
             <li>{% trans 'Тел.: +7 (495) 913-6725,  эл. почта' %}: <a href="mailto:energyznanie@gmail.com" target='_blank'>energyznanie@gmail.com</a></li>
-            <li><a href="http://webgenesis.ru/" target='_blank' style='font-size: 0.75em; color: #555;'>Создание сайта и техническая поддержка</a></li>
+            <li><a href="http://webgenesis.ru/" target='_blank' style='font-size: 0.75em; color: #555;'>{% trans 'Создание сайта и техническая поддержка' %}</a></li>
           </ul>
         </div>
         <!--// .f-contacts -->

@@ -1,30 +1,27 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block title %}{{ p.title }}{% endblock %}
-
-{% block head %}
-{% endblock %}
 
 {% block content %}
     <!-- .text-block -->
         <div class="text-block">
-          <h1 class="headline">О конкурсе</h1>
+          <h1 class="headline">{% trans 'О конкурсе' %}</h1>
           {{ p.content|safe }}
         </div>
         <!--// .text-block -->
         <!-- .nominations -->
         <div class="nominations">
-          <h2 class="h1">Номинации конкурса</h2>
+          <h2 class="h1">{% trans 'Номинации конкурса' %}</h2>
           <!-- .nominations-list -->
           <ul class="nominations-list">
             <li class="nomination1">
-              <div class="title"><a href="/projects/perspektivyi-primeneniya-vozobnovlyaemyih-istochnikov-energii-vie-v-vashem-gorode/">Перспективы применения возобновляемых источников энергии (ВИЭ) в вашем городе<i class="ico"></i></a></div>
+              <div class="title"><a href="/projects/perspektivyi-primeneniya-vozobnovlyaemyih-istochnikov-energii-vie-v-vashem-gorode/">{% trans 'Перспективы применения возобновляемых источников энергии (ВИЭ) в вашем городе' %}<i class="ico"></i></a></div>
             </li>
             <li class="nomination2">
-              <div class="title"><a href="/projects/innovatsionnyie-resheniya-alternativnaya-energetika/">Инновационные решения - альтернативная энергетика<i class="ico"></i></a></div>
+              <div class="title"><a href="/projects/innovatsionnyie-resheniya-alternativnaya-energetika/">{% trans 'Инновационные решения - альтернативная энергетика' %}<i class="ico"></i></a></div>
             </li>
             <li class="nomination3">
-              <div class="title"><a href="/projects/dizajn-proektyi-ispolzovaniya-vie-v-gorodskoj-srede/">Дизайн-проекты использования ВИЭ в городской среде<i class="ico"></i></a></div>
+              <div class="title"><a href="/projects/dizajn-proektyi-ispolzovaniya-vie-v-gorodskoj-srede/">{% trans 'Дизайн-проекты использования ВИЭ в городской среде' %}<i class="ico"></i></a></div>
             </li>
           </ul>
           <!--// .nominations-list -->
@@ -32,56 +29,56 @@
         <!--// .nominations -->
         <!-- .stages -->
         <div class="stages">
-          <h2 class="h1">Этапы конкурса</h2>
+          <h2 class="h1">{% trans 'Этапы конкурса' %}</h2>
           <!-- .stages-list -->
           <ul class="stages-list">
             <li class="passed">
-              <div class="title">Этап 1</div>
-              <div class="txt">Прием заявок на участие</div>
+              <div class="title">{% trans 'Этап' %} 1</div>
+              <div class="txt">{% trans 'Прием заявок на участие' %}</div>
               <div class="progress"></div>
-              <div class="date">11 ноября</div>
+              <div class="date">11 {% trans 'ноября' %}</div>
             </li>
             <li>
-              <div class="title">Этап 2</div>
-              <div class="txt">Определение победителей экспертной комиссией</div>
+              <div class="title">{% trans 'Этап' %} 2</div>
+              <div class="txt">{% trans 'Определение победителей экспертной комиссией' %}</div>
               <div class="progress">
                 <div class="div"><i class="circle"></i></div>
               </div>
-              <div class="date">1 февраля</div>
+              <div class="date">1 {% trans 'февраля' %}</div>
             </li>
             <li>
-              <div class="title">Этап 3</div>
-              <div class="txt">Подведение итогов и объявление результатов</div>
+              <div class="title">{% trans 'Этап' %} 3</div>
+              <div class="txt">{% trans 'Подведение итогов и объявление результатов' %}</div>
               <div class="progress">
                 <div class="div"><i class="circle"></i></div>
               </div>
-              <div class="date">10 февраля</div>
+              <div class="date">10 {% trans 'февраля' %}</div>
             </li>
             <li>
-              <div class="title">Этап 4</div>
-              <div class="txt">Проведение выставки лучших конкурсных работ</div>
+              <div class="title">{% trans 'Этап' %} 4</div>
+              <div class="txt">{% trans 'Проведение выставки лучших конкурсных работ' %}</div>
               <div class="progress">
                 <div class="div"><i class="circle"></i></div>
               </div>
-              <div class="date">20 февраля</div>
+              <div class="date">20 {% trans 'февраля' %}</div>
             </li>
             <li>
-              <div class="title">Этап 5</div>
-              <div class="txt">Стажировка победителей конкурса</div>
+              <div class="title">{% trans 'Этап' %} 5</div>
+              <div class="txt">{% trans 'Стажировка победителей конкурса' %}</div>
               <div class="progress">
                 <div class="div"><i class="circle"></i></div>
               </div>
-              <div class="date">1 марта</div>
+              <div class="date">1 {% trans 'марта' %}</div>
             </li>
           </ul>
           <!--// .stages-list -->
         </div>
         <!--// .stages -->
         <div class="download-rules">
-          <div class="link"><a href="/static/docs/ez_polozhenie.docx">Скачать положение о конкурсе</a></div>
+          <div class="link"><a href="/static/docs/ez_polozhenie.docx">{% trans 'Скачать положение о конкурсе' %}</a></div>
         </div>
         <div class="btn font18 participate">
-          <a href="/participate/">Принять участие</a>
+          <a href="/participate/">{% trans 'Принять участие' %}</a>
         </div>
       
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}Контакты{% endblock %}
+{% block title %}{% trans 'Контакты' %}{% endblock %}
 
 {% block head %}
 {% endblock %}
@@ -10,7 +10,7 @@
 {% block content %}
     <!-- .contacts-block -->
     <div class="contacts-block">
-        <h1 class="headline">Контакты</h1>
+        <h1 class="headline">{% trans 'Контакты' %}</h1>
         <div class="map">
             <img src="/static/i/map.jpg" alt="" width="369" height="290"/>
         </div>
@@ -47,18 +47,18 @@
         <form action="" method='POST' class="form-content form-feedback">
             {% csrf_token %}
             <div class="form-row">
-                <label for="feedback-name">Как вас зовут:</label>
+                <label for="feedback-name">{% trans 'Как вас зовут' %}:</label>
                 {{ form.name }}
             </div>
             <div class="form-row">
-                <label for="feedback-mail">Ваша электронная почта:</label>
+                <label for="feedback-mail">{% trans 'Ваша электронная почта' %}:</label>
                 {{ form.email }}
             </div>
             <div class="form-row">
-                <label for="feedback-mess">Ваше сообщение:</label>
+                <label for="feedback-mess">{% trans 'Ваше сообщение' %}:</label>
                 {{ form.msg }}
             </div>
-            <button type='submit' class="btn font14 submit">Отправить</button>
+            <button type='submit' class="btn font14 submit">{% trans 'Отправить' %}</button>
         </form>
         <!--// .form-feedback -->
     </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 17:43+0400\n"
+"POT-Creation-Date: 2013-12-25 03:26+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,100 @@ msgstr ""
 msgid "Recent Actions"
 msgstr ""
 
-#: templates/base.html:58
+#: templates/about.html:8 templates/base.html:72 templates/base.html.py:141
+#: templates/home.html:28
+msgid "О конкурсе"
+msgstr "About"
+
+#: templates/about.html:14
+msgid "Номинации конкурса"
+msgstr "Nominations"
+
+#: templates/about.html:18
+msgid ""
+"Перспективы применения возобновляемых источников энергии (ВИЭ) в вашем городе"
+msgstr ""
+"The contest of youth creative works on application of renewable energy "
+"sources in the urban environment"
+
+#: templates/about.html:21
+msgid "Инновационные решения - альтернативная энергетика"
+msgstr "Innovative solutions - alternative energy"
+
+#: templates/about.html:24
+msgid "Дизайн-проекты использования ВИЭ в городской среде"
+msgstr "Design projects using renewable energy sources in the urban environment"
+
+#: templates/about.html:32
+msgid "Этапы конкурса"
+msgstr "Stages"
+
+#: templates/about.html:36 templates/about.html.py:42 templates/about.html:50
+#: templates/about.html.py:58 templates/about.html:66
+msgid "Этап"
+msgstr "Stage"
+
+#: templates/about.html:37
+msgid "Прием заявок на участие"
+msgstr "Rules"
+
+#: templates/about.html:39
+msgid "ноября"
+msgstr "November"
+
+#: templates/about.html:43
+msgid "Определение победителей экспертной комиссией"
+msgstr "Process of selecting winners by expert committee"
+
+#: templates/about.html:47 templates/about.html.py:55 templates/about.html:63
+msgid "февраля"
+msgstr "February"
+
+#: templates/about.html:51
+msgid "Подведение итогов и объявление результатов"
+msgstr "Announcement of results"
+
+#: templates/about.html:59
+msgid "Проведение выставки лучших конкурсных работ"
+msgstr "The exhibition of the best projects"
+
+#: templates/about.html:67
+msgid "Стажировка победителей конкурса"
+msgstr "A probation for the winners of the competition"
+
+#: templates/about.html:71
+msgid "марта"
+msgstr "March"
+
+#: templates/about.html:78
+msgid "Скачать положение о конкурсе"
+msgstr "Download the rules and additional information of the competition"
+
+#: templates/about.html:81
+msgid "Принять участие"
+msgstr "Participate"
+
+#: templates/base.html:33
+msgid "поиск по сайту"
+msgstr "search"
+
+#: templates/base.html:47
+msgid "Профиль"
+msgstr "Profile"
+
+#: templates/base.html:49
+msgid "Выход"
+msgstr "Exit"
+
+#: templates/base.html:53
+msgid "Войти на сайт"
+msgstr "Enter"
+
+#: templates/base.html:55
+msgid "Регистрация"
+msgstr "Registration"
+
+#: templates/base.html:59
 msgid ""
 "Конкурс молодежных творческих работ по применению возобновляемых источников "
 "энергии в городской среде"
@@ -45,62 +138,68 @@ msgstr ""
 "The contest of youth creative works on application of renewable energy "
 "sources in the urban environment"
 
-#: templates/base.html:70 templates/base.html.py:84 templates/base.html:139
+#: templates/base.html:71 templates/base.html.py:85 templates/base.html:140
+#: templates/home.html:3
 msgid "Главная"
 msgstr "Home"
 
-#: templates/base.html:71 templates/base.html.py:140
-msgid "О конкурсе"
-msgstr "About"
-
-#: templates/base.html:72 templates/base.html.py:148
+#: templates/base.html:73 templates/base.html.py:149 templates/contacts.html:3
+#: templates/contacts.html.py:13
 msgid "Контакты"
 msgstr "Contacts"
 
-#: templates/base.html:74
+#: templates/base.html:75
 msgid "Мой проект"
 msgstr "My project"
 
-#: templates/base.html:76
+#: templates/base.html:77
 msgid "Участвовать"
 msgstr "Participate"
 
-#: templates/base.html:85 templates/base.html.py:141
-#: templates/news_projects.html:7
+#: templates/base.html:86 templates/base.html.py:142 templates/home.html:37
+#: templates/news_projects.html:7 templates/project.html:3
+#: templates/projects.html:3 templates/projects.html.py:10
 msgid "Проекты"
 msgstr "Projects"
 
-#: templates/base.html:86 templates/base.html.py:142
+#: templates/base.html:87 templates/base.html.py:143 templates/jury.html:3
+#: templates/jury.html.py:16
 msgid "Жюри"
 msgstr "Jury"
 
-#: templates/base.html:87
+#: templates/base.html:88
 msgid "Правила"
 msgstr "Rules"
 
-#: templates/base.html:88
+#: templates/base.html:89
 msgid "Семинары"
 msgstr "Seminars"
 
-#: templates/base.html:89 templates/base.html.py:147
+#: templates/base.html:90 templates/base.html.py:148 templates/home.html:60
+#: templates/partners.html:3 templates/partners.html.py:10
 msgid "Партнеры"
 msgstr "Partners"
 
-#: templates/base.html:145
+#: templates/base.html:146
 msgid "Правила участия"
 msgstr "Rules"
 
-#: templates/base.html:146
+#: templates/base.html:147 templates/seminars.html:3
+#: templates/seminars.html.py:13
 msgid "Интерактивные семинары"
 msgstr "Seminars"
 
-#: templates/base.html:161
+#: templates/base.html:162
 msgid "115114, Москва, Дербеневская  наб., 11, корпус Б, офис 506"
 msgstr "115144 Moscow, Russia, Derbenevskaya Emb. 11, off. B 506"
 
-#: templates/base.html:162
+#: templates/base.html:163
 msgid "Тел.: +7 (495) 913-6725,  эл. почта"
 msgstr "tel +7 495 9136725, e-mail"
+
+#: templates/base.html:164
+msgid "Создание сайта и техническая поддержка"
+msgstr "Support"
 
 #: templates/contacts.html:19
 msgid "НП \"ЕВРОСОЛАР Россия\""
@@ -122,13 +221,45 @@ msgstr "tel"
 msgid "Факс"
 msgstr "fax"
 
-#: templates/jury.html:26
+#: templates/contacts.html:50
+msgid "Как вас зовут"
+msgstr "Your name"
+
+#: templates/contacts.html:54
+msgid "Ваша электронная почта"
+msgstr "Your e-mail"
+
+#: templates/contacts.html:58
+msgid "Ваше сообщение"
+msgstr "Your message"
+
+#: templates/contacts.html:61
+msgid "Отправить"
+msgstr "Send"
+
+#: templates/home.html:46
+msgid "Стажировка"
+msgstr "TRAINING IN EU"
+
+#: templates/jury.html:25
 msgid "далее"
 msgstr "more"
 
 #: templates/news_projects.html:6
 msgid "Новости"
 msgstr "News"
+
+#: templates/news_projects.html:24
+msgid "Все новости"
+msgstr "All news"
+
+#: templates/news_projects.html:41
+msgid "Все проекты"
+msgstr "All projects"
+
+#: templates/project.html:97 templates/side_comments.html:35
+msgid "Все комментарии"
+msgstr "All comments"
 
 #: templates/side_comments.html:6
 msgid "Комментарии"

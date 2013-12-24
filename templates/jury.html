@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}Жюри{% endblock %}
+{% block title %}{% trans 'Жюри' %}{% endblock %}
 
 {% block head %}
     <style>
@@ -13,7 +13,7 @@
 {% block content %}
     <!-- .jury-block -->
     <div class="jury-block">
-        <h1 class="headline">Жюри</h1>
+        <h1 class="headline">{% trans 'Жюри' %}</h1>
         <!-- .jury-list -->
         <ul class="jury-list">
         {% for l in list %}

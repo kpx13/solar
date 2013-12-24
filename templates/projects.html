@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
-
-{% block title %}Проекты{% endblock %}
-
-{% block head %}
-{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Проекты' %}{% endblock %}
 
 {% block body-page %}projects-page{% endblock %}
 
 {% block content %}
     <!-- .projects-block -->
     <div class="projects-block">
-        <h1 class="headline">Проекты</h1>
+        <h1 class="headline">{% trans 'Проекты' %}</h1>
         <!-- .projects-list -->
         <ul class="projects-list">
             {% for l in list %}
@@ -28,7 +25,6 @@
                     <div class="name"><a href="/user/{{ l.participant.user.username }}">{{ l.participant.user.first_name }} {{ l.participant.user.last_name }}</a></div>
                     </div>
                     <div class="counts">
-<!--                     <div class="votes">168</div> -->
                     <div class="comments">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ l.comments_count }}</div>
                     </div>
                 </li>

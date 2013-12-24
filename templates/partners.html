@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
-
-{% block title %}Партнеры{% endblock %}
-
-{% block head %}
-{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Партнеры' %}{% endblock %}
 
 {% block body-page %}partners-page{% endblock %}
 
 {% block content %}
     <!-- .partners-block -->
         <div class="partners-block">
-          <h1 class="headline">Партнеры</h1>
+          <h1 class="headline">{% trans 'Партнеры' %}</h1>
           <!-- .partners-list -->
           <ul class="partners-list">
             {% for l in list %}
