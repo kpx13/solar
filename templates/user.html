@@ -19,7 +19,9 @@
             </div>
         {% endif %}
         
-        <p>Никнейм: <span class='value'>{{ user.username }}</span></p>
+        {% if user.username|length < 25 %}
+            <p>Никнейм: <span class='value'>{{ user.username }}</span></p>
+        {% endif %}
         
         {% if expert %}
             <p><b>{{ expert.fio }}</b><br />({{ expert.position }})</p>

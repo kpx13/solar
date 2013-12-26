@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-25 03:26+0400\n"
+"POT-Creation-Date: 2013-12-26 20:27+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,8 @@ msgstr "Innovative solutions - alternative energy"
 
 #: templates/about.html:24
 msgid "Дизайн-проекты использования ВИЭ в городской среде"
-msgstr "Design projects using renewable energy sources in the urban environment"
+msgstr ""
+"Design projects using renewable energy sources in the urban environment"
 
 #: templates/about.html:32
 msgid "Этапы конкурса"
@@ -144,7 +145,7 @@ msgid "Главная"
 msgstr "Home"
 
 #: templates/base.html:73 templates/base.html.py:149 templates/contacts.html:3
-#: templates/contacts.html.py:13
+#: templates/contacts.html.py:10
 msgid "Контакты"
 msgstr "Contacts"
 
@@ -201,39 +202,43 @@ msgstr "tel +7 495 9136725, e-mail"
 msgid "Создание сайта и техническая поддержка"
 msgstr "Support"
 
-#: templates/contacts.html:19
+#: templates/contacts.html:16
 msgid "НП \"ЕВРОСОЛАР Россия\""
 msgstr "EUROSOLAR Russia"
 
-#: templates/contacts.html:20
+#: templates/contacts.html:17
 msgid "115114, Москва"
 msgstr "115144 Moscow, Russia"
 
-#: templates/contacts.html:21
+#: templates/contacts.html:18
 msgid "Дербеневская  наб., 11, корпус Б, офис 506"
 msgstr "Derbenevskaya Emb. 11, off. B 506"
 
-#: templates/contacts.html:22
+#: templates/contacts.html:19
 msgid "Тел"
 msgstr "tel"
 
-#: templates/contacts.html:23
+#: templates/contacts.html:20
 msgid "Факс"
 msgstr "fax"
 
-#: templates/contacts.html:50
+#: templates/contacts.html:39
+msgid "Обратная связь"
+msgstr "Support"
+
+#: templates/contacts.html:47
 msgid "Как вас зовут"
 msgstr "Your name"
 
-#: templates/contacts.html:54
+#: templates/contacts.html:51
 msgid "Ваша электронная почта"
 msgstr "Your e-mail"
 
-#: templates/contacts.html:58
+#: templates/contacts.html:55
 msgid "Ваше сообщение"
 msgstr "Your message"
 
-#: templates/contacts.html:61
+#: templates/contacts.html:58
 msgid "Отправить"
 msgstr "Send"
 

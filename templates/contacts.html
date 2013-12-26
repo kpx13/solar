@@ -2,9 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans 'Контакты' %}{% endblock %}
 
-{% block head %}
-{% endblock %}
-
 {% block body-page %}contacts-page{% endblock %}
 
 {% block content %}
@@ -39,7 +36,7 @@
     <!--// .contacts-block -->
     <!-- .feedback-block -->
     <div class="login-block">
-        <h2 class="h1">Обратная связь</h2>
+        <h2 class="h1">{% trans 'Обратная связь' %}</h2>
         {% if feedback_ok %}
             <h2>Ваша заявка отправлена!</h2>
         {% endif %}

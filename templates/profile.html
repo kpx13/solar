@@ -16,6 +16,9 @@
         {% else %}
             <!-- .form-content -->
             <form action=""  method='POST' enctype="multipart/form-data" class="form-content form-reg">
+                {% if pr_msg %}
+                    <h2>{{ pr_msg }}</h2><br />
+                {% endif %}
                 {% csrf_token %}
                 {% if expert_form %}
                     {{ expert_form.as_p }}

@@ -30,7 +30,7 @@ def get_common_context(request):
     c['is_debug'] = settings.DEBUG
     c['recent_news'] = Article.get_list(c['lang'])[:2]
     c['recent_projects'] = Project.objects.all()[:3]
-    c['recent_comments'] = ProjectComment.objects.all()[:6]
+    c['recent_comments'] = ProjectComment.objects.all()[:3]
     c['ime_expert'] = Expert.exist(request.user)
     c['ime_participant'] = Participant.exist(request.user)
     c['auth'] = request.user.is_authenticated()
@@ -55,6 +55,10 @@ def home(request):
     c['home_about'] = Page.get('home_about', c['lang'])['content']
     c['home_projects'] = Page.get('home_projects', c['lang'])['content']
     c['home_probation'] = Page.get('home_probation', c['lang'])['content']
+    if request.user.is_authenticated():
+        if not (request.user.first_name or request.user.last_name):
+            c['msg'] = u'Необходимо заполнить поля: Имя и Фамилия.'
+            return HttpResponseRedirect('/profile/') 
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
 def about(request):
@@ -230,6 +234,8 @@ def profile(request):
             expert_form = ExpertForm(instance=expert)
         profile_form = ProfileForm(instance=profile, initial={'name': user.first_name,
                                                           'last_name': user.last_name})
+        if not (request.user.first_name or request.user.last_name):
+            c['pr_msg'] = u'Необходимо заполнить поля: Имя и Фамилия.'
     else:
         if Expert.exist(user):
             expert = Expert.objects.get(user=user)
@@ -258,6 +264,7 @@ def profile(request):
     c['expert_form'] = expert_form
     c['profile_form'] = profile_form
     c['user_photo'] = profile.photo
+    
     return render_to_response('profile.html', c, context_instance=RequestContext(request))
 
 def jury(request):
