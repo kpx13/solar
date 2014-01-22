@@ -67,7 +67,7 @@ class Project(models.Model):
         if not self.title_en:
             self.title_en = self.title
         if not self.slug:
-            self.slug=pytils.translit.slugify(self.title_en)
+            self.slug=pytils.translit.slugify(self.title_en)[:99]
         super(Project, self).save(*args, **kwargs)
         
     class Meta:
