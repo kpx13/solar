@@ -3,16 +3,23 @@
 {% block title %}{% trans 'Главная' %}{% endblock %}
 
 {% block head %}
+    <link rel="stylesheet" href="/static/css/colorbox.css"/>
+    <script type="text/javascript" src="/static/js/jquery.colorbox-min.js"></script>
+    
     <script>
-    $(function() {
-        $(".partners-carousel").jCarouselLite({
-        btnNext: ".r-arr",
-        btnPrev: ".l-arr",
-        visible: 4,
-        speed: 500,
-        scroll: 2
+        $(function() {
+            $(".partners-carousel").jCarouselLite({
+            btnNext: ".r-arr",
+            btnPrev: ".l-arr",
+            visible: 4,
+            speed: 500,
+            scroll: 2
+            });
         });
-    });
+        
+        $(document).ready(function(){
+            $(".popup-image").colorbox();
+        });
     </script>
 {% endblock %}
 

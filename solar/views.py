@@ -186,9 +186,9 @@ def news_article(request, slug):
 
 def comments(request):
     c = get_common_context(request)
-    c['project_comments'] = ProjectComment.objects.all()[:3]
-    c['seminar_comments'] = SeminarComment.objects.all()[:3]
-    c['news_comments'] = NewsComment.objects.all()[:3]
+    c['project_comments'] = ProjectComment.objects.all()
+    c['seminar_comments'] = SeminarComment.objects.all()
+    c['news_comments'] = NewsComment.objects.all()
     return render_to_response('comments.html', c, context_instance=RequestContext(request))
 
 def search(request):
