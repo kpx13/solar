@@ -10,7 +10,7 @@
 {% block content %}
     <!-- .reg-block -->
     <div class="reg-block">
-        <h1 class="headline">Регистрация</h1>
+        <h1 class="headline">{% trans 'Регистрация</h1>
         {% if request.user.is_authenticated %}
             <script>
                 document.location.href = '/profile/';
@@ -20,7 +20,7 @@
             <form action="" method='POST' class="form-content form-reg">
                 {% csrf_token %}
                 <div class="quick-reg">
-                    <div class="label">Быстрая регистрация через openID:</div>
+                    <div class="label">{% trans 'Быстрая регистрация через openID' %}:</div>
                     <ul class="social-list">
                         {% load ulogin_tags %}
                         {% ulogin_widget %}
@@ -28,28 +28,29 @@
                 </div>
                 
                 <div class="form-row{% if form.email.errors %} error {% endif %}" >
-                    <label for="reg-mail" class="required" >Ваша электронная почта:</label>
+                    <label for="reg-mail" class="required" >{% trans 'Ваша электронная почта' %}:</label>
                     {% if form.email.errors %} <p class='ferror'>{{ form.email.errors.0 }} </p>{% endif %}
                     {{ form.email }}
                 </div>
                 <div class="form-row{% if form.username.errors %} error {% endif %}">
-                    <label for="reg-nick" class="required">Никнейм:</label>
+                    <label for="reg-nick" class="required">{% trans 'Никнейм' %}:</label>
                     {% if form.username.errors %} <p class='ferror'>{{ form.username.errors.0 }} </p>{% endif %}
                     {{ form.username }}
                 </div>
                 <div class="form-row{% if form.password1.errors %} error {% endif %}">
-                    <label for="reg-pass" class="required">Пароль:</label>
+                    <label for="reg-pass" class="required">{% trans 'Пароль' %}:</label>
                     {{ form.password1 }}
                 </div>
                 <div class="form-row{% if form.password2.errors %} error {% endif %}">
-                    <label for="reg-pass" class="required">Повторите пароль:</label>
+                    <label for="reg-pass" class="required">{% trans 'Повторите пароль' %}:</label>
                     {{ form.password2 }}
                 </div>
                 
                 <div class="txt">
-                    <p>Регистрируясь, вы принимаете <a href="#">«Пользовательское соглашение»</a> <br>Поля, помеченные <span class="required">оранжевым</span>, обязательны для заполнения.</p>
+                    <p>{% trans 'Регистрируясь, вы принимаете ' %}<a href="#">«{% trans 'Пользовательское соглашение' %}»</a> 
+                    <br>{% trans 'Поля, помеченные ' %}<span class="required">{% trans 'оранжевым' %}</span>, {% trans 'обязательны для заполнения' %}.</p>
                 </div>
-                <button type='submit' class="btn font24 submit">Регистрация</button>
+                <button type='submit' class="btn font24 submit">{% trans 'Регистрация' %}</button>
             </form>
             <!--// .form-content -->
         {% endif %}

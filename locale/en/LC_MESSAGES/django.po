@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-26 20:27+0400\n"
+"POT-Creation-Date: 2014-05-30 17:28+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgid "Recent Actions"
 msgstr ""
 
 #: templates/about.html:8 templates/base.html:72 templates/base.html.py:141
-#: templates/home.html:28
+#: templates/home.html:36
 msgid "О конкурсе"
 msgstr "About"
 
@@ -84,8 +84,9 @@ msgid "Определение победителей экспертной ком
 msgstr "Process of selecting winners by expert committee"
 
 #: templates/about.html:47 templates/about.html.py:55 templates/about.html:63
-msgid "февраля"
-msgstr "February"
+#: templates/about.html.py:71
+msgid "марта"
+msgstr "March"
 
 #: templates/about.html:51
 msgid "Подведение итогов и объявление результатов"
@@ -99,12 +100,8 @@ msgstr "The exhibition of the best projects"
 msgid "Стажировка победителей конкурса"
 msgstr "A probation for the winners of the competition"
 
-#: templates/about.html:71
-msgid "марта"
-msgstr "March"
-
 #: templates/about.html:78
-msgid "Скачать положение о конкурсе"
+msgid "Скачать брошюру о конкурсе"
 msgstr "Download the rules and additional information of the competition"
 
 #: templates/about.html:81
@@ -123,11 +120,11 @@ msgstr "Profile"
 msgid "Выход"
 msgstr "Exit"
 
-#: templates/base.html:53
+#: templates/base.html:53 templates/registration/login.html:39
 msgid "Войти на сайт"
 msgstr "Enter"
 
-#: templates/base.html:55
+#: templates/base.html:55 templates/registration/registration_form.html:53
 msgid "Регистрация"
 msgstr "Registration"
 
@@ -157,7 +154,7 @@ msgstr "My project"
 msgid "Участвовать"
 msgstr "Participate"
 
-#: templates/base.html:86 templates/base.html.py:142 templates/home.html:37
+#: templates/base.html:86 templates/base.html.py:142 templates/home.html:45
 #: templates/news_projects.html:7 templates/project.html:3
 #: templates/projects.html:3 templates/projects.html.py:10
 msgid "Проекты"
@@ -176,7 +173,7 @@ msgstr "Rules"
 msgid "Семинары"
 msgstr "Seminars"
 
-#: templates/base.html:90 templates/base.html.py:148 templates/home.html:60
+#: templates/base.html:90 templates/base.html.py:148 templates/home.html:68
 #: templates/partners.html:3 templates/partners.html.py:10
 msgid "Партнеры"
 msgstr "Partners"
@@ -191,7 +188,7 @@ msgid "Интерактивные семинары"
 msgstr "Seminars"
 
 #: templates/base.html:162
-msgid "115114, Москва, Дербеневская  наб., 11, корпус Б, офис 506"
+msgid "119334, Москва, Ленинский пр-т, 38А, офис 104"
 msgstr "115144 Moscow, Russia, Derbenevskaya Emb. 11, off. B 506"
 
 #: templates/base.html:163
@@ -202,47 +199,47 @@ msgstr "tel +7 495 9136725, e-mail"
 msgid "Создание сайта и техническая поддержка"
 msgstr "Support"
 
-#: templates/contacts.html:16
+#: templates/contacts.html:17
 msgid "НП \"ЕВРОСОЛАР Россия\""
 msgstr "EUROSOLAR Russia"
 
-#: templates/contacts.html:17
-msgid "115114, Москва"
+#: templates/contacts.html:18
+msgid "119334, Москва"
 msgstr "115144 Moscow, Russia"
 
-#: templates/contacts.html:18
-msgid "Дербеневская  наб., 11, корпус Б, офис 506"
-msgstr "Derbenevskaya Emb. 11, off. B 506"
-
 #: templates/contacts.html:19
+msgid "Ленинский пр-т, 38А, офис 104"
+msgstr "Leninsky avenue, 38A, Office 104"
+
+#: templates/contacts.html:20
 msgid "Тел"
 msgstr "tel"
 
-#: templates/contacts.html:20
+#: templates/contacts.html:21
 msgid "Факс"
 msgstr "fax"
 
-#: templates/contacts.html:39
+#: templates/contacts.html:40
 msgid "Обратная связь"
 msgstr "Support"
 
-#: templates/contacts.html:47
+#: templates/contacts.html:48
 msgid "Как вас зовут"
 msgstr "Your name"
 
-#: templates/contacts.html:51
+#: templates/contacts.html:52 templates/registration/registration_form.html:31
 msgid "Ваша электронная почта"
 msgstr "Your e-mail"
 
-#: templates/contacts.html:55
+#: templates/contacts.html:56
 msgid "Ваше сообщение"
 msgstr "Your message"
 
-#: templates/contacts.html:58
+#: templates/contacts.html:59
 msgid "Отправить"
 msgstr "Send"
 
-#: templates/home.html:46
+#: templates/home.html:54
 msgid "Стажировка"
 msgstr "TRAINING IN EU"
 
@@ -269,3 +266,79 @@ msgstr "All comments"
 #: templates/side_comments.html:6
 msgid "Комментарии"
 msgstr "Comments"
+
+#: templates/registration/login.html:13
+msgid "Войти"
+msgstr "Login"
+
+#: templates/registration/login.html:17
+msgid "На главную"
+msgstr "Home"
+
+#: templates/registration/login.html:18
+msgid "Выйти"
+msgstr "Logout"
+
+#: templates/registration/login.html:25
+msgid "Быстрый вход через openID"
+msgstr ""
+
+#: templates/registration/login.html:32
+#: templates/registration/registration_form.html:36
+msgid "Никнейм"
+msgstr "Login"
+
+#: templates/registration/login.html:36
+#: templates/registration/registration_form.html:41
+msgid "Пароль"
+msgstr "Password"
+
+#: templates/registration/login.html:41
+msgid "Вы здесь впервые? Тогда, пожалуйста, "
+msgstr ""
+
+#: templates/registration/login.html:41
+msgid "зарегистрируйтесь"
+msgstr "Registration"
+
+#: templates/registration/login.html:42
+msgid "Не получается зайти? Возможно вы "
+msgstr ""
+
+#: templates/registration/login.html:42
+msgid "забыли пароль"
+msgstr ""
+
+#: templates/registration/registration_form.html:23
+msgid "Быстрая регистрация через openID"
+msgstr ""
+
+#: templates/registration/registration_form.html:45
+msgid "Повторите пароль"
+msgstr "Repeat password"
+
+#: templates/registration/registration_form.html:50
+msgid "Регистрируясь, вы принимаете "
+msgstr ""
+
+#: templates/registration/registration_form.html:50
+msgid "Пользовательское соглашение"
+msgstr ""
+
+#: templates/registration/registration_form.html:51
+msgid "Поля, помеченные "
+msgstr ""
+
+#: templates/registration/registration_form.html:51
+msgid "оранжевым"
+msgstr ""
+
+#: templates/registration/registration_form.html:51
+msgid "обязательны для заполнения"
+msgstr ""
+
+#~ msgid "февраля"
+#~ msgstr "February"
+
+#~ msgid "Дербеневская  наб., 11, корпус Б, офис 506"
+#~ msgstr "Derbenevskaya Emb. 11, off. B 506"
