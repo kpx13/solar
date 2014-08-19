@@ -189,7 +189,7 @@ msgstr "Seminars"
 
 #: templates/base.html:162
 msgid "119334, Москва, Ленинский пр-т, 38А, офис 104"
-msgstr "115144 Moscow, Russia, Derbenevskaya Emb. 11, off. B 506"
+msgstr "119334, Moscow, Leninsky avenue, 38A, Office 104"
 
 #: templates/base.html:163
 msgid "Тел.: +7 (495) 913-6725,  эл. почта"
